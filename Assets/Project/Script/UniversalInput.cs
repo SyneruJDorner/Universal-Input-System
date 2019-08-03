@@ -53,18 +53,21 @@ public class InputSystem
     {
         KeyboardMouse,
         Controller,
+        Touchscreen,
     }
     public ControllerType controllerType = ControllerType.KeyboardMouse;
 
     public KeyboardContol keyboardContol = new KeyboardContol();
     public MouseControl mouseContol = new MouseControl();
     public GamepadControl gamepadControl = new GamepadControl();
+    public TouchscreenControl touchscreenControl = new TouchscreenControl();
 
     public void Awake()
     {
         keyboardContol.Init();
         mouseContol.Init();
         gamepadControl.Init();
+        touchscreenControl.Init();
     }
 
     public void OnEnable()
@@ -72,6 +75,7 @@ public class InputSystem
         keyboardContol.OnEnable();
         mouseContol.OnEnable();
         gamepadControl.OnEnable();
+        touchscreenControl.OnEnable();
     }
 
     public void OnDisable()
@@ -79,19 +83,23 @@ public class InputSystem
         keyboardContol.OnDisable();
         mouseContol.OnDisable();
         gamepadControl.OnDisable();
+        touchscreenControl.OnDisable();
     }
 
     public void Update()
     {
         DetermineHardwareControllers();
+        touchscreenControl.UpdateForRemote();
     }
 
     public void DetermineHardwareControllers()
     {
-        if ((Keyboard.current.CheckStateIsAtDefault() == false || Mouse.current.wasUpdatedThisFrame == true) && controllerType != ControllerType.KeyboardMouse)
+        if ((Keyboard.current?.CheckStateIsAtDefault() == false || Mouse.current.wasUpdatedThisFrame == true) && controllerType != ControllerType.KeyboardMouse)
             controllerType = ControllerType.KeyboardMouse;
-        else if (Gamepad.current.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
+        else if (Gamepad.current?.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
             controllerType = ControllerType.Controller;
+        else if (Input.touchCount > 0)//Touchscreen.current?.CheckStateIsAtDefault() == false && controllerType != ControllerType.Touchscreen)//Use this when they get the unity remote working with the new input system
+            controllerType = ControllerType.Touchscreen;
 
         switch (controllerType)
         {
@@ -100,6 +108,10 @@ public class InputSystem
                 Cursor.visible = true;
                 break;
             case ControllerType.Controller:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                break;
+            case ControllerType.Touchscreen:
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 break;

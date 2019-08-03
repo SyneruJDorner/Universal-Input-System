@@ -1,0 +1,37 @@
+{
+    "name": "TouchscreenController",
+    "maps": [
+        {
+            "name": "Toushscreen",
+            "id": "8fa16ea3-76ef-416f-bcf9-13562ae11a6b",
+            "actions": [
+                {
+                    "name": "Position",
+                    "id": "ac75ad39-c18e-47e7-ad2b-93666d7b0038",
+                    "expectedControlLayout": "",
+                    "continuous": false,
+                    "passThrough": false,
+                    "initialStateCheck": false,
+                    "processors": "",
+                    "interactions": "",
+                    "bindings": []
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "19acede5-a1b2-42a0-b1bd-f5254393145c",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
