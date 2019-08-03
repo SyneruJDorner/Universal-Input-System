@@ -24,6 +24,7 @@ public class UniversalInput : MonoBehaviour
     #endregion
 
     public InputSystem inputSystem = new InputSystem();
+    public Canvas canvas;
 
     public void Awake()
     {
@@ -89,18 +90,27 @@ public class InputSystem
     public void Update()
     {
         DetermineHardwareControllers();
-        touchscreenControl.UpdateForRemote();
+        UpdateHardwareContols();
     }
 
     public void DetermineHardwareControllers()
     {
-        if ((Keyboard.current?.CheckStateIsAtDefault() == false || Mouse.current.wasUpdatedThisFrame == true) && controllerType != ControllerType.KeyboardMouse)
-            controllerType = ControllerType.KeyboardMouse;
-        else if (Gamepad.current?.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
-            controllerType = ControllerType.Controller;
-        else if (Input.touchCount > 0)//Touchscreen.current?.CheckStateIsAtDefault() == false && controllerType != ControllerType.Touchscreen)//Use this when they get the unity remote working with the new input system
-            controllerType = ControllerType.Touchscreen;
 
+        if (Keyboard.current != null && Mouse.current != null)
+            if ((Keyboard.current.CheckStateIsAtDefault() == false || Mouse.current.wasUpdatedThisFrame == true) && controllerType != ControllerType.KeyboardMouse)
+                controllerType = ControllerType.KeyboardMouse;
+
+        if (Gamepad.current != null)
+            if (Gamepad.current.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
+                controllerType = ControllerType.Controller;
+
+        if (Touchscreen.current != null)
+            if (Touchscreen.current.CheckStateIsAtDefault() == false && controllerType != ControllerType.Touchscreen)//Use this when they get the unity remote working with the new input system
+                controllerType = ControllerType.Touchscreen;
+    }
+
+    public void UpdateHardwareContols()
+    {
         switch (controllerType)
         {
             case ControllerType.KeyboardMouse:
@@ -114,6 +124,7 @@ public class InputSystem
             case ControllerType.Touchscreen:
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                touchscreenControl.UpdateForRemote();
                 break;
             default:
                 Cursor.lockState = CursorLockMode.None;

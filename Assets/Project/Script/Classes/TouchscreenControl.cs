@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TouchscreenControl
@@ -8,55 +11,38 @@ public class TouchscreenControl
     private TouchscreenController touchscreenController;
     private TouchscreenController.ToushscreenActions Touchscreen_Controller;
 
-    //public bool BackButtonPressed;
+    private readonly List<TouchState> touchCollection = new List<TouchState>(10)
+    {
+        new TouchState(), new TouchState(), new TouchState(), new TouchState(), new TouchState(),
+        new TouchState(), new TouchState(), new TouchState(), new TouchState(), new TouchState()
+    };
 
-    public Vector2 Position;
-    public List<RectTransform> touchPoints = new List<RectTransform>();
-
-    /*
-    public bool ForwardButtonPressed;
-    public bool LeftClickPressed;
-    public bool MiddleClickPressed;
-    public bool RightClickPressed;
-    public Vector2 Scroll;
-    */
+    public GameObject touchPointPrefab;
+    private List<RectTransform> touchPoints = new List<RectTransform>();
 
     public void Init()
     {
         touchscreenController = new TouchscreenController();
         Touchscreen_Controller = touchscreenController.Toushscreen;
 
-        Touchscreen_Controller.Position.performed += ctx => Position = ctx.ReadValue<Vector2>();
-        Touchscreen_Controller.Position.canceled += ctx => Position = Vector2.zero;
+        Touchscreen_Controller.Touch0.performed += ctx => touchCollection[0] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch1.performed += ctx => touchCollection[1] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch2.performed += ctx => touchCollection[2] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch3.performed += ctx => touchCollection[3] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch4.performed += ctx => touchCollection[4] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch5.performed += ctx => touchCollection[5] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch6.performed += ctx => touchCollection[6] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch7.performed += ctx => touchCollection[7] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch8.performed += ctx => touchCollection[8] = ctx.ReadValue<TouchState>();
+        Touchscreen_Controller.Touch9.performed += ctx => touchCollection[9] = ctx.ReadValue<TouchState>();
 
         for (int i = 0; i < 10; i++)
         {
-            touchPoints.Add(GameObject.Find("Touch Point " + (i + 1)).GetComponent<RectTransform>());
-            //Debug.DrawLine(Vector3.zero, touchPosition, Color.red);
+            GameObject createdPoint = GameObject.Instantiate(touchPointPrefab, UniversalInput.Instance.canvas.transform);
+            createdPoint.name += " " + (i + 1);
+            touchPoints.Add(createdPoint.GetComponent<RectTransform>());
+            createdPoint.SetActive(false);
         }
-
-        /*
-        Touchscreen_Controller.BackButton.performed += ctx => BackButtonPressed = true;
-        Touchscreen_Controller.BackButton.canceled += ctx => BackButtonPressed = false;
-
-        Touchscreen_Controller.Delta.performed += ctx => Delta = ctx.ReadValue<Vector2>();
-        Touchscreen_Controller.Delta.canceled += ctx => Delta = Vector2.zero;
-
-        Touchscreen_Controller.ForwardButton.performed += ctx => ForwardButtonPressed = true;
-        Touchscreen_Controller.ForwardButton.canceled += ctx => ForwardButtonPressed = false;
-
-        Touchscreen_Controller.LeftClick.performed += ctx => LeftClickPressed = true;
-        Touchscreen_Controller.LeftClick.canceled += ctx => LeftClickPressed = false;
-
-        Touchscreen_Controller.MiddleClick.performed += ctx => MiddleClickPressed = true;
-        Touchscreen_Controller.MiddleClick.canceled += ctx => MiddleClickPressed = false;
-
-        Touchscreen_Controller.RightClick.performed += ctx => RightClickPressed = true;
-        Touchscreen_Controller.RightClick.canceled += ctx => RightClickPressed = false;
-
-        Touchscreen_Controller.Scroll.performed += ctx => Scroll = ctx.ReadValue<Vector2>();
-        Touchscreen_Controller.Scroll.canceled += ctx => Scroll = Vector2.zero;
-        */
     }
 
     public void OnEnable()
@@ -79,24 +65,18 @@ public class TouchscreenControl
 
     public void UpdateForRemote()
     {
-        HideTouches();
-
-        if (Input.touchCount <= 0)
-            return;
-
-        for (int i = 0; i < Input.touchCount; i++)
+        if (Touchscreen.current != null)
         {
-            Vector3 touchPosition = Input.touches[i].position;
-            touchPoints[i].gameObject.SetActive(true);
-            touchPoints[i].position = touchPosition;
-        }
-    }
-
-    private void HideTouches()
-    {
-        for (int i = 9; i >= Input.touchCount; i--)
-        {
-            touchPoints[i].gameObject.SetActive(false);
+            for (int i = 0; i < 10; i++)
+            {
+                if (touchCollection[i].isInProgress)
+                {
+                    touchPoints[i].gameObject.SetActive(true);
+                    touchPoints[i].position = touchCollection[i].position;
+                }
+                else
+                    touchPoints[i].gameObject.SetActive(false);
+            }
         }
     }
 }
