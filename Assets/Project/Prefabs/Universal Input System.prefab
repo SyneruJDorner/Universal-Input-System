@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8708939078823342920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2501888487101458152}
+  - component: {fileID: 6303783238354203360}
+  - component: {fileID: 3927786184230111655}
+  - component: {fileID: 7170326464693558671}
+  - component: {fileID: 6874500492625706940}
+  m_Layer: 5
+  m_Name: Universal Input System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2501888487101458152
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708939078823342920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &6303783238354203360
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708939078823342920}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &3927786184230111655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708939078823342920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!114 &7170326464693558671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708939078823342920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &6874500492625706940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708939078823342920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24fefe7baead755478a65c61c8c6a09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputSystem:
+    controllerType: 0
+    keyboardContol:
+      A: 0
+      B: 0
+      C: 0
+      D: 0
+      E: 0
+      F: 0
+      G: 0
+      H: 0
+      I: 0
+      J: 0
+      K: 0
+      L: 0
+      M: 0
+      N: 0
+      O: 0
+      P: 0
+      Q: 0
+      R: 0
+      S: 0
+      T: 0
+      U: 0
+      V: 0
+      W: 0
+      X: 0
+      Y: 0
+      Z: 0
+      Backquote: 0
+      Backslash: 0
+      Backspace: 0
+      CapsLock: 0
+      Comma: 0
+      ContextMenu: 0
+      Delete: 0
+      DownArrow: 0
+      End: 0
+      Enter: 0
+      Equal: 0
+      Escape: 0
+      F1: 0
+      F2: 0
+      F3: 0
+      F4: 0
+      F5: 0
+      F6: 0
+      F7: 0
+      F8: 0
+      F9: 0
+      F10: 0
+      F11: 0
+      F12: 0
+      Home: 0
+      Insert: 0
+      LeftAlt: 0
+      LeftArrow: 0
+      LeftBracket: 0
+      LeftCtrl: 0
+      LeftMeta: 0
+      LeftShift: 0
+      Minus: 0
+      NumLock: 0
+      Numpad0: 0
+      Numpad1: 0
+      Numpad2: 0
+      Numpad3: 0
+      Numpad4: 0
+      Numpad5: 0
+      Numpad6: 0
+      Numpad7: 0
+      Numpad8: 0
+      Numpad9: 0
+      NumpadDivide: 0
+      NumpadEnter: 0
+      NumpadMinus: 0
+      NumpadMultiply: 0
+      NumpadPeriod: 0
+      NumpadPlus: 0
+      PageDown: 0
+      PageUp: 0
+      Pause: 0
+      Period: 0
+      PrintScreen: 0
+      Quote: 0
+      RightAlt: 0
+      RightArrow: 0
+      RightBracket: 0
+      RightCtrl: 0
+      RightMeta: 0
+      RightShift: 0
+      ScrollLock: 0
+      Semicolon: 0
+      Slash: 0
+      Space: 0
+      Tab: 0
+      UpArrow: 0
+    mouseContol:
+      BackButtonPressed: 0
+      Delta: {x: 0, y: 0}
+      ForwardButtonPressed: 0
+      LeftClickPressed: 0
+      MiddleClickPressed: 0
+      RightClickPressed: 0
+      Scroll: {x: 0, y: 0}
+    gamepadControl:
+      ButtonEast: 0
+      ButtonNorth: 0
+      ButtonSouth: 0
+      ButtonWest: 0
+      Dpad: {x: 0, y: 0}
+      LeftShoulder: 0
+      LeftStick: {x: 0, y: 0}
+      LeftStickPress: 0
+      LeftTrigger: 0
+      RightShoulder: 0
+      RightStick: {x: 0, y: 0}
+      RightStickPress: 0
+      RightTrigger: 0
+      Select: 0
+      Start: 0
+    touchscreenControl:
+      touchPointPrefab: {fileID: 7504312934585583676, guid: 4b873dd0820bea940b5d812428ad5ad2,
+        type: 3}
+  canvas: {fileID: 6303783238354203360}
