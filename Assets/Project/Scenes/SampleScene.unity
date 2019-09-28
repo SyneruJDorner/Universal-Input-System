@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -294,6 +295,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70eef97d39c4c6c4a9303c9c848253d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &1119340280
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +374,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1639883115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8708939078823342920, guid: 60fb84f7178719d40925677e6e0a2f09,
+    type: 3}
+  m_PrefabInstance: {fileID: 4404135723526825851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1639883116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639883115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75a0a1cf350841c42a3aeef2134636c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binding:
+  - name: Movement
+    inputType: 1
+    keyboardKeys: 04000000010000001700000013000000
+    gamepadKeys: 0d000000
+    keyboardInputs: []
+    gamepadInputs: []
+    fVal: 0
+    vVal: {x: 0, y: 0}
+  - name: Tester
+    inputType: 0
+    keyboardKeys: 5c000000
+    gamepadKeys: 03000000
+    keyboardInputs: []
+    gamepadInputs: []
+    fVal: 0
+    vVal: {x: 0, y: 0}
 --- !u!1001 &4404135723526825851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -477,5 +526,176 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[0].inputAssosiations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[1].inputAssosiations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[2].inputAssosiationsKeyboard.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[2].inputCollectionController.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputSystem.bindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[0].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[0].title
+      value: Forward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[1].title
+      value: Backward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[1].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[2].title
+      value: Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[0].inputKeyboard
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[0].inputController
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[1].inputKeyboard
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[1].inputController
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[2].inputKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[2].inputController
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[3].title
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[3].inputKeyboard
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[3].inputController
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[4].title
+      value: Mouse Delta
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[4].inputKeyboard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[4].inputController
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputBindings.bindings.Array.data[4].inputMouse
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.data[0].title
+      value: Forward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.data[0].keyboardKeys
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.data[0].gamepadKeys
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.data[1].title
+      value: Backward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.data[1].keyboardKeys
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.data[1].gamepadKeys
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: bindings.Array.data[2].title
+      value: New Input Entry
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: inputSystem.bindings.Array.data[0].title
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6874500492625706940, guid: 60fb84f7178719d40925677e6e0a2f09, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60fb84f7178719d40925677e6e0a2f09, type: 3}

@@ -1,0 +1,2603 @@
+{
+    "name": "InputControls",
+    "maps": [
+        {
+            "name": "Gamepad",
+            "id": "3ab1026b-5350-4616-ac50-59ec37cce4b9",
+            "actions": [
+                {
+                    "name": "Button South",
+                    "type": "Value",
+                    "id": "e0356865-d610-4ff9-8523-96fe98a290f7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Button West",
+                    "type": "Value",
+                    "id": "f47fb16c-e0a9-4458-bd33-95153f13f708",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Button North",
+                    "type": "Value",
+                    "id": "2134b609-887c-495d-abd7-2a972e022b60",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Button East",
+                    "type": "Value",
+                    "id": "da04b8cd-1a46-44d9-b752-d3cef40358b5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Dpad",
+                    "type": "Value",
+                    "id": "f9116989-da7f-4526-bcab-8629cc17126e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Stick",
+                    "type": "Value",
+                    "id": "9d7a8f29-6bcf-4879-b8df-3b223e14ccce",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Stick",
+                    "type": "Value",
+                    "id": "6d24dfc1-5717-43c9-9512-0f3a382fd004",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Shoulder",
+                    "type": "Value",
+                    "id": "57420191-7a03-4110-a5f9-3d92cc9c73f4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Shoulder",
+                    "type": "Value",
+                    "id": "fabb06f9-0a1b-44c5-b332-689868c49de1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Trigger",
+                    "type": "Value",
+                    "id": "205172a1-70f0-4fcb-8e65-ebf68f34cb09",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Trigger",
+                    "type": "Value",
+                    "id": "13c21ba2-a2e0-4a3d-9bcf-09ad4cfe4b67",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Select",
+                    "type": "Value",
+                    "id": "4b70b278-8a2c-4de8-9df6-acb018058742",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Start",
+                    "type": "Value",
+                    "id": "01f63376-52be-48cc-86d0-e2d4fde187ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Stick Press",
+                    "type": "Value",
+                    "id": "34f20c8b-a2aa-4567-ba61-ccbf4a27371b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Stick Press",
+                    "type": "Value",
+                    "id": "6092559d-c60d-4661-9e77-7ec3c5e9c814",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "55225811-0167-4411-8e17-18924885925e",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Button South",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01d75802-da29-4119-a697-f8c310675a96",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Button West",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "521cff22-6f92-438e-be19-ea0f07930b89",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Button North",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c5922e5-6b8c-4b41-a579-7e6ce7750097",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Button East",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d72a4205-3ea8-4d66-b765-f0639ca4e0de",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dpad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ea554cb-10b8-463b-b8d9-517dbe71a0e3",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Stick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2002a77-dbb1-4c05-93ec-08994cc1e1bd",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Stick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cbc7eb6d-c7c1-4153-b663-2177466fb6dc",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Shoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9f960ae-c9f5-4849-befb-07ae9cdf718a",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Shoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c0e30f5-ee80-44f4-acb2-419bf35c91a4",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69f56893-21d1-42c0-916b-e286728825cc",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1a3a384-6633-46dc-9e28-b2dc1cc61e6b",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1f907b9-858a-4728-bb32-a0833e9d9147",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8ff7131-8dc5-4f7d-b1e6-c4d8086a248c",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Stick Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4baf4629-dc75-49e9-8611-a1e51fd2ce4a",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Stick Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard",
+            "id": "e5a2c24d-856a-49f1-8e32-e314b135d7ed",
+            "actions": [
+                {
+                    "name": "A",
+                    "type": "Value",
+                    "id": "73b8002b-bb5b-4c97-812f-7562be2e6ebd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "B",
+                    "type": "Value",
+                    "id": "dd146f0c-56c1-4385-9fd7-ed5514408092",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "C",
+                    "type": "Value",
+                    "id": "30cb9573-1caf-417f-a5f7-b7c4cef8a178",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "D",
+                    "type": "Value",
+                    "id": "2150e1c0-c540-4a11-ac1b-5abc75e683e5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "E",
+                    "type": "Value",
+                    "id": "2b294079-d213-47b8-a1ba-792cf11c95a9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F",
+                    "type": "Value",
+                    "id": "1d2c607d-e20d-4371-896e-e4b4d2698327",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "G",
+                    "type": "Value",
+                    "id": "cf695de5-7711-4789-ab85-263bde333d2e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "H",
+                    "type": "Value",
+                    "id": "601980ba-1152-47c8-b97c-e153feaefcd6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "I",
+                    "type": "Value",
+                    "id": "bb3f0f42-de28-4e67-bb81-2c3fdf5671ff",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "J",
+                    "type": "Value",
+                    "id": "1cc76f70-39d0-4236-9337-7191c19ec995",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "K",
+                    "type": "Value",
+                    "id": "80eda6bc-5291-49d7-bbc3-55ccabc8e700",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "L",
+                    "type": "Value",
+                    "id": "6640f311-d79c-43ff-9890-5ccdaa2b1cf8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "M",
+                    "type": "Value",
+                    "id": "186a0399-32ed-44a1-8922-87c82bdf485f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "N",
+                    "type": "Value",
+                    "id": "5071852d-9451-4e2f-9833-699f69e0c38b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "O",
+                    "type": "Value",
+                    "id": "63c69048-b955-463b-b5d8-26e40a4da5dd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "P",
+                    "type": "Value",
+                    "id": "71c4db51-d25f-413b-a651-ddc2de38af96",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Q",
+                    "type": "Value",
+                    "id": "702f60e9-18f6-4aa7-bbd1-069ff7f5602e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "R",
+                    "type": "Value",
+                    "id": "fde608d0-3eb1-4c62-a37e-5fdebca274fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "S",
+                    "type": "Value",
+                    "id": "d0e8dcb3-8d98-4d70-8d4a-efb2804bac95",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "T",
+                    "type": "Value",
+                    "id": "23bca6b1-6e56-441d-b00c-ff557a058404",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "U",
+                    "type": "Value",
+                    "id": "1e13e1e2-4f75-458f-a62c-800f0a17dd71",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "V",
+                    "type": "Value",
+                    "id": "3cd28261-3c8c-425f-856e-cfde3642cc09",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "W",
+                    "type": "Value",
+                    "id": "5be05e0b-0edf-40e8-b8ca-23d14944d0b9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "X",
+                    "type": "Value",
+                    "id": "bd05edc9-56e1-49ba-abb1-1698e4e1175d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Y",
+                    "type": "Value",
+                    "id": "dc68b84d-259f-4aef-b001-a604342913c4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Z",
+                    "type": "Value",
+                    "id": "9b93b93e-8dab-4fac-9244-1866caeae18d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Shift",
+                    "type": "Value",
+                    "id": "b446c346-8cfb-4b06-8474-bb7c2cbed452",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Ctrl",
+                    "type": "Value",
+                    "id": "f3be8e10-5ec7-4324-a924-6e0ad441944f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Meta",
+                    "type": "Value",
+                    "id": "d9720a63-1af2-4fef-b9bb-71cd07972400",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Alt",
+                    "type": "Value",
+                    "id": "21712a58-9bfe-4fc6-b42c-d968864436bc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Space",
+                    "type": "Value",
+                    "id": "70da877d-1141-40d8-95b1-d510b2743902",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Tab",
+                    "type": "Value",
+                    "id": "a889450f-e6c5-4276-a24b-6fcabe09a7e3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Backquote",
+                    "type": "Value",
+                    "id": "64d6e046-e7f8-4b82-b39e-402b64b55e0b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Alt",
+                    "type": "Value",
+                    "id": "0459b2c7-27fa-42fe-a385-0a19f63380b0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Meta",
+                    "type": "Value",
+                    "id": "fb96a5bc-3093-481c-b50b-48858c61ab36",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Context Menu",
+                    "type": "Value",
+                    "id": "4af6e195-2810-4a3a-8f02-aef4ea86ff5b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Ctrl",
+                    "type": "Value",
+                    "id": "1c2f3be2-898e-431e-a905-eff4ce447db3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Shift",
+                    "type": "Value",
+                    "id": "43a8ac58-5a1f-4a74-8d12-cec1a88906c2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Enter",
+                    "type": "Value",
+                    "id": "58fc0e7c-2087-4db1-83bc-9baca2f92f2a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Backspace",
+                    "type": "Value",
+                    "id": "92e04b54-4ea4-40c5-b0c3-4c51f3cb683c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Backslash",
+                    "type": "Value",
+                    "id": "645e1322-eea0-4479-9b9f-d5d5c10e4695",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Equal",
+                    "type": "Value",
+                    "id": "661272cf-8db5-4a65-b558-06d8829ec779",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Minus",
+                    "type": "Value",
+                    "id": "4d0e4238-e495-48b4-997f-2a6dedec61f3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Bracket",
+                    "type": "Value",
+                    "id": "d31ac986-acdf-4635-9129-6a388cc69298",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Bracket",
+                    "type": "Value",
+                    "id": "9b796779-6693-430c-8c98-663bd4c1a5a1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Quote",
+                    "type": "Value",
+                    "id": "a1bb9eec-a5cc-4b6a-b87d-984592d4e9e4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Semicolon",
+                    "type": "Value",
+                    "id": "57223867-9921-4e7e-9829-962b76d48ffa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Slash",
+                    "type": "Value",
+                    "id": "020e616e-2759-4caf-8cb7-f0b0e01898f8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Period",
+                    "type": "Value",
+                    "id": "67675681-332f-4fb4-87d0-902260146ae6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Comma",
+                    "type": "Value",
+                    "id": "7c42d7b2-958a-42e3-a13e-a0bd83155dcc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "1",
+                    "type": "Value",
+                    "id": "92b89bd9-981c-48d9-8c0b-776975863998",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "2",
+                    "type": "Value",
+                    "id": "4af3a90f-e037-4123-8c84-c40f8d2993da",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "3",
+                    "type": "Value",
+                    "id": "f92431c0-f5d5-4d8f-a03e-9908eda775c3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "4",
+                    "type": "Value",
+                    "id": "00fe0c2b-b172-45b8-96f3-20abac819960",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "6",
+                    "type": "Value",
+                    "id": "52ae334b-aacf-49cd-b904-1dd2386d8bca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "7",
+                    "type": "Value",
+                    "id": "f5f91715-5d43-46a7-96ea-91246df9844a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "8",
+                    "type": "Value",
+                    "id": "17abebe4-2d00-497c-8c60-59c9433a648b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "9",
+                    "type": "Value",
+                    "id": "b4315d07-d640-464a-a166-baf6f51a987e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "0",
+                    "type": "Value",
+                    "id": "04bf130f-6ec0-433d-9273-66a6a6bef41e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F1",
+                    "type": "Value",
+                    "id": "f0d0c2a1-c490-4833-999e-4ad3c1a6f566",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F2",
+                    "type": "Value",
+                    "id": "25859a89-cc26-4105-b98b-a3a89cd7801c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F3",
+                    "type": "Value",
+                    "id": "5835d9bd-5a65-4c73-8373-5c26464919d4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F4",
+                    "type": "Value",
+                    "id": "b909bbc1-7457-4220-b41c-79684cacf9ff",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F5",
+                    "type": "Value",
+                    "id": "a2d187a6-c7fa-445e-ad54-f93a228e5643",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F6",
+                    "type": "Value",
+                    "id": "2308f9de-ecce-4477-9ab4-ec3d4a561f65",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F7",
+                    "type": "Value",
+                    "id": "a0588bfa-55f3-4b5c-aa39-c8b123a705eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F8",
+                    "type": "Value",
+                    "id": "4b704938-1882-4027-83d1-012c4847c0e2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F9",
+                    "type": "Value",
+                    "id": "6b4ff6c9-9c07-40c4-b167-e8ffa748229d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F10",
+                    "type": "Value",
+                    "id": "42249268-c8bc-43f1-80f2-a4539fe59a15",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F11",
+                    "type": "Value",
+                    "id": "94c8b06f-b45e-40c7-bc7f-24cccba48d1c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "F12",
+                    "type": "Value",
+                    "id": "aba596e1-c77e-4b35-a202-4a2c48b3f019",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Print Screen",
+                    "type": "Value",
+                    "id": "29e80085-2a97-48ab-8ae5-2def0e02a24f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Scroll Lock",
+                    "type": "Value",
+                    "id": "cd48552f-bf65-464e-bdbe-38adc4bab29c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Value",
+                    "id": "2799a248-8fbb-4c25-b438-b56b045ae5bc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Insert",
+                    "type": "Value",
+                    "id": "b2ec882a-24cc-4618-b922-8b55cf6040de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Home",
+                    "type": "Value",
+                    "id": "cee4630c-17c7-43d5-a248-18d2c5a79551",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Page Up",
+                    "type": "Value",
+                    "id": "6ee3dd57-04fe-4710-9612-d53d238aea37",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Delete",
+                    "type": "Value",
+                    "id": "ff10a731-2452-4f7f-8fac-8fbd6f2f8d73",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "End",
+                    "type": "Value",
+                    "id": "380cbea6-56d9-4fe4-b85e-f4571b8f221d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Page Down",
+                    "type": "Value",
+                    "id": "f56bfc3b-839c-48c3-b010-3f86d16f85a4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Up Arrow",
+                    "type": "Value",
+                    "id": "573ccb4e-aebb-49d9-9301-b7ff527abaae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Down Arrow",
+                    "type": "Value",
+                    "id": "b9ce054e-5464-4e65-97f6-41fb34b28b08",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Arrow",
+                    "type": "Value",
+                    "id": "4e78c6a2-cb11-4346-8af2-7122fa550de4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Arrow",
+                    "type": "Value",
+                    "id": "7a01761c-2c81-4788-8b99-07249df43f08",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 0",
+                    "type": "Value",
+                    "id": "9803336c-2f58-4e7c-9b18-4e065d64c959",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 1",
+                    "type": "Value",
+                    "id": "035a6e83-7a59-4696-9c15-04e65434ceb0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 2",
+                    "type": "Value",
+                    "id": "bb9309fa-efc1-47c0-9bf1-57ffbce1191f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 3",
+                    "type": "Value",
+                    "id": "7ea7e93e-2a42-4487-93df-59ad12a1a52b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 4",
+                    "type": "Value",
+                    "id": "09735287-9660-4c55-94fb-30a7a1e33890",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 5",
+                    "type": "Value",
+                    "id": "088b6069-fa2d-4cc1-bd27-c35c6f930cef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 6",
+                    "type": "Value",
+                    "id": "4b05370f-1afb-466d-b1af-b8b75eb7bac9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 7",
+                    "type": "Value",
+                    "id": "4885712e-6b20-405a-a3c5-6b13aa30639a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 8",
+                    "type": "Value",
+                    "id": "88c2a14c-29b4-4ea5-b2e7-2a6523851d73",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad 9",
+                    "type": "Value",
+                    "id": "4ff29d57-348c-4817-92fe-9fd68706aa97",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad Period",
+                    "type": "Value",
+                    "id": "2f274793-1902-4b82-8592-3d09172e2369",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad Enter",
+                    "type": "Value",
+                    "id": "6494e12e-ccf7-4040-989b-068b2231076a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad Plus",
+                    "type": "Value",
+                    "id": "69dbc6b5-b802-42fd-b213-58e0586abaf9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad Minus",
+                    "type": "Value",
+                    "id": "fd7fcf7b-fb3b-4ea3-94a4-e5aec3dbceab",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad Multiply",
+                    "type": "Value",
+                    "id": "ab2c6cc7-94b3-4299-bda5-c22c7f5b1e2d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Numpad Divide",
+                    "type": "Value",
+                    "id": "7b69411b-2d04-4733-b1c0-08ff9a22733b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Num Lock",
+                    "type": "Value",
+                    "id": "327e9afe-e1cd-41b7-b26a-07a337a39d42",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Caps Lock",
+                    "type": "Value",
+                    "id": "3b61cabd-c41e-401c-ad92-964340cd88f6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Escape",
+                    "type": "Value",
+                    "id": "00d41b9f-aecd-40f8-8c23-04362f0c3f51",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "26db9e24-03fa-44b3-84d2-17f8d6831766",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "A",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d67cadc6-393a-4c90-a3e0-d30c88c2ac5f",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "B",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49d37ca4-994b-4097-bfe6-e4e90be6fba7",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "C",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92fecc0b-f929-4bf5-ae77-19d12a9c4cb8",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f9e2212-bd8f-4808-8f59-19771e47e181",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "E",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "034cbfae-0702-4fe3-884e-febee02519d8",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea1894b9-2b42-48ed-a53b-c17544e02f09",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "G",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f62dc34a-6b41-465f-9ce4-f046218f9ca2",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "H",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97255f26-a849-43c3-8ce8-d4fcafd8903f",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "I",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "382989ab-2543-4aa6-b67c-3ad69768d2c7",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "J",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae600bc2-1491-4216-b504-0bdd0f95822c",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "K",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2463186e-a6dc-417a-89ff-5c1c3a3d2402",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "429bc86c-3088-4dfe-9d53-3acd02f66836",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "M",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "336c8e75-08d9-458c-96a7-46cc87ee345b",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "N",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1118dd18-e074-469f-8a8c-e1d95b4362d8",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "O",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e97c9a15-1994-4d03-a902-4e6c5d73f79c",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "733c0a60-1d89-4f22-8dbb-55807b92f641",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Q",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1ad786a-4147-44c5-9426-9826f8a6d21e",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "181eadfc-e59f-4bc7-8c1f-cc3271fdf8a7",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "S",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f98c4417-fadc-4f81-9e70-cc7fa44d8cb2",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "T",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b3e7204-549a-4546-8c99-ab8a7e64f264",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "U",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17ca09fb-c032-417e-a52e-cd46a9f06d15",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "V",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b17bc4a-2a3a-4a53-8e05-eff6a55cd1a7",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "W",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c269a52-824f-40c8-910b-ee10e9ea1c5e",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "X",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3650b8ff-de04-44b2-a56f-295a5690f2b4",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Y",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc04065e-4f1b-4ee9-8074-c5d4fc8d25fe",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Z",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "789e4ab1-4da2-46d9-a9d9-a1031d718b12",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Shift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "472f2be1-dec6-4881-9017-d366ea1c717d",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Ctrl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d14797df-d9a4-437b-9ed1-e9585c968206",
+                    "path": "<Keyboard>/leftMeta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Meta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d0cdee9-67e8-4bd1-a884-a17c6cc0fd35",
+                    "path": "<Keyboard>/leftAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Alt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65f2e2c0-88bd-40b8-90a1-178aaa3d61f0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Space",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c20dcb3b-dbd2-45cc-a274-37c78e262e3b",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b96d163-0dc0-4d1d-8552-7759e0eecf40",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Backquote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abd2ac40-bf95-482d-81fa-fe5ee19b4993",
+                    "path": "<Keyboard>/rightAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Alt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7afe4c63-7973-4f3e-b1e1-a898b943a74b",
+                    "path": "<Keyboard>/rightMeta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Meta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4dc27bf8-5d11-40cf-81c9-8773bc5bad3d",
+                    "path": "<Keyboard>/contextMenu",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Context Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd8eca70-b1cb-4a5b-9f97-9396e738d830",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Ctrl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ddb7ce23-d24a-4754-a464-a10d73dd672d",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Shift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2ece6d0-b830-4bc4-9086-01d6c05fb25e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78560f8a-4679-439d-83a6-25baed32135c",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Backspace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e80f6dcc-a9f7-48b7-a58d-fbe3b0ec1f34",
+                    "path": "<Keyboard>/backslash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Backslash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59fddf75-dde6-479c-996d-93a2935cbd53",
+                    "path": "<Keyboard>/equals",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Equal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "653bedaf-cfce-459e-9e17-1e4a38999207",
+                    "path": "<Keyboard>/minus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Minus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4ccd4a6-93af-4e5b-8d1c-f6fb7ce4e911",
+                    "path": "<Keyboard>/rightBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Bracket",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79724cd6-0510-465f-84c2-008468a0926b",
+                    "path": "<Keyboard>/leftBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Bracket",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9311c3c-299d-49f3-b2aa-664261e7126b",
+                    "path": "<Keyboard>/quote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cee885b8-06f0-4767-a3b4-2302012cae3c",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Semicolon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65fdf7d0-c88b-470a-baee-166c5876610a",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca612db3-2069-40bb-bad3-ad10a80a17a1",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Period",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "523b9eee-4b08-46be-9ded-ff74cd64f61f",
+                    "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Comma",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20011d37-350f-4720-9068-77f5afa356fa",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54907d2b-fdb6-46cd-99c2-e92e4ccad40d",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfce5b82-73aa-43d7-8ccf-9841c449c0d7",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d6f7a4a-8737-4722-8124-6db6454d9ce1",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3262149-8e0b-4bf1-8356-9cd0b2c99453",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39ab7d07-6e55-4769-bc5c-fb4d8b34ca7d",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f863a504-c1c2-4f8e-9e7d-5f332015eb2f",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17ac4ef0-5cf6-4d8a-8cf3-6023cd5e0a41",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a143d82c-a3b0-42a5-b46d-d49c4590f023",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48df7c59-8e2c-41b3-b76c-e65096ab0b04",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b192e9bd-edc1-44bd-9a89-05c154fe10b7",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cd93614-cb4c-413d-a442-006fd062ab08",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2cf484c-ce22-44e0-be72-afd7cf340301",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42c6d639-d60a-4257-a51f-1f7d6b3329f6",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "253c42e4-3a4a-4703-8862-cc8055b58fb5",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c71fe66-a083-4ed4-bf5c-4b51005f2af5",
+                    "path": "<Keyboard>/f7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3f99844-72b4-4b51-9341-264259204015",
+                    "path": "<Keyboard>/f8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98d36da3-b5a6-4703-9483-d0b91d8072e0",
+                    "path": "<Keyboard>/f9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7189c5ac-88a1-4437-80ce-ff85452960f4",
+                    "path": "<Keyboard>/f10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F10",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "732f1cc5-7c16-485c-9c90-fee96f0f8ac1",
+                    "path": "<Keyboard>/f11",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F11",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0258779a-be8a-4364-b764-2bec78384ef5",
+                    "path": "<Keyboard>/f12",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "F12",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3efd4a8-e67e-4cc0-a728-db1c15346d2f",
+                    "path": "<Keyboard>/printScreen",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Print Screen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98f8cce2-2187-4845-988e-2710f0fbb623",
+                    "path": "<Keyboard>/scrollLock",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll Lock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "738e88f3-e370-428a-bfd6-5d8be6078866",
+                    "path": "<Keyboard>/pause",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b84a6926-b612-4267-bf0a-e8e9bec4787f",
+                    "path": "<Keyboard>/insert",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Insert",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e539eb0-ddde-4c68-b3bf-ff711be066cf",
+                    "path": "<Keyboard>/home",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Home",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ea9337b-465d-41fe-be09-97a311ff5b94",
+                    "path": "<Keyboard>/pageUp",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Page Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a81999e-4517-41e2-a882-6602d0a80a96",
+                    "path": "<Keyboard>/delete",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Delete",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e12b75ea-9063-4efc-a661-81ffedd60941",
+                    "path": "<Keyboard>/end",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "End",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3223e7f-1c81-4eef-87c1-2ff4844938f3",
+                    "path": "<Keyboard>/pageDown",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Page Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50a6a100-8837-4950-a746-041806238713",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up Arrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f93f5b89-fcf2-48ae-ae70-b87a25f05163",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down Arrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d48368e-1314-4158-9644-05624896664a",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Arrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d080dba-b93c-45b6-9f12-67afad8d0b81",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Arrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "007ed2f8-184d-45e1-9af2-c2ec5a95827f",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cbbf9c53-15e2-47f2-8073-47abeb58afe3",
+                    "path": "<Keyboard>/numpad1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e15749d6-4ae0-4d99-a25e-61218f60a0e5",
+                    "path": "<Keyboard>/numpad2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4614acb8-fcc4-4e08-b5e7-445ba552886a",
+                    "path": "<Keyboard>/numpad3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f551143-c980-48e8-a2fc-64b119e56f81",
+                    "path": "<Keyboard>/numpad4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76aafcf4-0a2b-4668-bcfe-855616d70276",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7dbeceb-ca55-40d2-959c-d9cfed50918b",
+                    "path": "<Keyboard>/numpad6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0dfc0d24-adb2-437c-83e6-6434caa7cc05",
+                    "path": "<Keyboard>/numpad7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97f5d472-0337-404f-ac72-4fa6e1fe0d28",
+                    "path": "<Keyboard>/numpad8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8cb7d16-8e6e-4011-b92a-4e968a62b41b",
+                    "path": "<Keyboard>/numpad9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad 9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37ddb514-432c-4d2a-aeae-29696fd6aec1",
+                    "path": "<Keyboard>/numpadPeriod",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad Period",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee861b59-7c95-4caa-a58e-77b5d30a0aa8",
+                    "path": "<Keyboard>/numpadEnter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfca47aa-1f1b-4309-a11f-e54b56d061e7",
+                    "path": "<Keyboard>/numpadPlus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad Plus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31dd6eaa-2dbf-4800-84cb-ba62f124a644",
+                    "path": "<Keyboard>/numpadMinus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad Minus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f26f1b4f-b571-47a6-b7ae-d0f14f4aa471",
+                    "path": "<Keyboard>/numpadMultiply",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad Multiply",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb9d4d54-aee5-40ad-a0e2-5954976b425c",
+                    "path": "<Keyboard>/numpadDivide",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Numpad Divide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2f6c148-09d5-4629-9efc-4517986c7f02",
+                    "path": "<Keyboard>/numLock",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Num Lock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc6230a2-b623-4b5d-817b-a3ca91d1ebd8",
+                    "path": "<Keyboard>/capsLock",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Caps Lock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa226a00-222c-4644-abb9-a93879b548f7",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Mouse",
+            "id": "21959cc6-85ff-4d7b-85fd-8c7a879fb58b",
+            "actions": [
+                {
+                    "name": "Left Click",
+                    "type": "Value",
+                    "id": "42e80998-5c6c-49dc-a3fc-7baceda6d950",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Click",
+                    "type": "Value",
+                    "id": "e2883376-00d0-440d-853a-2b8f28031a0e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Middle Click",
+                    "type": "Value",
+                    "id": "44ed8a92-711c-431b-ba3e-ae5478fc2324",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Scroll",
+                    "type": "Value",
+                    "id": "97bcb824-1b1e-47f0-8116-5af56b20ee50",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Delta",
+                    "type": "Value",
+                    "id": "644f1a60-f384-4821-8014-69669b0f669e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Forward Button",
+                    "type": "Value",
+                    "id": "80198f83-c777-42fc-800b-1e3874face40",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Back Button",
+                    "type": "Value",
+                    "id": "ddbff357-07a5-48df-8447-3a32ff96146a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5947924a-cc4a-4229-98ed-dd786dec3335",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5b9abf5-f1a1-4f62-a618-f2b35b76b216",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d02a4869-2697-432b-8b92-68da87f1e977",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Middle Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d336a392-458b-47e5-bdb1-58fcfd156caf",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ff4c76c-90d6-416a-8316-8a3946d6edae",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Delta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c64d096-bcba-4606-9ae8-b74a651dd33d",
+                    "path": "<Mouse>/forwardButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Forward Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "176f4a5b-f568-4b65-9ebe-7cead5052f71",
+                    "path": "<Mouse>/backButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Toushscreen",
+            "id": "089e0447-c448-40f1-943c-39d1a25173e6",
+            "actions": [
+                {
+                    "name": "Touch0",
+                    "type": "Value",
+                    "id": "183c4d7e-eff6-4f6e-b70e-382465a32d50",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch1",
+                    "type": "Button",
+                    "id": "823d4bcf-dcfd-4973-88e2-403727465d74",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch2",
+                    "type": "Button",
+                    "id": "2d3714b6-7d12-4f27-b96f-624e3a71852c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch3",
+                    "type": "Button",
+                    "id": "55180b96-5a92-45ed-a716-9e82efe5eacd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch4",
+                    "type": "Button",
+                    "id": "64cf5b5f-f91a-416a-81af-75d08b308f97",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch5",
+                    "type": "Button",
+                    "id": "244a9ef6-b010-4814-8592-cb5d82501deb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch6",
+                    "type": "Button",
+                    "id": "10ddebff-b5f4-481e-95df-ca64f5adc9e8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch7",
+                    "type": "Button",
+                    "id": "6562d809-a13f-4d16-903f-c3799f278f9e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch8",
+                    "type": "Button",
+                    "id": "0c0cc821-1f6a-4fc6-9115-779f9d4cd0a3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Touch9",
+                    "type": "Button",
+                    "id": "a727e996-a906-4c08-89cb-6fbdc1b7ab7c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f38d9475-753c-4fb8-8e7b-b2e8a8232119",
+                    "path": "<Touchscreen>/touch0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de54d32b-a43d-436c-b25c-285814f58a05",
+                    "path": "<Touchscreen>/touch1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "efbb82e6-1547-4f5a-9e79-39aa6bfe9215",
+                    "path": "<Touchscreen>/touch2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f28c4a4c-9668-4cfb-b238-ae8a7bf78a09",
+                    "path": "<Touchscreen>/touch3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be5b3b86-3c02-47c2-b670-1856da548f63",
+                    "path": "<Touchscreen>/touch4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce051d02-79b6-44ea-be84-826580f1b194",
+                    "path": "<Touchscreen>/touch5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfa357cd-6d73-4a06-88f1-0b99fb56e840",
+                    "path": "<Touchscreen>/touch6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db2e967b-32bb-4ce4-b661-3a5ec7049b18",
+                    "path": "<Touchscreen>/touch7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fcd6a2a-9052-40e8-bda6-bb077d8297ad",
+                    "path": "<Touchscreen>/touch8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ac8847d-a7bc-488f-bbc6-9982e6567fc8",
+                    "path": "<Touchscreen>/touch9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
