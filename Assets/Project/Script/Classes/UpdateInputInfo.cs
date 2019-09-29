@@ -65,17 +65,20 @@ public static class UpdateInputInfo
             float value = ctx.ReadValue<float>();
             currentInputInfo.fVal = value;
 
-            if (Binding[bindLocation].inputType == InputBindingCollection.InputType.Vector2)
+            if (Binding[bindLocation].selectedBindingDevice == InputInfo.HardwareDeviceType.Keyboard)
             {
-                Binding[bindLocation].vVal = Vector2.zero;
+                if (Binding[bindLocation].inputKeyboardType == InputBindingCollection.InputType.Vector2)
+                {
+                    Binding[bindLocation].vVal = Vector2.zero;
 
-                Binding[bindLocation].vVal.y += Binding[bindLocation].keyboardInputs[0].fVal;//Up
-                Binding[bindLocation].vVal.x -= Binding[bindLocation].keyboardInputs[1].fVal;//Left
-                Binding[bindLocation].vVal.y -= Binding[bindLocation].keyboardInputs[2].fVal;//Down
-                Binding[bindLocation].vVal.x += Binding[bindLocation].keyboardInputs[3].fVal;//Right
+                    Binding[bindLocation].vVal.y += Binding[bindLocation].keyboardInputs[0].fVal;//Up
+                    Binding[bindLocation].vVal.x -= Binding[bindLocation].keyboardInputs[1].fVal;//Left
+                    Binding[bindLocation].vVal.x += Binding[bindLocation].keyboardInputs[2].fVal;//Right
+                    Binding[bindLocation].vVal.y -= Binding[bindLocation].keyboardInputs[3].fVal;//Down
 
-                if (Binding[bindLocation].vVal != Vector2.zero)
-                    Binding[bindLocation].vVal.Normalize();
+                    if (Binding[bindLocation].vVal != Vector2.zero)
+                        Binding[bindLocation].vVal.Normalize();
+                }
             }
         }
 

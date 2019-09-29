@@ -191,6 +191,13 @@ public class InputSystem : MonoBehaviour
             for (int o = 0; o < Binding[i].keyboardKeys.Count; o++)
             {
                 int currentIndex = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[o].ToString());
+
+                if (currentIndex == -1)
+                {
+                    Binding[i].keyboardKeys = new List<Input.KeyboardKeys>(0);
+                    continue;
+                }
+
                 InputInfo cachedInfo = Binding[i].keyboardInputs[currentIndex];
                 Binding[i].keyboardInputs.RemoveAt(currentIndex);
                 Binding[i].keyboardInputs.Insert(o, cachedInfo);
@@ -199,6 +206,13 @@ public class InputSystem : MonoBehaviour
             for (int o = 0; o < Binding[i].mouseKeys.Count; o++)
             {
                 int currentIndex = Binding[i].mouseInputs.FindIndex(item => item.Name == Binding[i].mouseKeys[o].ToString());
+
+                if (currentIndex == -1)
+                {
+                    Binding[i].mouseKeys = new List<Input.MouseKeys>(0);
+                    continue;
+                }
+                
                 InputInfo cachedInfo = Binding[i].mouseInputs[currentIndex];
                 Binding[i].mouseInputs.RemoveAt(currentIndex);
                 Binding[i].mouseInputs.Insert(o, cachedInfo);
@@ -207,6 +221,13 @@ public class InputSystem : MonoBehaviour
             for (int o = 0; o < Binding[i].gamepadKeys.Count; o++)
             {
                 int currentIndex = Binding[i].gamepadInputs.FindIndex(item => item.Name == Binding[i].gamepadKeys[o].ToString());
+
+                if (currentIndex == -1)
+                {
+                    Binding[i].gamepadKeys = new List<Input.GamepadKeys>(0);
+                    continue;
+                }
+
                 InputInfo cachedInfo = Binding[i].gamepadInputs[currentIndex];
                 Binding[i].gamepadInputs.RemoveAt(currentIndex);
                 Binding[i].gamepadInputs.Insert(o, cachedInfo);

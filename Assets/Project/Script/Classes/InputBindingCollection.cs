@@ -55,16 +55,37 @@ public class Input
 
         for (int i = 0; i < inputSystem.Binding.Count; i++)
         {
-            if (inputSystem.Binding[i].inputType == InputBindingCollection.InputType.Single)
+            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Keyboard)
             {
-                if (GetFloat(bindingName) != 0)
-                    return true;
+                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Single)
+                    if (GetFloat(bindingName) != 0)
+                        return true;
+
+                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Vector2)
+                    if (GetVector2(bindingName) != Vector2.zero)
+                        return true;
             }
 
-            if (inputSystem.Binding[i].inputType == InputBindingCollection.InputType.Vector2)
+            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Mouse)
             {
-                if (GetVector2(bindingName) != Vector2.zero)
-                    return true;
+                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Single)
+                    if (GetFloat(bindingName) != 0)
+                        return true;
+
+                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Vector2)
+                    if (GetVector2(bindingName) != Vector2.zero)
+                        return true;
+            }
+
+            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Gamepad)
+            {
+                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Single)
+                    if (GetFloat(bindingName) != 0)
+                        return true;
+
+                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Vector2)
+                    if (GetVector2(bindingName) != Vector2.zero)
+                        return true;
             }
         }
 
@@ -77,16 +98,37 @@ public class Input
 
         for (int i = 0; i < inputSystem.Binding.Count; i++)
         {
-            if (inputSystem.Binding[i].inputType == InputBindingCollection.InputType.Single)
+            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Keyboard)
             {
-                if (GetFloat(bindingName) == 0)
-                    return true;
+                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Single)
+                    if (GetFloat(bindingName) == 0)
+                        return true;
+
+                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Vector2)
+                    if (GetVector2(bindingName) == Vector2.zero)
+                        return true;
             }
 
-            if (inputSystem.Binding[i].inputType == InputBindingCollection.InputType.Vector2)
+            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Mouse)
             {
-                if (GetVector2(bindingName) == Vector2.zero)
-                    return true;
+                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Single)
+                    if (GetFloat(bindingName) == 0)
+                        return true;
+
+                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Vector2)
+                    if (GetVector2(bindingName) == Vector2.zero)
+                        return true;
+            }
+
+            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Gamepad)
+            {
+                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Single)
+                    if (GetFloat(bindingName) == 0)
+                        return true;
+
+                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Vector2)
+                    if (GetVector2(bindingName) == Vector2.zero)
+                        return true;
             }
         }
 
@@ -99,12 +141,10 @@ public class Input
 
         for (int i = 0; i < inputSystem.Binding.Count; i++)
         {
-            if (inputSystem.Binding[i].name == bindingName)
-            {
-                InputBindingCollection bind = inputSystem.Binding[i];
-                if (bind.inputType == InputBindingCollection.InputType.Single)
-                    return bind.fVal;
-            }
+            InputBindingCollection bind = inputSystem.Binding[i];
+
+            if (bind.name == bindingName)
+                return bind.fVal;
         }
         return 0;
     }
@@ -115,14 +155,12 @@ public class Input
 
         for (int i = 0; i < inputSystem.Binding.Count; i++)
         {
-            if (inputSystem.Binding[i].name == bindingName)
-            {
-                InputBindingCollection bind = inputSystem.Binding[i];
+            InputBindingCollection bind = inputSystem.Binding[i];
 
-                if (bind.inputType == InputBindingCollection.InputType.Vector2)
-                    return bind.vVal;
-            }
+            if (bind.name == bindingName)
+                return bind.vVal;
         }
+
         return Vector2.zero;
     }
 }
