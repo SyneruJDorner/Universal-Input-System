@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -307,7 +307,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70eef97d39c4c6c4a9303c9c848253d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
+  PlayerDefinedSensitivity: 15
+  rotationX: 0
+  rotationY: 0
+  currentRotationX: 0
+  currentRotationY: 0
+  rotationXVelocity: 0
+  rotationYVelocity: 0
+  camTrans: {fileID: 0}
+  camObj: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!1 &1119340280
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,17 +405,21 @@ MonoBehaviour:
   Binding:
   - name: Movement
     inputType: 1
-    keyboardKeys: 04000000010000001700000013000000
+    keyboardKeys: 17000000010000001300000004000000
+    mouseKeys: 
     gamepadKeys: 0d000000
     keyboardInputs: []
+    mouseInputs: []
     gamepadInputs: []
     fVal: 0
     vVal: {x: 0, y: 0}
-  - name: Tester
-    inputType: 0
-    keyboardKeys: 5c000000
-    gamepadKeys: 03000000
+  - name: Looking
+    inputType: 1
+    keyboardKeys: 
+    mouseKeys: 06000000
+    gamepadKeys: 15000000
     keyboardInputs: []
+    mouseInputs: []
     gamepadInputs: []
     fVal: 0
     vVal: {x: 0, y: 0}

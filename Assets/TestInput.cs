@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class TestInput : MonoBehaviour
 {
+    [Header("Movement")]
     public float speed = 5;
+
+    [Header("Looking")]
+    private float PlayerDefinedSmoothDamp = 0.03333333f;
+    public float PlayerDefinedSensitivity = 30;
+    private float minimumX = -89.5f, maximumX = 89.5f;
+    [HideInInspector] public float rotationX = 0f, rotationY = 0f;
+    [HideInInspector] public float currentRotationX, currentRotationY, rotationXVelocity, rotationYVelocity;
+
+    [Header("Cached Info")]
     public Transform camTrans;
     public GameObject camObj;
     public Camera cam;
@@ -18,8 +28,8 @@ public class TestInput : MonoBehaviour
 
     public void Update()
     {
-        Vector2 movement = Input.GetVector2("Movement");
-        camTrans.position += new Vector3(movement.x, 0, movement.y) * (speed * Time.deltaTime);
+        Movement();
+        Looking();
 
         if (Input.IsKeyDown("Movement"))
         {
@@ -30,22 +40,22 @@ public class TestInput : MonoBehaviour
         {
             //Debug.Log("Movement (currently not in use)");
         }
+    }
 
-        /*
-        if (Input.InitiatedPressed("Movement"))
-        {
-            //Debug.Log("Pressed Init: Movement");
-        }
+    void Looking()
+    {
+        Vector2 looking = Input.GetVector2("Looking");
+        rotationX -= looking.y * (PlayerDefinedSensitivity * Time.deltaTime);
+        rotationY += looking.x * (PlayerDefinedSensitivity * Time.deltaTime);
+        rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
+        currentRotationX = Mathf.SmoothDamp(currentRotationX, rotationX, ref rotationXVelocity, PlayerDefinedSmoothDamp);
+        currentRotationY = Mathf.SmoothDamp(currentRotationY, rotationY, ref rotationYVelocity, PlayerDefinedSmoothDamp);
+        transform.localRotation = Quaternion.Euler(currentRotationX, currentRotationY, 0);
+    }
 
-        if (Input.IsPressed("Movement"))
-        {
-            //Debug.Log("Pressed: Movement");
-        }
-
-        if (Input.IsReleased("Movement"))
-        {
-            //Debug.Log("Released: Movement");
-        }
-        */
+    void Movement()
+    {
+        Vector2 movement = Input.GetVector2("Movement");
+        camTrans.position += Quaternion.Euler(0, camTrans.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y) * (speed * Time.deltaTime);
     }
 }

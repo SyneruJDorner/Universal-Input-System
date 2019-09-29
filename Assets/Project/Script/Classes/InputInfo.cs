@@ -25,6 +25,7 @@ public class InputInfo
     public float duration;
 
     public Input.KeyboardKeys keyboardKeys;
+    public Input.MouseKeys mouseKeys;
     public Input.GamepadKeys gamepadKeys;
 
     public InputInfo()
@@ -40,6 +41,7 @@ public class InputInfo
         duration = 0;
 
         keyboardKeys = Input.KeyboardKeys.None;
+        mouseKeys = Input.MouseKeys.None;
         gamepadKeys = Input.GamepadKeys.None;
     }
 

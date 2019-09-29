@@ -28,6 +28,7 @@ public class InputSystem : MonoBehaviour
     [HideInInspector] private InputControls inputControls;
     [HideInInspector] private InputControls.KeyboardActions keyboard_Controller;
     [HideInInspector] private InputControls.GamepadActions gamepad_Controller;
+    [HideInInspector] private InputControls.MouseActions mouse_Controller;
     public List<InputBindingCollection> Binding = new List<InputBindingCollection>();
     #endregion
 
@@ -36,7 +37,9 @@ public class InputSystem : MonoBehaviour
     {
         inputControls = new InputControls();
         InitKeyboard();
+        InitMouse();
         InitGamepad();
+        SortToMatch();
     }
 
     public void InitKeyboard()
@@ -167,6 +170,50 @@ public class InputSystem : MonoBehaviour
         InitBinding(gamepad_Controller.Start, typeof(float));
     }
 
+    private void InitMouse()
+    {
+        mouse_Controller = inputControls.Mouse;
+        inputControls.Mouse.Enable();
+
+        InitBinding(mouse_Controller.BackButton, typeof(float));
+        InitBinding(mouse_Controller.ForwardButton, typeof(float));
+        InitBinding(mouse_Controller.LeftClick, typeof(float));
+        InitBinding(mouse_Controller.MiddleClick, typeof(float));
+        InitBinding(mouse_Controller.RightClick, typeof(float));
+        InitBinding(mouse_Controller.Delta, typeof(Vector2));
+        InitBinding(mouse_Controller.Scroll, typeof(Vector2));
+    }
+
+    private void SortToMatch()
+    {
+        for (int i = 0; i < Binding.Count; i++)
+        {
+            for (int o = 0; o < Binding[i].keyboardKeys.Count; o++)
+            {
+                int currentIndex = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[o].ToString());
+                InputInfo cachedInfo = Binding[i].keyboardInputs[currentIndex];
+                Binding[i].keyboardInputs.RemoveAt(currentIndex);
+                Binding[i].keyboardInputs.Insert(o, cachedInfo);
+            }
+
+            for (int o = 0; o < Binding[i].mouseKeys.Count; o++)
+            {
+                int currentIndex = Binding[i].mouseInputs.FindIndex(item => item.Name == Binding[i].mouseKeys[o].ToString());
+                InputInfo cachedInfo = Binding[i].mouseInputs[currentIndex];
+                Binding[i].mouseInputs.RemoveAt(currentIndex);
+                Binding[i].mouseInputs.Insert(o, cachedInfo);
+            }
+
+            for (int o = 0; o < Binding[i].gamepadKeys.Count; o++)
+            {
+                int currentIndex = Binding[i].gamepadInputs.FindIndex(item => item.Name == Binding[i].gamepadKeys[o].ToString());
+                InputInfo cachedInfo = Binding[i].gamepadInputs[currentIndex];
+                Binding[i].gamepadInputs.RemoveAt(currentIndex);
+                Binding[i].gamepadInputs.Insert(o, cachedInfo);
+            }
+        }
+    }
+
     private void InitBinding(InputAction inputAction, Type assignedType)
     {
         EventInit(inputAction);
@@ -180,19 +227,27 @@ public class InputSystem : MonoBehaviour
             for (int i = 0; i < Binding.Count; i++)
             {
                 int indexKeyboard = Binding[i].keyboardInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
+                int indexMouse = Binding[i].mouseInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
                 int indexGamepad = Binding[i].gamepadInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
 
                 if (indexKeyboard >= 0)
                 {
                     InputInfo currentInputInfo = Binding[i].keyboardInputs[indexKeyboard];
-                    UpdateInputInfo.UpdateInfo(ref currentInputInfo, ctx);
+                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
                     Binding.ElementAt(i).keyboardInputs[indexKeyboard] = currentInputInfo;
+                }
+
+                if (indexMouse >= 0)
+                {
+                    InputInfo currentInputInfo = Binding[i].mouseInputs[indexMouse];
+                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
+                    Binding.ElementAt(i).mouseInputs[indexMouse] = currentInputInfo;
                 }
 
                 if (indexGamepad >= 0)
                 {
                     InputInfo currentInputInfo = Binding[i].gamepadInputs[indexGamepad];
-                    UpdateInputInfo.UpdateInfo(ref currentInputInfo, ctx);
+                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
                     Binding.ElementAt(i).gamepadInputs[indexGamepad] = currentInputInfo;
                 }
             }
@@ -203,18 +258,25 @@ public class InputSystem : MonoBehaviour
             for (int i = 0; i < Binding.Count; i++)
             {
                 int indexKeyboard = Binding[i].keyboardInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
+                int indexMouse = Binding[i].mouseInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
                 int indexGamepad = Binding[i].gamepadInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
 
                 if (indexKeyboard >= 0)
                 {
                     InputInfo currentInputInfo = Binding[i].keyboardInputs[indexKeyboard];
-                    UpdateInputInfo.UpdateInfo(ref currentInputInfo, ctx);
+                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
+                }
+
+                if (indexMouse >= 0)
+                {
+                    InputInfo currentInputInfo = Binding[i].mouseInputs[indexMouse];
+                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
                 }
 
                 if (indexGamepad >= 0)
                 {
                     InputInfo currentInputInfo = Binding[i].gamepadInputs[indexGamepad];
-                    UpdateInputInfo.UpdateInfo(ref currentInputInfo, ctx);
+                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
                 }
             }
         };
@@ -231,6 +293,11 @@ public class InputSystem : MonoBehaviour
                 Binding[i].keyboardInputs[o].LateUpdate();
             }
 
+            for (int o = 0; o < Binding[i].mouseInputs.Count; o++)
+            {
+                Binding[i].mouseInputs[o].LateUpdate();
+            }
+
             for (int o = 0; o < Binding[i].gamepadInputs.Count; o++)
             {
                 Binding[i].gamepadInputs[o].LateUpdate();
@@ -238,135 +305,4 @@ public class InputSystem : MonoBehaviour
         }
     }
     #endregion
-}
-
-public class UpdateInputInfo
-{
-    private static List<InputBindingCollection> Binding => InputSystem.Instance.Binding;
-
-    public static void InitDefinedInput(InputAction inputAction, Type assignedType)
-    {
-        //Init value
-        string assignedTitle = inputAction.ToString().Split('/').Last();
-        assignedTitle = char.ToUpper(assignedTitle[0]) + assignedTitle.Substring(1);
-        assignedTitle = assignedTitle.Remove(assignedTitle.Length - 1);
-
-        Enum.TryParse(assignedTitle, out Input.GamepadKeys assignedGamepadKeys);
-        Enum.TryParse(assignedTitle, out Input.KeyboardKeys assignedKeyboardKeys);
-
-        InputInfo createdInputInfo = new InputInfo()
-        {
-            Name = assignedTitle,
-            isFloat = (assignedType.ToString() == "System.Single") ? true : false,
-            IsVector2 = (assignedType.ToString() == "System.Single") ? false : true,
-            fVal = 0,
-            vVal = Vector2.zero,
-            inputActionPhase = InputActionPhase.Disabled,
-            HardwareDevice = (InputInfo.HardwareDeviceType)Enum.Parse(typeof(InputInfo.HardwareDeviceType), inputAction.ToString().Split('/').First()),
-            gamepadKeys = assignedGamepadKeys,
-            keyboardKeys = assignedKeyboardKeys
-        };
-
-        for (int i = 0; i < Binding.Count; i++)
-        {
-            for (int o = 0; o < Binding[i].keyboardKeys.Count; o++)
-            {
-                if (createdInputInfo.Name == Binding[i].keyboardKeys[o].ToString())
-                {
-                    Binding[i].keyboardInputs.Add(createdInputInfo);
-                }
-            }
-
-            for (int o = 0; o < Binding[i].gamepadKeys.Count; o++)
-            {
-                if (createdInputInfo.Name == Binding[i].gamepadKeys[o].ToString())
-                {
-                    Binding[i].gamepadInputs.Add(createdInputInfo);
-                }
-            }
-        }
-    }
-
-    public static void UpdateInfo(ref InputInfo currentInputInfo, InputAction.CallbackContext ctx)
-    {
-        currentInputInfo.inputActionPhase = ctx.phase;
-
-        if (ctx.valueType.ToString() == "System.Single")
-        {
-            float value = ctx.ReadValue<float>();
-            currentInputInfo.isFloat = true;
-            currentInputInfo.fVal = value;
-
-            for (int i = 0; i < Binding.Count; i++)
-            {
-                //Single data
-                if (Binding[i].inputType == InputBindingCollection.InputType.Single)
-                {
-                    int keyboardIndex = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[0].ToString());
-                    int gamepadIndex = Binding[i].gamepadInputs.FindIndex(item => item.Name == Binding[i].gamepadKeys[0].ToString());
-
-                    Binding[i].fVal = 0;
-
-                    if (currentInputInfo.HardwareDevice == InputInfo.HardwareDeviceType.Keyboard)
-                        Binding[i].fVal = value;
-                    if (currentInputInfo.HardwareDevice == InputInfo.HardwareDeviceType.Gamepad)
-                        Binding[i].fVal = value;
-                }
-
-                //Single data to vector2
-                if (Binding[i].inputType == InputBindingCollection.InputType.Vector2)
-                {
-                    if (currentInputInfo.HardwareDevice == InputInfo.HardwareDeviceType.Keyboard)
-                    {
-                        int right = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[0].ToString());
-                        int left = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[1].ToString());
-                        int up = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[2].ToString());
-                        int down = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[3].ToString());
-
-                        //currentInputInfo
-                        Binding[i].vVal = Vector2.zero;
-
-                        if (right >= 0)
-                            Binding[i].vVal.x += Binding[i].keyboardInputs[right].fVal;
-
-                        if (left >= 0)
-                            Binding[i].vVal.x -= Binding[i].keyboardInputs[left].fVal;
-
-                        if (up >= 0)
-                            Binding[i].vVal.y += Binding[i].keyboardInputs[up].fVal;
-
-                        if (down >= 0)
-                            Binding[i].vVal.y -= Binding[i].keyboardInputs[down].fVal;
-
-                        if (Binding[i].vVal != Vector2.zero)
-                            Binding[i].vVal.Normalize();
-                    }
-                }
-            }
-        }
-
-        if (ctx.valueType.ToString() == "UnityEngine.Vector2")
-        {
-            Vector2 value = ctx.ReadValue<Vector2>();
-            currentInputInfo.IsVector2 = true;
-            currentInputInfo.vVal = value;
-
-            for (int i = 0; i < Binding.Count; i++)
-            {
-                int keyboardIndex = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[0].ToString());
-                int gamepadIndex = Binding[i].gamepadInputs.FindIndex(item => item.Name == Binding[i].gamepadKeys[0].ToString());
-
-
-                //int keyboardIndex = inputInfo.IndexOf(inputInfo.Where(item => item.Name == Binding[i].keyboardKeys[0].ToString()).FirstOrDefault());
-                //int gamepadIndex = inputInfo.IndexOf(inputInfo.Where(item => item.Name == Binding[i].keyboardKeys[0].ToString()).FirstOrDefault());
-
-                Binding[i].vVal = Vector2.zero;
-
-                if (currentInputInfo.HardwareDevice == InputInfo.HardwareDeviceType.Keyboard)
-                    Binding[i].vVal = value;
-                if (currentInputInfo.HardwareDevice == InputInfo.HardwareDeviceType.Gamepad)
-                    Binding[i].vVal = value;
-            }
-        }
-    }
 }

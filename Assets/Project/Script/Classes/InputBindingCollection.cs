@@ -2,40 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class InputBindingCollection
-{
-    public string name;
-    public enum InputType
-    {
-        Single,
-        Vector2,
-    }
-    public InputType inputType = InputType.Single;
-    public List<Input.KeyboardKeys> keyboardKeys = new List<Input.KeyboardKeys>();
-    public List<Input.GamepadKeys> gamepadKeys = new List<Input.GamepadKeys>();
-
-    [HideInInspector] public List<InputInfo> keyboardInputs = new List<InputInfo>();
-    [HideInInspector] public List<InputInfo> gamepadInputs = new List<InputInfo>();
-    public float fVal = 0;
-    public Vector2 vVal = new Vector2(0, 0);
-}
-
 public class Input
 {
     private static InputSystem inputSystem;
-
-    public enum GamepadKeys
-    {
-        None,
-        ButtonEast, ButtonNorth, ButtonSouth, ButtonWest,
-        Dpad, DpadNorth, DpadEast, DpadSouth, DpadWest,
-        LeftShoulder, LeftTrigger, LeftStickPress,
-        LeftStick, LeftStickNorth, LeftStickEast, LeftStickSouth, LeftStickWest,
-        RightShoulder, RightStickPress, RightTrigger,
-        RightStick, RightStickNorth, RightStickEast, RightStickSouth, RightStickWest,
-        Select, Start
-    }
 
     public enum KeyboardKeys
     {
@@ -59,6 +28,25 @@ public class Input
         PageDown, PageUp, Pause, Period, PrintScreen, Quote, RightAlt,
         RightArrow, RightBracket, RightCtrl, RightMeta, RightShift,
         ScrollLock, Semicolon, Slash, Space, Tab, UpArrow
+    }
+
+    public enum MouseKeys
+    {
+        None,
+        BackButton, ForwardButton, LeftClick, MiddleClick, RightClick,
+        Delta, Scroll
+    }
+
+    public enum GamepadKeys
+    {
+        None,
+        ButtonEast, ButtonNorth, ButtonSouth, ButtonWest,
+        Dpad, DpadNorth, DpadEast, DpadSouth, DpadWest,
+        LeftShoulder, LeftTrigger, LeftStickPress,
+        LeftStick, LeftStickNorth, LeftStickEast, LeftStickSouth, LeftStickWest,
+        RightShoulder, RightStickPress, RightTrigger,
+        RightStick, RightStickNorth, RightStickEast, RightStickSouth, RightStickWest,
+        Select, Start
     }
 
     public static bool IsKeyDown(string bindingName)
@@ -137,25 +125,4 @@ public class Input
         }
         return Vector2.zero;
     }
-
-    /*
-    public static dynamic BindingValue(string bindingName)
-    {
-        inputSystem = inputSystem ?? InputSystem.Instance;
-
-        for (int i = 0; i < inputSystem.Binding.Count; i++)
-        {
-            if (inputSystem.Binding[i].name == bindingName)
-            {
-                InputBindingCollection bind = inputSystem.Binding[i];
-                if (bind.inputType == InputBindingCollection.InputType.Single)
-                    return bind.fVal;
-
-                if (bind.inputType == InputBindingCollection.InputType.Vector2)
-                    return bind.vVal;
-            }
-        }
-        return null;
-    }
-    */
 }
