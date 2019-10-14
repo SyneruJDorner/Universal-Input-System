@@ -182,66 +182,76 @@ public class InputSystem : MonoBehaviour
         InitBinding(mouse_Controller.RightClick, typeof(float));
         InitBinding(mouse_Controller.Delta, typeof(Vector2));
         InitBinding(mouse_Controller.Scroll, typeof(Vector2));
+        InitBinding(mouse_Controller.Position, typeof(Vector2), false);
     }
 
     private void SortToMatch()
     {
         for (int i = 0; i < Binding.Count; i++)
         {
-            for (int o = 0; o < Binding[i].keyboardKeys.Count; o++)
+            if (Binding[i].keyboardKeys.Count > 1)
             {
-                int currentIndex = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[o].ToString());
-
-                if (currentIndex == -1)
+                for (int o = 0; o < Binding[i].keyboardKeys.Count; o++)
                 {
-                    Binding[i].keyboardKeys = new List<Input.KeyboardKeys>(0);
-                    continue;
-                }
+                    int currentIndex = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[o].ToString());
 
-                InputInfo cachedInfo = Binding[i].keyboardInputs[currentIndex];
-                Binding[i].keyboardInputs.RemoveAt(currentIndex);
-                Binding[i].keyboardInputs.Insert(o, cachedInfo);
+                    if (currentIndex == -1)
+                    {
+                        Binding[i].keyboardKeys = new List<Input.KeyboardKeys>(0);
+                        continue;
+                    }
+
+                    InputInfo cachedInfo = Binding[i].keyboardInputs[currentIndex];
+                    Binding[i].keyboardInputs.RemoveAt(currentIndex);
+                    Binding[i].keyboardInputs.Insert(o, cachedInfo);
+                }
             }
 
-            for (int o = 0; o < Binding[i].mouseKeys.Count; o++)
+            if (Binding[i].mouseKeys.Count > 1)
             {
-                int currentIndex = Binding[i].mouseInputs.FindIndex(item => item.Name == Binding[i].mouseKeys[o].ToString());
-
-                if (currentIndex == -1)
+                for (int o = 0; o < Binding[i].mouseKeys.Count; o++)
                 {
-                    Binding[i].mouseKeys = new List<Input.MouseKeys>(0);
-                    continue;
+                    int currentIndex = Binding[i].mouseInputs.FindIndex(item => item.Name == Binding[i].mouseKeys[o].ToString());
+
+                    if (currentIndex == -1)
+                    {
+                        Binding[i].mouseKeys = new List<Input.MouseKeys>(0);
+                        continue;
+                    }
+
+                    InputInfo cachedInfo = Binding[i].mouseInputs[currentIndex];
+                    Binding[i].mouseInputs.RemoveAt(currentIndex);
+                    Binding[i].mouseInputs.Insert(o, cachedInfo);
                 }
-                
-                InputInfo cachedInfo = Binding[i].mouseInputs[currentIndex];
-                Binding[i].mouseInputs.RemoveAt(currentIndex);
-                Binding[i].mouseInputs.Insert(o, cachedInfo);
             }
 
-            for (int o = 0; o < Binding[i].gamepadKeys.Count; o++)
+            if (Binding[i].gamepadKeys.Count > 1)
             {
-                int currentIndex = Binding[i].gamepadInputs.FindIndex(item => item.Name == Binding[i].gamepadKeys[o].ToString());
-
-                if (currentIndex == -1)
+                for (int o = 0; o < Binding[i].gamepadKeys.Count; o++)
                 {
-                    Binding[i].gamepadKeys = new List<Input.GamepadKeys>(0);
-                    continue;
-                }
+                    int currentIndex = Binding[i].gamepadInputs.FindIndex(item => item.Name == Binding[i].gamepadKeys[o].ToString());
 
-                InputInfo cachedInfo = Binding[i].gamepadInputs[currentIndex];
-                Binding[i].gamepadInputs.RemoveAt(currentIndex);
-                Binding[i].gamepadInputs.Insert(o, cachedInfo);
+                    if (currentIndex == -1)
+                    {
+                        Binding[i].gamepadKeys = new List<Input.GamepadKeys>(0);
+                        continue;
+                    }
+
+                    InputInfo cachedInfo = Binding[i].gamepadInputs[currentIndex];
+                    Binding[i].gamepadInputs.RemoveAt(currentIndex);
+                    Binding[i].gamepadInputs.Insert(o, cachedInfo);
+                }
             }
         }
     }
 
-    private void InitBinding(InputAction inputAction, Type assignedType)
+    private void InitBinding(InputAction inputAction, Type assignedType, bool hasCancel = true)
     {
-        EventInit(inputAction);
         UpdateInputInfo.InitDefinedInput(inputAction, assignedType);
+        EventInit(inputAction, hasCancel);
     }
 
-    private void EventInit(InputAction inputAction)
+    private void EventInit(InputAction inputAction, bool hasCancel)
     {
         inputAction.performed += ctx =>
         {
@@ -273,6 +283,9 @@ public class InputSystem : MonoBehaviour
                 }
             }
         };
+
+        if (hasCancel == false)
+            return;
 
         inputAction.canceled += ctx =>
         {

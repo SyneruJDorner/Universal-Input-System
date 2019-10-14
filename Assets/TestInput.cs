@@ -31,12 +31,12 @@ public class TestInput : MonoBehaviour
         Movement();
         Looking();
 
-        if (Input.IsKeyDown("Movement"))
+        if (Input.GetKeyDown("Movement"))
         {
             //Debug.Log("Movement (currently use)");
         }
 
-        if (Input.IsKeyUp("Movement"))
+        if (Input.GetKey("Movement"))
         {
             //Debug.Log("Movement (currently not in use)");
         }

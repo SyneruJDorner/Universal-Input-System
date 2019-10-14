@@ -2330,6 +2330,14 @@ public class InputControls : IInputActionCollection
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Position"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3c7c180-c711-4e31-b918-7652f38412e7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -2407,6 +2415,17 @@ public class InputControls : IInputActionCollection
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Back Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e428cf4a-82c0-4fba-8793-56c31a76d1b8"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Position"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2744,6 +2763,7 @@ public class InputControls : IInputActionCollection
         m_Mouse_Delta = m_Mouse.FindAction("Delta", throwIfNotFound: true);
         m_Mouse_ForwardButton = m_Mouse.FindAction("Forward Button", throwIfNotFound: true);
         m_Mouse_BackButton = m_Mouse.FindAction("Back Button", throwIfNotFound: true);
+        m_Mouse_Position = m_Mouse.FindAction("Position", throwIfNotFound: true);
         // Toushscreen
         m_Toushscreen = asset.FindActionMap("Toushscreen", throwIfNotFound: true);
         m_Toushscreen_Touch0 = m_Toushscreen.FindAction("Touch0", throwIfNotFound: true);
@@ -3806,6 +3826,7 @@ public class InputControls : IInputActionCollection
     private readonly InputAction m_Mouse_Delta;
     private readonly InputAction m_Mouse_ForwardButton;
     private readonly InputAction m_Mouse_BackButton;
+    private readonly InputAction m_Mouse_Position;
     public struct MouseActions
     {
         private InputControls m_Wrapper;
@@ -3817,6 +3838,7 @@ public class InputControls : IInputActionCollection
         public InputAction @Delta => m_Wrapper.m_Mouse_Delta;
         public InputAction @ForwardButton => m_Wrapper.m_Mouse_ForwardButton;
         public InputAction @BackButton => m_Wrapper.m_Mouse_BackButton;
+        public InputAction @Position => m_Wrapper.m_Mouse_Position;
         public InputActionMap Get() { return m_Wrapper.m_Mouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -3847,6 +3869,9 @@ public class InputControls : IInputActionCollection
                 BackButton.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnBackButton;
                 BackButton.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnBackButton;
                 BackButton.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnBackButton;
+                Position.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnPosition;
+                Position.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnPosition;
+                Position.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnPosition;
             }
             m_Wrapper.m_MouseActionsCallbackInterface = instance;
             if (instance != null)
@@ -3872,6 +3897,9 @@ public class InputControls : IInputActionCollection
                 BackButton.started += instance.OnBackButton;
                 BackButton.performed += instance.OnBackButton;
                 BackButton.canceled += instance.OnBackButton;
+                Position.started += instance.OnPosition;
+                Position.performed += instance.OnPosition;
+                Position.canceled += instance.OnPosition;
             }
         }
     }
@@ -4114,6 +4142,7 @@ public class InputControls : IInputActionCollection
         void OnDelta(InputAction.CallbackContext context);
         void OnForwardButton(InputAction.CallbackContext context);
         void OnBackButton(InputAction.CallbackContext context);
+        void OnPosition(InputAction.CallbackContext context);
     }
     public interface IToushscreenActions
     {

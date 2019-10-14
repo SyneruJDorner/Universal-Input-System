@@ -2318,6 +2318,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Position",
+                    "type": "Button",
+                    "id": "f3c7c180-c711-4e31-b918-7652f38412e7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -2395,6 +2403,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Back Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e428cf4a-82c0-4fba-8793-56c31a76d1b8",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

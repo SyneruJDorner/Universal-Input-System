@@ -63,7 +63,14 @@ public static class UpdateInputInfo
         if (ctx.valueType.ToString() == "System.Single")
         {
             float value = ctx.ReadValue<float>();
+            Binding[bindLocation].fVal = value;
             currentInputInfo.fVal = value;
+
+            if (Binding[bindLocation].inputKeyboardType == InputBindingCollection.InputType.Single)
+            {
+                if (Binding[bindLocation].fVal == 0 && currentInputInfo.fVal == 0 && Binding[bindLocation].isKeyPressed == true)
+                    Binding[bindLocation].isKeyPressed = false;
+            }
 
             if (Binding[bindLocation].selectedBindingDevice == InputInfo.HardwareDeviceType.Keyboard)
             {
@@ -71,10 +78,10 @@ public static class UpdateInputInfo
                 {
                     Binding[bindLocation].vVal = Vector2.zero;
 
-                    Binding[bindLocation].vVal.y += Binding[bindLocation].keyboardInputs[0].fVal;//Up
-                    Binding[bindLocation].vVal.x -= Binding[bindLocation].keyboardInputs[1].fVal;//Left
-                    Binding[bindLocation].vVal.x += Binding[bindLocation].keyboardInputs[2].fVal;//Right
-                    Binding[bindLocation].vVal.y -= Binding[bindLocation].keyboardInputs[3].fVal;//Down
+                    Binding[bindLocation].vVal.y += Binding[bindLocation].keyboardInputs[0].fVal; //Up
+                    Binding[bindLocation].vVal.x -= Binding[bindLocation].keyboardInputs[1].fVal; //Left
+                    Binding[bindLocation].vVal.x += Binding[bindLocation].keyboardInputs[2].fVal; //Right
+                    Binding[bindLocation].vVal.y -= Binding[bindLocation].keyboardInputs[3].fVal; //Down
 
                     if (Binding[bindLocation].vVal != Vector2.zero)
                         Binding[bindLocation].vVal.Normalize();
