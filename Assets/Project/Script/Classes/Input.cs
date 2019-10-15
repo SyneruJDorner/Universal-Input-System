@@ -1,10 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class Input
 {
     private static InputSystem inputSystem;
+
+    #if UNITY_STANDALONE_WIN
+    [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+    public static extern short GetKeyState(int keyCode);
+#endif
+
+#if UNITY_STANDALONE_OSX
+    [DllImport("/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices")]
+    public static extern long CGEventSourceFlagsState(int keyCode);
+#endif
 
     public enum KeyboardKeys
     {
@@ -262,5 +273,38 @@ public class Input
         }
 
         return Vector2.zero;
+    }
+
+    public static bool IsCapsLockOn()
+    {
+#if UNITY_STANDALONE_WIN
+        return (((ushort)GetKeyState(0x14)) & 0xffff) != 0;
+#endif
+
+#if UNITY_STANDALONE_OSX
+        return (CGEventSourceFlagsState(1) & 0x00010000) != 0;
+#endif
+    }
+
+    public static bool IsNumLockOn()
+    {
+#if UNITY_STANDALONE_WIN
+        return (((ushort)GetKeyState(0x90)) & 0xffff) != 0;
+#endif
+
+#if UNITY_STANDALONE_OSX
+        return (CGEventSourceFlagsState(1) & 0x00010000) != 0;
+#endif
+    }
+
+    public static bool IsScrollLockOn()
+    {
+#if UNITY_STANDALONE_WIN
+        return (((ushort)GetKeyState(0x91)) & 0xffff) != 0;
+#endif
+
+#if UNITY_STANDALONE_OSX
+        return (CGEventSourceFlagsState(1) & 0x00010000) != 0;
+#endif
     }
 }

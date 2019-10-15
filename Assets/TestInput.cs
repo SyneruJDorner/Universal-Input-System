@@ -28,6 +28,21 @@ public class TestInput : MonoBehaviour
 
     public void Update()
     {
+        if (Input.IsCapsLockOn() == true)
+        {
+            Debug.Log("Caps Lock is on!");
+        }
+
+        if (Input.IsNumLockOn() == true)
+        {
+            Debug.Log("Num Lock is on!");
+        }
+
+        if (Input.IsScrollLockOn() == true)
+        {
+            Debug.Log("Scroll Lock is on!");
+        }
+
         Movement();
         Looking();
 
@@ -45,8 +60,8 @@ public class TestInput : MonoBehaviour
     void Looking()
     {
         Vector2 looking = Input.GetVector2("Looking");
-        rotationX -= looking.y * (PlayerDefinedSensitivity * Time.deltaTime);
-        rotationY += looking.x * (PlayerDefinedSensitivity * Time.deltaTime);
+        rotationX -= looking.y * (PlayerDefinedSensitivity * 0.016f);
+        rotationY += looking.x * (PlayerDefinedSensitivity * 0.016f);
         rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
         currentRotationX = Mathf.SmoothDamp(currentRotationX, rotationX, ref rotationXVelocity, PlayerDefinedSmoothDamp);
         currentRotationY = Mathf.SmoothDamp(currentRotationY, rotationY, ref rotationYVelocity, PlayerDefinedSmoothDamp);
