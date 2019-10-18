@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[DefaultExecutionOrder(1)]
 public class InputSystem : MonoBehaviour
 {
     #region Singleton Access
@@ -30,6 +31,24 @@ public class InputSystem : MonoBehaviour
     [HideInInspector] private InputControls.GamepadActions gamepad_Controller;
     [HideInInspector] private InputControls.MouseActions mouse_Controller;
     public List<InputBindingCollection> Binding = new List<InputBindingCollection>();
+    public List<KeyValuePair> dictionaryBinding = new List<KeyValuePair>();
+
+    [System.Serializable]
+    public class KeyValuePair
+    {
+        public string Key;
+        public List<InputInfo> Value = new List<InputInfo>();
+        public InputAction.CallbackContext ctx;
+        public float fVal = 0;
+        public Vector2 vVal = new Vector2(0, 0);
+        public InputActionPhase phase;
+        [HideInInspector] public int lastRecalculation = -1;
+        public float duration = 0;
+        [HideInInspector] public float currentEndTime = 0, cachedEndTime = 0;
+
+        //Change
+        public InputBindingCollection.InputType inputReturnType = InputBindingCollection.InputType.Single;
+    }
     #endregion
 
     #region Init
@@ -39,7 +58,6 @@ public class InputSystem : MonoBehaviour
         InitKeyboard();
         InitMouse();
         InitGamepad();
-        SortToMatch();
     }
 
     public void InitKeyboard()
@@ -185,101 +203,163 @@ public class InputSystem : MonoBehaviour
         InitBinding(mouse_Controller.Position, typeof(Vector2), false);
     }
 
-    private void SortToMatch()
-    {
-        for (int i = 0; i < Binding.Count; i++)
-        {
-            if (Binding[i].keyboardKeys.Count > 1)
-            {
-                for (int o = 0; o < Binding[i].keyboardKeys.Count; o++)
-                {
-                    int currentIndex = Binding[i].keyboardInputs.FindIndex(item => item.Name == Binding[i].keyboardKeys[o].ToString());
-
-                    if (currentIndex == -1)
-                    {
-                        Binding[i].keyboardKeys = new List<Input.KeyboardKeys>(0);
-                        continue;
-                    }
-
-                    InputInfo cachedInfo = Binding[i].keyboardInputs[currentIndex];
-                    Binding[i].keyboardInputs.RemoveAt(currentIndex);
-                    Binding[i].keyboardInputs.Insert(o, cachedInfo);
-                }
-            }
-
-            if (Binding[i].mouseKeys.Count > 1)
-            {
-                for (int o = 0; o < Binding[i].mouseKeys.Count; o++)
-                {
-                    int currentIndex = Binding[i].mouseInputs.FindIndex(item => item.Name == Binding[i].mouseKeys[o].ToString());
-
-                    if (currentIndex == -1)
-                    {
-                        Binding[i].mouseKeys = new List<Input.MouseKeys>(0);
-                        continue;
-                    }
-
-                    InputInfo cachedInfo = Binding[i].mouseInputs[currentIndex];
-                    Binding[i].mouseInputs.RemoveAt(currentIndex);
-                    Binding[i].mouseInputs.Insert(o, cachedInfo);
-                }
-            }
-
-            if (Binding[i].gamepadKeys.Count > 1)
-            {
-                for (int o = 0; o < Binding[i].gamepadKeys.Count; o++)
-                {
-                    int currentIndex = Binding[i].gamepadInputs.FindIndex(item => item.Name == Binding[i].gamepadKeys[o].ToString());
-
-                    if (currentIndex == -1)
-                    {
-                        Binding[i].gamepadKeys = new List<Input.GamepadKeys>(0);
-                        continue;
-                    }
-
-                    InputInfo cachedInfo = Binding[i].gamepadInputs[currentIndex];
-                    Binding[i].gamepadInputs.RemoveAt(currentIndex);
-                    Binding[i].gamepadInputs.Insert(o, cachedInfo);
-                }
-            }
-        }
-    }
-
     private void InitBinding(InputAction inputAction, Type assignedType, bool hasCancel = true)
     {
-        UpdateInputInfo.InitDefinedInput(inputAction, assignedType);
+        InitDefinedInput(inputAction, assignedType);
         EventInit(inputAction, hasCancel);
+    }
+
+    public void InitDefinedInput(InputAction inputAction, Type assignedType)
+    {
+        string assignedTitle = inputAction.ToString().Split('/').Last();
+        assignedTitle = char.ToUpper(assignedTitle[0]) + assignedTitle.Substring(1);
+        assignedTitle = assignedTitle.Remove(assignedTitle.Length - 1);
+
+        Enum.TryParse(assignedTitle, out Input.KeyboardKeys_Single assignedKeyboardKeys);
+        Enum.TryParse(assignedTitle, out Input.MouseKeys_Single assignedMouseKeysSingle);
+        Enum.TryParse(assignedTitle, out Input.MouseKeys_Vector2 assignedMouseKeysVector2);
+        Enum.TryParse(assignedTitle, out Input.GamepadKeys_Single assignedGamepadKeysSingle);
+        Enum.TryParse(assignedTitle, out Input.GamepadKeys_Vector2 assignedGamepadKeysVector2);
+
+        InputInfo createdInputInfo = new InputInfo()
+        {
+            Name = assignedTitle,
+            isFloat = (assignedType.ToString() == "System.Single") ? true : false,
+            IsVector2 = (assignedType.ToString() == "System.Single") ? false : true,
+            fVal = 0,
+            vVal = Vector2.zero,
+            HardwareDevice = (InputInfo.HardwareDeviceType)Enum.Parse(typeof(InputInfo.HardwareDeviceType), inputAction.ToString().Split('/').First()),
+            keyboardKeys = assignedKeyboardKeys,
+            mouseKeysSingle = assignedMouseKeysSingle,
+            mouseKeysVector2 = assignedMouseKeysVector2,
+            gamepadKeysSingle = assignedGamepadKeysSingle,
+            gamepadKeysVector2 = assignedGamepadKeysVector2,
+            duration = 0
+        };
+
+        int keyboardSingleCount = 0, MouseSingleCount = 0, MouseVector2Count = 0, gamepadSingleCount = 0, gamepadVector2Count = 0;
+        for (int i = 0; i < Binding.Count; i++)
+        {
+            KeyValuePair result = dictionaryBinding.FirstOrDefault(x => x.Key == Binding[i].name);
+
+            if (result == null)
+            {
+                keyboardSingleCount = Binding[i].keyboardKeys.Where(item => item != Input.KeyboardKeys_Single.None).Count();
+                MouseSingleCount = Binding[i].mouseKeysSingle.Where(item => item != Input.MouseKeys_Single.None).Count();
+                MouseVector2Count = Binding[i].mouseKeysVector2.Where(item => item != Input.MouseKeys_Vector2.None).Count();
+                gamepadSingleCount = Binding[i].gamepadKeysSingle.Where(item => item != Input.GamepadKeys_Single.None).Count();
+                gamepadVector2Count = Binding[i].gamepadKeysVector2.Where(item => item != Input.GamepadKeys_Vector2.None).Count();
+                int totalCount = keyboardSingleCount + MouseSingleCount + MouseVector2Count + gamepadSingleCount + gamepadVector2Count;
+
+                result = new KeyValuePair() { Key = Binding[i].name };
+                result.Value = Enumerable.Range(1, totalCount).Select(x => new InputInfo()).ToList();
+                dictionaryBinding.Add(result);
+            }
+
+            #region Init Keyboard Info
+            for (int o = 0; o < Binding[i].keyboardKeys.Count; o++)
+            {
+                if (createdInputInfo.Name == Binding[i].keyboardKeys[o].ToString())
+                {
+                    result.inputReturnType = Binding[i].inputReturnType;
+
+                    if (result.Value[o].Name == "")
+                        result.Value[o] = createdInputInfo;
+                    else
+                        result.Value[result.Value.Count - 1] = createdInputInfo;
+                }
+            }
+            #endregion
+
+            #region Init Mouse Info
+            for (int o = 0; o < Binding[i].mouseKeysSingle.Count; o++)
+            {
+                if (createdInputInfo.Name == Binding[i].mouseKeysSingle[o].ToString())
+                {
+                    result.inputReturnType = Binding[i].inputReturnType;
+
+                    if (result.Value[keyboardSingleCount + o].Name == "")
+                        result.Value[keyboardSingleCount + o] = createdInputInfo;
+                    else
+                        result.Value[result.Value.Count - 1] = createdInputInfo;
+                }
+            }
+
+            for (int o = 0; o < Binding[i].mouseKeysVector2.Count; o++)
+            {
+                if (createdInputInfo.Name == Binding[i].mouseKeysVector2[o].ToString())
+                {
+                    result.inputReturnType = Binding[i].inputReturnType;
+
+                    if (result.Value[keyboardSingleCount + MouseSingleCount + o].Name == "")
+                        result.Value[keyboardSingleCount + MouseSingleCount + o] = createdInputInfo;
+                    else
+                        result.Value[result.Value.Count - 1] = createdInputInfo;
+                }
+            }
+            #endregion
+
+            #region Init Gampad Info
+            for (int o = 0; o < Binding[i].gamepadKeysSingle.Count; o++)
+            {
+                if (createdInputInfo.Name == Binding[i].gamepadKeysSingle[o].ToString())
+                {
+                    result.inputReturnType = Binding[i].inputReturnType;
+
+                    if (result.Value[keyboardSingleCount + MouseSingleCount + MouseVector2Count + o].Name == "")
+                        result.Value[keyboardSingleCount + MouseSingleCount + MouseVector2Count + o] = createdInputInfo;
+                    else
+                        result.Value[result.Value.Count - 1] = createdInputInfo;
+                }
+            }
+
+            for (int o = 0; o < Binding[i].gamepadKeysVector2.Count; o++)
+            {
+                if (createdInputInfo.Name == Binding[i].gamepadKeysVector2[o].ToString())
+                {
+                    result.inputReturnType = Binding[i].inputReturnType;
+
+                    if (result.Value[keyboardSingleCount + MouseSingleCount + MouseVector2Count + gamepadSingleCount + o].Name == "")
+                        result.Value[keyboardSingleCount + MouseSingleCount + MouseVector2Count + gamepadSingleCount + o] = createdInputInfo;
+                    else
+                        result.Value[result.Value.Count - 1] = createdInputInfo;
+                }
+            }
+            #endregion
+        }
     }
 
     private void EventInit(InputAction inputAction, bool hasCancel)
     {
+        inputAction.started += ctx =>
+        {
+            for (int i = 0; i < dictionaryBinding.Count; i++)
+            {
+                int inputIndex = dictionaryBinding[i].Value.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
+
+                if (inputIndex >= 0)
+                {
+                    InputInfo currentInputInfo = dictionaryBinding[i].Value[inputIndex];
+                    dictionaryBinding[i].phase = InputActionPhase.Started;
+                    UpdateInfo(i, ref currentInputInfo, ctx);
+                    dictionaryBinding[i].Value[inputIndex] = currentInputInfo;
+                    dictionaryBinding[i].Value[inputIndex].ctx = ctx;
+                }
+            }
+        };
+
         inputAction.performed += ctx =>
         {
-            for (int i = 0; i < Binding.Count; i++)
+            for (int i = 0; i < dictionaryBinding.Count; i++)
             {
-                int indexKeyboard = Binding[i].keyboardInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
-                int indexMouse = Binding[i].mouseInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
-                int indexGamepad = Binding[i].gamepadInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
+                int inputIndex = dictionaryBinding[i].Value.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
 
-                if (indexKeyboard >= 0)
+                if (inputIndex >= 0)
                 {
-                    InputInfo currentInputInfo = Binding[i].keyboardInputs[indexKeyboard];
-                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
-                    Binding.ElementAt(i).keyboardInputs[indexKeyboard] = currentInputInfo;
-                }
-
-                if (indexMouse >= 0)
-                {
-                    InputInfo currentInputInfo = Binding[i].mouseInputs[indexMouse];
-                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
-                    Binding.ElementAt(i).mouseInputs[indexMouse] = currentInputInfo;
-                }
-
-                if (indexGamepad >= 0)
-                {
-                    InputInfo currentInputInfo = Binding[i].gamepadInputs[indexGamepad];
-                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
-                    Binding.ElementAt(i).gamepadInputs[indexGamepad] = currentInputInfo;
+                    InputInfo currentInputInfo = dictionaryBinding[i].Value[inputIndex];
+                    UpdateInfo(i, ref currentInputInfo, ctx);
+                    dictionaryBinding[i].Value[inputIndex] = currentInputInfo;
+                    dictionaryBinding[i].Value[inputIndex].ctx = ctx;
                 }
             }
         };
@@ -289,53 +369,51 @@ public class InputSystem : MonoBehaviour
 
         inputAction.canceled += ctx =>
         {
-            for (int i = 0; i < Binding.Count; i++)
+            for (int i = 0; i < dictionaryBinding.Count; i++)
             {
-                int indexKeyboard = Binding[i].keyboardInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
-                int indexMouse = Binding[i].mouseInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
-                int indexGamepad = Binding[i].gamepadInputs.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
+                int inputIndex = dictionaryBinding[i].Value.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
 
-                if (indexKeyboard >= 0)
+                if (inputIndex >= 0)
                 {
-                    InputInfo currentInputInfo = Binding[i].keyboardInputs[indexKeyboard];
-                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
-                }
-
-                if (indexMouse >= 0)
-                {
-                    InputInfo currentInputInfo = Binding[i].mouseInputs[indexMouse];
-                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
-                }
-
-                if (indexGamepad >= 0)
-                {
-                    InputInfo currentInputInfo = Binding[i].gamepadInputs[indexGamepad];
-                    UpdateInputInfo.UpdateInfo(i, ref currentInputInfo, ctx);
+                    InputInfo currentInputInfo = dictionaryBinding[i].Value[inputIndex];
+                    dictionaryBinding[i].phase = InputActionPhase.Canceled;
+                    UpdateInfo(i, ref currentInputInfo, ctx);
+                    dictionaryBinding[i].Value[inputIndex] = currentInputInfo;
+                    dictionaryBinding[i].Value[inputIndex].ctx = ctx;
                 }
             }
         };
     }
-    #endregion
 
-    #region Release Keys (LateUpdate)
-    public void LateUpdate()
+    public void UpdateInfo(int bindLocation, ref InputInfo currentInputInfo, InputAction.CallbackContext ctx)
     {
-        for (int i = 0; i < Binding.Count; i++)
+        currentInputInfo.ctx = ctx;
+
+        if (ctx.valueType.ToString() == "System.Single")
         {
-            for (int o = 0; o < Binding[i].keyboardInputs.Count; o++)
-            {
-                Binding[i].keyboardInputs[o].LateUpdate();
-            }
+            float value = ctx.ReadValue<float>();
+            dictionaryBinding[bindLocation].fVal = value;
+            currentInputInfo.fVal = value;
 
-            for (int o = 0; o < Binding[i].mouseInputs.Count; o++)
+            if (dictionaryBinding[bindLocation].inputReturnType == InputBindingCollection.InputType.Vector2)
             {
-                Binding[i].mouseInputs[o].LateUpdate();
-            }
+                dictionaryBinding[bindLocation].vVal = Vector2.zero;
 
-            for (int o = 0; o < Binding[i].gamepadInputs.Count; o++)
-            {
-                Binding[i].gamepadInputs[o].LateUpdate();
+                dictionaryBinding[bindLocation].vVal.y += dictionaryBinding[bindLocation].Value[0].fVal; //Up
+                dictionaryBinding[bindLocation].vVal.x -= dictionaryBinding[bindLocation].Value[1].fVal; //Left
+                dictionaryBinding[bindLocation].vVal.x += dictionaryBinding[bindLocation].Value[2].fVal; //Right
+                dictionaryBinding[bindLocation].vVal.y -= dictionaryBinding[bindLocation].Value[3].fVal; //Down
+
+                if (dictionaryBinding[bindLocation].vVal != Vector2.zero)
+                    dictionaryBinding[bindLocation].vVal.Normalize();
             }
+        }
+
+        if (ctx.valueType.ToString() == "UnityEngine.Vector2")
+        {
+            Vector2 value = ctx.ReadValue<Vector2>();
+            currentInputInfo.vVal = value;
+            dictionaryBinding[bindLocation].vVal = value;
         }
     }
     #endregion

@@ -28,6 +28,7 @@ public class TestInput : MonoBehaviour
 
     public void Update()
     {
+        /*
         if (Input.IsCapsLockOn() == true)
         {
             Debug.Log("Caps Lock is on!");
@@ -42,18 +43,28 @@ public class TestInput : MonoBehaviour
         {
             Debug.Log("Scroll Lock is on!");
         }
+        */
 
         Movement();
         Looking();
 
+        if (Input.GetFloat("Jump") == 1)
+            Debug.Log("We are trying to jump!");
+
+
         if (Input.GetKeyDown("Movement"))
         {
-            //Debug.Log("Movement (currently use)");
+            Debug.Log("Movement (Pressed Key)");
         }
 
         if (Input.GetKey("Movement"))
         {
-            //Debug.Log("Movement (currently not in use)");
+            Debug.Log("Movement (Holding Key)");
+        }
+
+        if (Input.GetKeyUp("Movement"))
+        {
+            Debug.Log("Movement (Released Key)");
         }
     }
 

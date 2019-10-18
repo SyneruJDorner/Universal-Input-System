@@ -685,35 +685,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Binding:
   - name: Movement
-    selectedBindingDevice: 2
+    selectedBindingDevice: 3
     keyboardKeys: 17000000010000000400000013000000
-    mouseKeys: 00000000
-    gamepadKeys: 0d000000
-    inputKeyboardType: 1
-    inputMouseType: 0
-    inputGamepadType: 0
-    keyboardInputs: []
-    mouseInputs: []
-    gamepadInputs: []
-    isKeyPressed: 0
-    fVal: 0
-    vVal: {x: 0, y: 0}
-    editing: 0
+    mouseKeysSingle: 00000000
+    mouseKeysVector2: 00000000
+    gamepadKeysSingle: 00000000
+    gamepadKeysVector2: 02000000
+    inputReturnType: 1
+    editing: 1
   - name: Looking
     selectedBindingDevice: 3
     keyboardKeys: 00000000
-    mouseKeys: 06000000
-    gamepadKeys: 15000000
-    inputKeyboardType: 0
-    inputMouseType: 0
-    inputGamepadType: 0
-    keyboardInputs: []
-    mouseInputs: []
-    gamepadInputs: []
-    isKeyPressed: 0
-    fVal: 0
-    vVal: {x: 0, y: 0}
+    mouseKeysSingle: 00000000
+    mouseKeysVector2: 01000000
+    gamepadKeysSingle: 00000000
+    gamepadKeysVector2: 03000000
+    inputReturnType: 1
     editing: 0
+  - name: Jump
+    selectedBindingDevice: 0
+    keyboardKeys: 5c000000
+    mouseKeysSingle: 00000000
+    mouseKeysVector2: 00000000
+    gamepadKeysSingle: 03000000
+    gamepadKeysVector2: 00000000
+    inputReturnType: 0
+    editing: 0
+  dictionaryBinding: []
 --- !u!1 &1681286492
 GameObject:
   m_ObjectHideFlags: 0

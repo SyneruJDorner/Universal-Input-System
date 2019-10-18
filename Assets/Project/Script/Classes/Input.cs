@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+[DefaultExecutionOrder(2)]
 public class Input
 {
     private static InputSystem inputSystem;
@@ -17,7 +18,8 @@ public class Input
     public static extern long CGEventSourceFlagsState(int keyCode);
 #endif
 
-    public enum KeyboardKeys
+    #region Keyboard Keys
+    public enum KeyboardKeys_Single
     {
         None,
         A, B, C, D, E, F, G, H, I, J, K, L, M,
@@ -40,90 +42,58 @@ public class Input
         RightArrow, RightBracket, RightCtrl, RightMeta, RightShift,
         ScrollLock, Semicolon, Slash, Space, Tab, UpArrow
     }
+    #endregion
 
-    public enum MouseKeys
+    #region Mouse Keys
+    public enum MouseKeys_Single
     {
         None,
-        BackButton, ForwardButton, LeftButton, MiddleButton, RightButton,
-        Delta, Scroll, Position
+        BackButton, ForwardButton, LeftButton, MiddleButton, RightButton
     }
 
-    public enum GamepadKeys
+    public enum MouseKeys_Vector2
+    {
+        None,
+        Delta, Scroll, Position
+    }
+    #endregion
+
+    #region Mouse Keys
+    public enum GamepadKeys_Single
     {
         None,
         ButtonEast, ButtonNorth, ButtonSouth, ButtonWest,
-        Dpad, DpadNorth, DpadEast, DpadSouth, DpadWest,
+        DpadNorth, DpadEast, DpadSouth, DpadWest,
         LeftShoulder, LeftTrigger, LeftStickPress,
-        LeftStick, LeftStickNorth, LeftStickEast, LeftStickSouth, LeftStickWest,
+        LeftStickNorth, LeftStickEast, LeftStickSouth, LeftStickWest,
         RightShoulder, RightStickPress, RightTrigger,
-        RightStick, RightStickNorth, RightStickEast, RightStickSouth, RightStickWest,
+        RightStickNorth, RightStickEast, RightStickSouth, RightStickWest,
         Select, Start
     }
+
+    public enum GamepadKeys_Vector2
+    {
+        None,
+        Dpad, LeftStick, RightStick
+    }
+    #endregion
 
     public static bool GetKeyDown(string bindingName)
     {
         inputSystem = inputSystem ?? InputSystem.Instance;
 
-        for (int i = 0; i < inputSystem.Binding.Count; i++)
+        for (int i = 0; i < inputSystem.dictionaryBinding.Count; i++)
         {
-            if (bindingName != inputSystem.Binding[i].name)
+            if (bindingName != inputSystem.dictionaryBinding[i].Key)
                 continue;
 
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Keyboard)
+            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Started)
             {
-                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Single &&
-                    GetFloat(bindingName) != 0 &&
-                    inputSystem.Binding[i].isKeyPressed == false)
+                if (ExecuteThisFrame(inputSystem.dictionaryBinding[i]))
                 {
-                    inputSystem.Binding[i].isKeyPressed = true;
+                    inputSystem.dictionaryBinding[i].phase = UnityEngine.InputSystem.InputActionPhase.Performed;
                     return true;
                 }
-
-                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Vector2 &&
-                    GetVector2(bindingName) != Vector2.zero &&
-                    inputSystem.Binding[i].isKeyPressed == false)
-                {
-                    inputSystem.Binding[i].isKeyPressed = true;
-                    return true;
-                }
-            }
-
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Mouse)
-            {
-                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Single &&
-                    GetFloat(bindingName) != 0 &&
-                    inputSystem.Binding[i].isKeyPressed == false)
-                {
-                    inputSystem.Binding[i].isKeyPressed = true;
-                    return true;
-                }
-
-                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Vector2 &&
-                    GetVector2(bindingName) != Vector2.zero &&
-                    inputSystem.Binding[i].isKeyPressed == false)
-                {
-                    inputSystem.Binding[i].isKeyPressed = true;
-                    return true;
-                }
-            }
-
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Gamepad)
-            {
-                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Single &&
-                    GetFloat(bindingName) != 0 &&
-                    inputSystem.Binding[i].isKeyPressed == false)
-                {
-                    inputSystem.Binding[i].isKeyPressed = true;
-                    return true;
-                }
-
-                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Vector2 &&
-                    GetVector2(bindingName) != Vector2.zero &&
-                    inputSystem.Binding[i].isKeyPressed == false)
-                    {
-                        inputSystem.Binding[i].isKeyPressed = true;
-                        return true;
-                    }
             }
         }
 
@@ -134,42 +104,18 @@ public class Input
     {
         inputSystem = inputSystem ?? InputSystem.Instance;
 
-        for (int i = 0; i < inputSystem.Binding.Count; i++)
+        for (int i = 0; i < inputSystem.dictionaryBinding.Count; i++)
         {
-            if (bindingName != inputSystem.Binding[i].name)
+            if (bindingName != inputSystem.dictionaryBinding[i].Key)
                 continue;
 
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Keyboard)
+            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Performed)
             {
-                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Single)
-                    if (GetFloat(bindingName) != 0)
-                        return true;
-
-                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Vector2)
-                    if (GetVector2(bindingName) != Vector2.zero)
-                        return true;
-            }
-
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Mouse)
-            {
-                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Single)
-                    if (GetFloat(bindingName) != 0)
-                        return true;
-
-                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Vector2)
-                    if (GetVector2(bindingName) != Vector2.zero)
-                        return true;
-            }
-
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Gamepad)
-            {
-                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Single)
-                    if (GetFloat(bindingName) != 0)
-                        return true;
-
-                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Vector2)
-                    if (GetVector2(bindingName) != Vector2.zero)
-                        return true;
+                if (ExecuteThisFrame(inputSystem.dictionaryBinding[i]))
+                {
+                    inputSystem.dictionaryBinding[i].duration += Time.deltaTime;
+                    return true;
+                }
             }
         }
 
@@ -180,99 +126,47 @@ public class Input
     {
         inputSystem = inputSystem ?? InputSystem.Instance;
 
-        for (int i = 0; i < inputSystem.Binding.Count; i++)
+        for (int i = 0; i < inputSystem.dictionaryBinding.Count; i++)
         {
-            if (bindingName != inputSystem.Binding[i].name)
+            if (bindingName != inputSystem.dictionaryBinding[i].Key)
                 continue;
 
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Keyboard)
+            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Canceled)
             {
-                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Single && 
-                    GetFloat(bindingName) == 0 &&
-                    inputSystem.Binding[i].isKeyPressed == true)
-                    {
-                        inputSystem.Binding[i].isKeyPressed = false;
-                        return true;
-                    }
-
-                if (inputSystem.Binding[i].inputKeyboardType == InputBindingCollection.InputType.Vector2 && 
-                    GetVector2(bindingName) == Vector2.zero &&
-                    inputSystem.Binding[i].isKeyPressed == true)
-                    {
-                        inputSystem.Binding[i].isKeyPressed = false;
-                        return true;
-                    }
-            }
-
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Mouse)
-            {
-                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Single &&
-                    GetFloat(bindingName) == 0 &&
-                    inputSystem.Binding[i].isKeyPressed == true)
-                    {
-                        inputSystem.Binding[i].isKeyPressed = false;
-                        return true;
-                    }
-
-                if (inputSystem.Binding[i].inputMouseType == InputBindingCollection.InputType.Vector2 &&
-                    GetVector2(bindingName) == Vector2.zero &&
-                    inputSystem.Binding[i].isKeyPressed == true)
-                    {
-                        inputSystem.Binding[i].isKeyPressed = false;
-                        return true;
-                    }
-            }
-
-            if (inputSystem.Binding[i].selectedBindingDevice == InputInfo.HardwareDeviceType.Gamepad)
-            {
-                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Single &&
-                    GetFloat(bindingName) == 0 &&
-                    inputSystem.Binding[i].isKeyPressed == true)
-                    {
-                        inputSystem.Binding[i].isKeyPressed = false;
-                        return true;
-                    }
-
-                if (inputSystem.Binding[i].inputGamepadType == InputBindingCollection.InputType.Vector2 &&
-                    GetVector2(bindingName) == Vector2.zero &&
-                    inputSystem.Binding[i].isKeyPressed == true)
-                    {
-                        inputSystem.Binding[i].isKeyPressed = false;
-                        return true;
-                    }
+                if (ExecuteThisFrame(inputSystem.dictionaryBinding[i]))
+                {
+                    inputSystem.dictionaryBinding[i].phase = UnityEngine.InputSystem.InputActionPhase.Disabled;
+                    inputSystem.dictionaryBinding[i].duration = 0;
+                    return true;
+                }
             }
         }
 
         return false;
     }
 
+    public static bool ExecuteThisFrame(InputSystem.KeyValuePair item)
+    {
+        if (item.lastRecalculation != Time.frameCount)
+        {
+            item.lastRecalculation = Time.frameCount;
+            return true;
+        }
+        return false;
+    }
+
     public static float GetFloat(string bindingName)
     {
         inputSystem = InputSystem.Instance;
-
-        for (int i = 0; i < inputSystem.Binding.Count; i++)
-        {
-            InputBindingCollection bind = inputSystem.Binding[i];
-
-            if (bind.name == bindingName)
-                return bind.fVal;
-        }
-        return 0;
+        InputSystem.KeyValuePair bind = inputSystem.dictionaryBinding.Find(item => item.Key.Contains(bindingName));
+        return (bind != null) ? bind.fVal : 0;
     }
 
     public static Vector2 GetVector2(string bindingName)
     {
         inputSystem = InputSystem.Instance;
-
-        for (int i = 0; i < inputSystem.Binding.Count; i++)
-        {
-            InputBindingCollection bind = inputSystem.Binding[i];
-
-            if (bind.name == bindingName)
-                return bind.vVal;
-        }
-
-        return Vector2.zero;
+        InputSystem.KeyValuePair bind = inputSystem.dictionaryBinding.Find(item => item.Key.Contains(bindingName));
+        return (bind != null) ? bind.vVal : Vector2.zero;
     }
 
     public static bool IsCapsLockOn()

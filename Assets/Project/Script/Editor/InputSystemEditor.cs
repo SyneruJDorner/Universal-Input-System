@@ -72,6 +72,7 @@ public class InputSystemEditor : Editor
         {
             item.name = EditorGUILayout.TextField("Name: ", item.name);
             item.selectedBindingDevice = (InputInfo.HardwareDeviceType)EditorGUILayout.EnumPopup("Bind Device: ", item.selectedBindingDevice);
+            item.inputReturnType = (InputBindingCollection.InputType)EditorGUILayout.EnumPopup("Return Type: ", item.inputReturnType);
 
             RenderKeyboardSelection(item);
             RenderMouseSelection(item);
@@ -89,26 +90,24 @@ public class InputSystemEditor : Editor
         if (item.selectedBindingDevice != InputInfo.HardwareDeviceType.Keyboard)
             return;
 
-        item.inputKeyboardType = (InputBindingCollection.InputType)EditorGUILayout.EnumPopup("Input Type: ", item.inputKeyboardType);
-
-        if (item.inputKeyboardType == InputBindingCollection.InputType.Single)
+        if (item.inputReturnType == InputBindingCollection.InputType.Single)
         {
             if (item.keyboardKeys.Count != 1)
-                item.keyboardKeys = new List<Input.KeyboardKeys>(1) { new Input.KeyboardKeys() };
+                item.keyboardKeys = new List<Input.KeyboardKeys_Single>(1) { new Input.KeyboardKeys_Single() };
 
             GUILayout.Space(EditorGUIUtility.singleLineHeight);
-            item.keyboardKeys[0] = (Input.KeyboardKeys)EditorGUILayout.EnumPopup("Keyboard Binding: ", item.keyboardKeys[0]);
+            item.keyboardKeys[0] = (Input.KeyboardKeys_Single)EditorGUILayout.EnumPopup("Keyboard Binding: ", item.keyboardKeys[0]);
         }
 
-        if (item.inputKeyboardType == InputBindingCollection.InputType.Vector2)
+        if (item.inputReturnType == InputBindingCollection.InputType.Vector2)
         {
             if (item.keyboardKeys.Count != 4 || item.keyboardKeys == null)
-                item.keyboardKeys = new List<Input.KeyboardKeys>(4)
+                item.keyboardKeys = new List<Input.KeyboardKeys_Single>(4)
                 {
-                    new Input.KeyboardKeys(),
-                    new Input.KeyboardKeys(),
-                    new Input.KeyboardKeys(),
-                    new Input.KeyboardKeys()
+                    new Input.KeyboardKeys_Single(),
+                    new Input.KeyboardKeys_Single(),
+                    new Input.KeyboardKeys_Single(),
+                    new Input.KeyboardKeys_Single()
                 };
 
             Texture texture = Resources.Load<Texture>("Input System/Vector2");
@@ -117,7 +116,7 @@ public class InputSystemEditor : Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            item.keyboardKeys[0] = (Input.KeyboardKeys)EditorGUILayout.EnumPopup(item.keyboardKeys[0], GUILayout.Width(50));
+            item.keyboardKeys[0] = (Input.KeyboardKeys_Single)EditorGUILayout.EnumPopup(item.keyboardKeys[0], GUILayout.Width(50));
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 
@@ -127,7 +126,7 @@ public class InputSystemEditor : Editor
                 GUILayout.FlexibleSpace();
                 GUILayout.BeginVertical();
                 GUILayout.Space(64 - (EditorGUIUtility.singleLineHeight / 2));
-                item.keyboardKeys[1] = (Input.KeyboardKeys)EditorGUILayout.EnumPopup(item.keyboardKeys[1], GUILayout.Width(50), GUILayout.ExpandHeight(true));
+                item.keyboardKeys[1] = (Input.KeyboardKeys_Single)EditorGUILayout.EnumPopup(item.keyboardKeys[1], GUILayout.Width(50), GUILayout.ExpandHeight(true));
                 GUILayout.EndVertical();
                 GUILayout.EndHorizontal();
 
@@ -138,7 +137,7 @@ public class InputSystemEditor : Editor
                 GUILayout.BeginHorizontal();
                 GUILayout.BeginVertical();
                 GUILayout.Space(64 - (EditorGUIUtility.singleLineHeight / 2));
-                item.keyboardKeys[2] = (Input.KeyboardKeys)EditorGUILayout.EnumPopup(item.keyboardKeys[2], GUILayout.Width(50));
+                item.keyboardKeys[2] = (Input.KeyboardKeys_Single)EditorGUILayout.EnumPopup(item.keyboardKeys[2], GUILayout.Width(50));
                 GUILayout.EndVertical();
                 GUILayout.FlexibleSpace();
                 GUILayout.EndHorizontal();
@@ -147,7 +146,7 @@ public class InputSystemEditor : Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            item.keyboardKeys[3] = (Input.KeyboardKeys)EditorGUILayout.EnumPopup(item.keyboardKeys[3], GUILayout.Width(50));
+            item.keyboardKeys[3] = (Input.KeyboardKeys_Single)EditorGUILayout.EnumPopup(item.keyboardKeys[3], GUILayout.Width(50));
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
         }
@@ -158,68 +157,19 @@ public class InputSystemEditor : Editor
         if (item.selectedBindingDevice != InputInfo.HardwareDeviceType.Mouse)
             return;
 
-        item.inputMouseType = (InputBindingCollection.InputType)EditorGUILayout.EnumPopup("Input Type: ", item.inputMouseType);
+        if (item.mouseKeysSingle.Count != 1)
+            item.mouseKeysSingle = new List<Input.MouseKeys_Single>(1) { new Input.MouseKeys_Single() };
 
-        if (item.inputMouseType == InputBindingCollection.InputType.Single)
-        {
-            if (item.mouseKeys.Count != 1)
-                item.mouseKeys = new List<Input.MouseKeys>(1) { new Input.MouseKeys() };
+        if (item.mouseKeysVector2.Count != 1)
+            item.mouseKeysVector2 = new List<Input.MouseKeys_Vector2>(1) { new Input.MouseKeys_Vector2() };
 
-            GUILayout.Space(EditorGUIUtility.singleLineHeight);
-            item.mouseKeys[0] = (Input.MouseKeys)EditorGUILayout.EnumPopup("Mouse Binding: ", item.mouseKeys[0]);
-        }
+        GUILayout.Space(EditorGUIUtility.singleLineHeight);
 
-        if (item.inputMouseType == InputBindingCollection.InputType.Vector2)
-        {
-            if (item.mouseKeys.Count != 4 || item.mouseKeys == null)
-                item.mouseKeys = new List<Input.MouseKeys>(4)
-                {
-                    new Input.MouseKeys(),
-                    new Input.MouseKeys(),
-                    new Input.MouseKeys(),
-                    new Input.MouseKeys()
-                };
+        if (item.inputReturnType == InputBindingCollection.InputType.Single)
+            item.mouseKeysSingle[0] = (Input.MouseKeys_Single)EditorGUILayout.EnumPopup("Mouse Binding (Single): ", item.mouseKeysSingle[0]);
 
-            Texture texture = Resources.Load<Texture>("Input System/Vector2");
-
-            GUILayout.Space(EditorGUIUtility.singleLineHeight);
-
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            item.mouseKeys[0] = (Input.MouseKeys)EditorGUILayout.EnumPopup(item.mouseKeys[0], GUILayout.Width(50));
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            {
-                GUILayout.BeginHorizontal();
-                GUILayout.FlexibleSpace();
-                GUILayout.BeginVertical();
-                GUILayout.Space(64 - (EditorGUIUtility.singleLineHeight / 2));
-                item.mouseKeys[1] = (Input.MouseKeys)EditorGUILayout.EnumPopup(item.mouseKeys[1], GUILayout.Width(50), GUILayout.ExpandHeight(true));
-                GUILayout.EndVertical();
-                GUILayout.EndHorizontal();
-
-                GUILayout.BeginHorizontal();
-                GUILayout.Box(texture, GUIStyle.none, GUILayout.Width(128), GUILayout.Height(128));
-                GUILayout.EndHorizontal();
-
-                GUILayout.BeginHorizontal();
-                GUILayout.BeginVertical();
-                GUILayout.Space(64 - (EditorGUIUtility.singleLineHeight / 2));
-                item.mouseKeys[2] = (Input.MouseKeys)EditorGUILayout.EnumPopup(item.mouseKeys[2], GUILayout.Width(50));
-                GUILayout.EndVertical();
-                GUILayout.FlexibleSpace();
-                GUILayout.EndHorizontal();
-            }
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            item.mouseKeys[3] = (Input.MouseKeys)EditorGUILayout.EnumPopup(item.mouseKeys[3], GUILayout.Width(50));
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-        }
+        if (item.inputReturnType == InputBindingCollection.InputType.Vector2)
+            item.mouseKeysVector2[0] = (Input.MouseKeys_Vector2)EditorGUILayout.EnumPopup("Mouse Binding (Vector2): ", item.mouseKeysVector2[0]);
     }
 
     private void RenderGamepadSelection(InputBindingCollection item)
@@ -227,70 +177,20 @@ public class InputSystemEditor : Editor
         if (item.selectedBindingDevice != InputInfo.HardwareDeviceType.Gamepad)
             return;
 
-        item.inputGamepadType = (InputBindingCollection.InputType)EditorGUILayout.EnumPopup("Input Type: ", item.inputGamepadType);
+        if (item.gamepadKeysSingle.Count != 1)
+            item.gamepadKeysSingle = new List<Input.GamepadKeys_Single>(1) { new Input.GamepadKeys_Single() };
 
-        if (item.inputGamepadType == InputBindingCollection.InputType.Single)
-        {
-            if (item.gamepadKeys.Count != 1)
-                item.gamepadKeys = new List<Input.GamepadKeys>(1) { new Input.GamepadKeys() };
+        if (item.gamepadKeysVector2.Count != 1)
+            item.gamepadKeysVector2 = new List<Input.GamepadKeys_Vector2>(1) { new Input.GamepadKeys_Vector2() };
 
-            GUILayout.Space(EditorGUIUtility.singleLineHeight);
-            item.gamepadKeys[0] = (Input.GamepadKeys)EditorGUILayout.EnumPopup("Gamepad Binding: ", item.gamepadKeys[0]);
-        }
+        GUILayout.Space(EditorGUIUtility.singleLineHeight);
 
-        if (item.inputGamepadType == InputBindingCollection.InputType.Vector2)
-        {
-            if (item.gamepadKeys.Count != 4 || item.gamepadKeys == null)
-                item.gamepadKeys = new List<Input.GamepadKeys>(4)
-                {
-                    new Input.GamepadKeys(),
-                    new Input.GamepadKeys(),
-                    new Input.GamepadKeys(),
-                    new Input.GamepadKeys()
-                };
+        if (item.inputReturnType == InputBindingCollection.InputType.Single)
+            item.gamepadKeysSingle[0] = (Input.GamepadKeys_Single)EditorGUILayout.EnumPopup("Gamepad Binding (Single): ", item.gamepadKeysSingle[0]);
 
-            Texture texture = Resources.Load<Texture>("Input System/Vector2");
-
-            GUILayout.Space(EditorGUIUtility.singleLineHeight);
-
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            item.gamepadKeys[0] = (Input.GamepadKeys)EditorGUILayout.EnumPopup(item.gamepadKeys[0], GUILayout.Width(50));
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            {
-                GUILayout.BeginHorizontal();
-                GUILayout.FlexibleSpace();
-                GUILayout.BeginVertical();
-                GUILayout.Space(64 - (EditorGUIUtility.singleLineHeight / 2));
-                item.gamepadKeys[1] = (Input.GamepadKeys)EditorGUILayout.EnumPopup(item.gamepadKeys[1], GUILayout.Width(50), GUILayout.ExpandHeight(true));
-                GUILayout.EndVertical();
-                GUILayout.EndHorizontal();
-
-                GUILayout.BeginHorizontal();
-                GUILayout.Box(texture, GUIStyle.none, GUILayout.Width(128), GUILayout.Height(128));
-                GUILayout.EndHorizontal();
-
-                GUILayout.BeginHorizontal();
-                GUILayout.BeginVertical();
-                GUILayout.Space(64 - (EditorGUIUtility.singleLineHeight / 2));
-                item.gamepadKeys[2] = (Input.GamepadKeys)EditorGUILayout.EnumPopup(item.gamepadKeys[2], GUILayout.Width(50));
-                GUILayout.EndVertical();
-                GUILayout.FlexibleSpace();
-                GUILayout.EndHorizontal();
-            }
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            item.gamepadKeys[3] = (Input.GamepadKeys)EditorGUILayout.EnumPopup(item.gamepadKeys[3], GUILayout.Width(50));
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-        }
+        if (item.inputReturnType == InputBindingCollection.InputType.Vector2)
+            item.gamepadKeysVector2[0] = (Input.GamepadKeys_Vector2)EditorGUILayout.EnumPopup("Gamepad Binding (Vector2): ", item.gamepadKeysVector2[0]);
     }
-
     private void AddItem(ReorderableList list)
     {
         inputSystem.Binding.Add(new InputBindingCollection());

@@ -20,13 +20,14 @@ public class InputInfo
     public bool IsVector2;
     public float fVal;
     public Vector2 vVal;
-    public InputActionPhase inputActionPhase;
-    private InputActionPhase lastKnownInputActionPhase;
     public float duration;
+    public InputAction.CallbackContext ctx;
 
-    public Input.KeyboardKeys keyboardKeys;
-    public Input.MouseKeys mouseKeys;
-    public Input.GamepadKeys gamepadKeys;
+    public Input.KeyboardKeys_Single keyboardKeys;
+    public Input.MouseKeys_Single mouseKeysSingle;
+    public Input.MouseKeys_Vector2 mouseKeysVector2;
+    public Input.GamepadKeys_Single gamepadKeysSingle;
+    public Input.GamepadKeys_Vector2 gamepadKeysVector2;
 
     public InputInfo()
     {
@@ -36,56 +37,12 @@ public class InputInfo
         IsVector2 = false;
         fVal = 0;
         vVal = Vector2.zero;
-        inputActionPhase = InputActionPhase.Disabled;
-        lastKnownInputActionPhase = InputActionPhase.Disabled;
         duration = 0;
 
-        keyboardKeys = Input.KeyboardKeys.None;
-        mouseKeys = Input.MouseKeys.None;
-        gamepadKeys = Input.GamepadKeys.None;
+        keyboardKeys = Input.KeyboardKeys_Single.None;
+        mouseKeysSingle = Input.MouseKeys_Single.None;
+        mouseKeysVector2 = Input.MouseKeys_Vector2.None;
+        gamepadKeysSingle = Input.GamepadKeys_Single.None;
+        gamepadKeysVector2 = Input.GamepadKeys_Vector2.None;
     }
-
-    public virtual bool InitiatedPressed()
-    {
-        if (lastKnownInputActionPhase != InputActionPhase.Performed)
-            if (lastKnownInputActionPhase != inputActionPhase)
-                return true;
-        return false;
-    }
-
-    public virtual bool IsPressed()
-    {
-        if (inputActionPhase == InputActionPhase.Performed)
-            return true;
-        return false;
-    }
-
-    public virtual bool IsReleased()
-    {
-        if (inputActionPhase == InputActionPhase.Canceled)
-            return true;
-        return false;
-    }
-
-    #region Late Update Info
-
-    public void LateUpdate()
-    {
-        UpdateDuration();
-        LateInputActionPhasePressedInitializer();
-    }
-
-    private void UpdateDuration()
-    {
-        if (fVal != 0 || vVal != Vector2.zero)
-            duration += Time.deltaTime;
-        else
-            duration = 0;
-    }
-
-    private void LateInputActionPhasePressedInitializer()
-    {
-        lastKnownInputActionPhase = inputActionPhase;
-    }
-    #endregion
 }
