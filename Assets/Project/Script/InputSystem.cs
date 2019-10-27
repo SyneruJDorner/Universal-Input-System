@@ -357,6 +357,7 @@ public class InputSystem : MonoBehaviour
                 if (inputIndex >= 0)
                 {
                     InputInfo currentInputInfo = dictionaryBinding[i].Value[inputIndex];
+                    dictionaryBinding[i].phase = InputActionPhase.Performed;
                     UpdateInfo(i, ref currentInputInfo, ctx);
                     dictionaryBinding[i].Value[inputIndex] = currentInputInfo;
                     dictionaryBinding[i].Value[inputIndex].ctx = ctx;

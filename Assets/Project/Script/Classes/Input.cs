@@ -109,7 +109,13 @@ public class Input
             if (bindingName != inputSystem.dictionaryBinding[i].Key)
                 continue;
 
-            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Performed)
+            //Ensure it comes out of the InputActionPhase.Started to InputActionPhase.Performed
+            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Started)
+            {
+                inputSystem.dictionaryBinding[i].phase = UnityEngine.InputSystem.InputActionPhase.Performed;
+                continue;
+            }
+            else if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Performed)
             {
                 if (ExecuteThisFrame(inputSystem.dictionaryBinding[i]))
                 {

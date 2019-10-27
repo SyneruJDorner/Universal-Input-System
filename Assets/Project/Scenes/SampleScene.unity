@@ -692,7 +692,7 @@ MonoBehaviour:
     gamepadKeysSingle: 00000000
     gamepadKeysVector2: 02000000
     inputReturnType: 1
-    editing: 1
+    editing: 0
   - name: Looking
     selectedBindingDevice: 3
     keyboardKeys: 00000000
