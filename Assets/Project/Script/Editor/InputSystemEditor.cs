@@ -205,8 +205,13 @@ public class InputSystemEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        EditorGUILayout.LabelField("General:", EditorStyles.boldLabel);
         EditorGUILayout.LabelField("Active Device: " + inputSystem.controllerType.ToString());
+        inputSystem.mouseSensitivity = EditorGUILayout.FloatField("Mouse Sensitivity: ", inputSystem.mouseSensitivity);
+        inputSystem.joystickSensitivity = EditorGUILayout.FloatField("Joystick Sensitivity: ", inputSystem.joystickSensitivity);
+        EditorGUILayout.Space();
 
+        EditorGUILayout.LabelField("Binding Setup:", EditorStyles.boldLabel);
         reorderableList.DoLayoutList();
     }
 }

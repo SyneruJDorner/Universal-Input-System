@@ -58,6 +58,9 @@ public class InputSystem : MonoBehaviour
         Controller
     }
     public ControllerType controllerType = ControllerType.None;
+
+    public float mouseSensitivity = 1;
+    public float joystickSensitivity = 1;
     #endregion
 
     #region Init

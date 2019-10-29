@@ -196,7 +196,18 @@ public class Input
     {
         inputSystem = InputSystem.Instance;
         InputSystem.KeyValuePair bind = inputSystem.dictionaryBinding.Find(item => item.Key.Contains(bindingName));
-        return (bind != null) ? bind.vVal : Vector2.zero;
+
+        var currentVal = (bind != null) ? bind.vVal : Vector2.zero; ;
+
+        if (bind != null && bind.inputAction != null)
+        {
+            if (inputSystem.controllerType == InputSystem.ControllerType.KeyboardMouse)
+                currentVal *= inputSystem.mouseSensitivity;
+            else if (inputSystem.controllerType == InputSystem.ControllerType.Controller)
+                currentVal *= inputSystem.joystickSensitivity;
+        }
+        
+        return currentVal;
     }
 
     public static bool IsCapsLockOn()
