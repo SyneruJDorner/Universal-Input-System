@@ -205,6 +205,8 @@ public class InputSystemEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        EditorGUILayout.LabelField("Active Device: " + inputSystem.controllerType.ToString());
+
         reorderableList.DoLayoutList();
     }
 }

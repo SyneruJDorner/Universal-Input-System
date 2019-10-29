@@ -11,7 +11,7 @@ public class Input
 {
     private static InputSystem inputSystem;
 
-    #if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN
     [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     public static extern short GetKeyState(int keyCode);
 #endif

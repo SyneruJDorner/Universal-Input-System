@@ -50,6 +50,14 @@ public class InputSystem : MonoBehaviour
         //Change
         public InputBindingCollection.InputType inputReturnType = InputBindingCollection.InputType.Single;
     }
+
+    public enum ControllerType
+    {
+        None,
+        KeyboardMouse,
+        Controller
+    }
+    public ControllerType controllerType = ControllerType.None;
     #endregion
 
     #region Init
@@ -330,10 +338,36 @@ public class InputSystem : MonoBehaviour
         }
     }
 
+    public void DetermineHardwareControllers()
+    {
+        if ((Keyboard.current.CheckStateIsAtDefault() == false || Mouse.current.wasUpdatedThisFrame == true) && controllerType != ControllerType.KeyboardMouse)
+            controllerType = ControllerType.KeyboardMouse;
+        else if (Gamepad.current.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
+            controllerType = ControllerType.Controller;
+
+        switch (controllerType)
+        {
+            case ControllerType.KeyboardMouse:
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+            case ControllerType.Controller:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                break;
+            default:
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+        }
+    }
+
     private void EventInit(InputAction inputAction, bool hasCancel)
     {
         inputAction.started += ctx =>
         {
+            DetermineHardwareControllers();
+
             for (int i = 0; i < dictionaryBinding.Count; i++)
             {
                 int inputIndex = dictionaryBinding[i].Value.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
@@ -352,6 +386,8 @@ public class InputSystem : MonoBehaviour
 
         inputAction.performed += ctx =>
         {
+            DetermineHardwareControllers();
+
             for (int i = 0; i < dictionaryBinding.Count; i++)
             {
                 int inputIndex = dictionaryBinding[i].Value.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
@@ -373,6 +409,8 @@ public class InputSystem : MonoBehaviour
 
         inputAction.canceled += ctx =>
         {
+            DetermineHardwareControllers();
+
             for (int i = 0; i < dictionaryBinding.Count; i++)
             {
                 int inputIndex = dictionaryBinding[i].Value.FindIndex(item => item.Name.ToLower() == ctx.control.ToString().Split('/').Last().ToLower());
