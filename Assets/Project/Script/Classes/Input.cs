@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 [DefaultExecutionOrder(2)]
 public class Input
@@ -78,6 +81,37 @@ public class Input
     }
     #endregion
 
+    public static void UpdateKeyDurations()
+    {
+        inputSystem = inputSystem ?? InputSystem.Instance;
+
+        for (int i = 0; i < inputSystem.dictionaryBinding.Count; i++)
+        {
+            if (inputSystem.dictionaryBinding[i].inputAction != null &&
+                inputSystem.dictionaryBinding[i].inputAction.controls.Count > 0)
+            {
+                try
+                {
+                    //Skip bindings that have occured. Prevent active bindings and prevent them from being 0
+                    ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
+
+                    if (bc != null)
+                    {
+                        bool state = bc.isPressed;
+
+                        if (state == true)
+                            inputSystem.dictionaryBinding[i].duration += Time.deltaTime;
+                        else
+                            inputSystem.dictionaryBinding[i].duration = 0;
+                    }
+                    else
+                        inputSystem.dictionaryBinding[i].duration = 0;
+                }
+                catch (Exception) { }
+            }
+        }
+    }
+
     public static bool GetKeyDown(string bindingName)
     {
         inputSystem = inputSystem ?? InputSystem.Instance;
@@ -87,13 +121,11 @@ public class Input
             if (bindingName != inputSystem.dictionaryBinding[i].Key)
                 continue;
 
-            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Started)
+            if (inputSystem.dictionaryBinding[i].inputAction != null &&
+                inputSystem.dictionaryBinding[i].inputAction.controls.Count > 0)
             {
-                if (ExecuteThisFrame(inputSystem.dictionaryBinding[i]))
-                {
-                    inputSystem.dictionaryBinding[i].phase = UnityEngine.InputSystem.InputActionPhase.Performed;
-                    return true;
-                }
+                ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
+                return bc.wasPressedThisFrame;
             }
         }
 
@@ -109,21 +141,14 @@ public class Input
             if (bindingName != inputSystem.dictionaryBinding[i].Key)
                 continue;
 
-            //Ensure it comes out of the InputActionPhase.Started to InputActionPhase.Performed
-            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Started)
+            if (inputSystem.dictionaryBinding[i].inputAction != null &&
+                inputSystem.dictionaryBinding[i].inputAction.controls.Count > 0)
             {
-                inputSystem.dictionaryBinding[i].phase = UnityEngine.InputSystem.InputActionPhase.Performed;
-                continue;
-            }
-            else if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Performed)
-            {
-                if (ExecuteThisFrame(inputSystem.dictionaryBinding[i]))
-                {
-                    inputSystem.dictionaryBinding[i].duration += Time.deltaTime;
-                    return true;
-                }
+                ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
+                return bc.isPressed;
             }
         }
+
 
         return false;
     }
@@ -137,14 +162,11 @@ public class Input
             if (bindingName != inputSystem.dictionaryBinding[i].Key)
                 continue;
 
-            if (inputSystem.dictionaryBinding[i].phase == UnityEngine.InputSystem.InputActionPhase.Canceled)
+            if (inputSystem.dictionaryBinding[i].inputAction != null &&
+                inputSystem.dictionaryBinding[i].inputAction.controls.Count > 0)
             {
-                if (ExecuteThisFrame(inputSystem.dictionaryBinding[i]))
-                {
-                    inputSystem.dictionaryBinding[i].phase = UnityEngine.InputSystem.InputActionPhase.Disabled;
-                    inputSystem.dictionaryBinding[i].duration = 0;
-                    return true;
-                }
+                ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
+                return bc.wasReleasedThisFrame;
             }
         }
 

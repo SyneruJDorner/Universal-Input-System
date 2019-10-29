@@ -54,7 +54,12 @@ public class TestInput : MonoBehaviour
 
         if (Input.GetKeyDown("Movement"))
         {
-            Debug.Log("Movement (Pressed Key)");
+            Debug.Log("Movement (Pressed Key) 1");
+        }
+
+        if (Input.GetKeyDown("Movement"))
+        {
+            Debug.Log("Movement (Pressed Key) 2");
         }
 
         if (Input.GetKey("Movement"))

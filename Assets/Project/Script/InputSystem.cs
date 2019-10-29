@@ -39,6 +39,7 @@ public class InputSystem : MonoBehaviour
         public string Key;
         public List<InputInfo> Value = new List<InputInfo>();
         public InputAction.CallbackContext ctx;
+        public InputAction inputAction;
         public float fVal = 0;
         public Vector2 vVal = new Vector2(0, 0);
         public InputActionPhase phase;
@@ -252,7 +253,7 @@ public class InputSystem : MonoBehaviour
                 int totalCount = keyboardSingleCount + MouseSingleCount + MouseVector2Count + gamepadSingleCount + gamepadVector2Count;
 
                 result = new KeyValuePair() { Key = Binding[i].name };
-                result.Value = Enumerable.Range(1, totalCount).Select(x => new InputInfo()).ToList();
+                result.Value = Enumerable.Range(1, totalCount - 1).Select(x => new InputInfo()).ToList();
                 dictionaryBinding.Add(result);
             }
 
@@ -341,6 +342,7 @@ public class InputSystem : MonoBehaviour
                 {
                     InputInfo currentInputInfo = dictionaryBinding[i].Value[inputIndex];
                     dictionaryBinding[i].phase = InputActionPhase.Started;
+                    dictionaryBinding[i].inputAction = inputAction;
                     UpdateInfo(i, ref currentInputInfo, ctx);
                     dictionaryBinding[i].Value[inputIndex] = currentInputInfo;
                     dictionaryBinding[i].Value[inputIndex].ctx = ctx;
@@ -358,6 +360,7 @@ public class InputSystem : MonoBehaviour
                 {
                     InputInfo currentInputInfo = dictionaryBinding[i].Value[inputIndex];
                     dictionaryBinding[i].phase = InputActionPhase.Performed;
+                    dictionaryBinding[i].inputAction = inputAction;
                     UpdateInfo(i, ref currentInputInfo, ctx);
                     dictionaryBinding[i].Value[inputIndex] = currentInputInfo;
                     dictionaryBinding[i].Value[inputIndex].ctx = ctx;
@@ -378,6 +381,7 @@ public class InputSystem : MonoBehaviour
                 {
                     InputInfo currentInputInfo = dictionaryBinding[i].Value[inputIndex];
                     dictionaryBinding[i].phase = InputActionPhase.Canceled;
+                    dictionaryBinding[i].inputAction = inputAction;
                     UpdateInfo(i, ref currentInputInfo, ctx);
                     dictionaryBinding[i].Value[inputIndex] = currentInputInfo;
                     dictionaryBinding[i].Value[inputIndex].ctx = ctx;
@@ -416,6 +420,11 @@ public class InputSystem : MonoBehaviour
             currentInputInfo.vVal = value;
             dictionaryBinding[bindLocation].vVal = value;
         }
+    }
+
+    public void Update()
+    {
+        Input.UpdateKeyDurations();
     }
     #endregion
 }
