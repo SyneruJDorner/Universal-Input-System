@@ -124,8 +124,12 @@ public class Input
             if (inputSystem.dictionaryBinding[i].inputAction != null &&
                 inputSystem.dictionaryBinding[i].inputAction.controls.Count > 0)
             {
-                ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
-                return bc.wasPressedThisFrame;
+                try
+                {
+                    ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
+                    return bc.wasPressedThisFrame;
+                }
+                catch (Exception) { }
             }
         }
 
@@ -144,8 +148,12 @@ public class Input
             if (inputSystem.dictionaryBinding[i].inputAction != null &&
                 inputSystem.dictionaryBinding[i].inputAction.controls.Count > 0)
             {
-                ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
-                return bc.isPressed;
+                try
+                {
+                    ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
+                    return bc.isPressed;
+                }
+                catch (Exception) { }
             }
         }
 
@@ -165,21 +173,15 @@ public class Input
             if (inputSystem.dictionaryBinding[i].inputAction != null &&
                 inputSystem.dictionaryBinding[i].inputAction.controls.Count > 0)
             {
-                ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
-                return bc.wasReleasedThisFrame;
+                try
+                {
+                    ButtonControl bc = (ButtonControl)inputSystem.dictionaryBinding[i].inputAction.controls[0];
+                    return bc.wasReleasedThisFrame;
+                }
+                catch (Exception) { }
             }
         }
 
-        return false;
-    }
-
-    public static bool ExecuteThisFrame(InputSystem.KeyValuePair item)
-    {
-        if (item.lastRecalculation != Time.frameCount)
-        {
-            item.lastRecalculation = Time.frameCount;
-            return true;
-        }
         return false;
     }
 
