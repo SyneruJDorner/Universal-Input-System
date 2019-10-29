@@ -253,7 +253,7 @@ public class InputSystem : MonoBehaviour
                 int totalCount = keyboardSingleCount + MouseSingleCount + MouseVector2Count + gamepadSingleCount + gamepadVector2Count;
 
                 result = new KeyValuePair() { Key = Binding[i].name };
-                result.Value = Enumerable.Range(1, totalCount - 1).Select(x => new InputInfo()).ToList();
+                result.Value = Enumerable.Range(1, totalCount).Select(x => new InputInfo()).ToList();
                 dictionaryBinding.Add(result);
             }
 
