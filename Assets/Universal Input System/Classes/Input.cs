@@ -232,14 +232,14 @@ public static class Input
 
     public static float GetFloat(string bindingName)
     {
-        inputSystem = UniversalInputSystem.Instance;
+        inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         DefinedInputBindings bind = inputSystem.definedBindings.Find(item => item.bindingName.Contains(bindingName));
         return (bind != null) ? bind.fVal : 0;
     }
 
     public static Vector2 GetVector2(string bindingName)
     {
-        inputSystem = UniversalInputSystem.Instance;
+        inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         DefinedInputBindings bind = inputSystem.definedBindings.Find(item => item.bindingName.Contains(bindingName));
         Vector2 currentVal = (bind != null) ? bind.vVal : Vector2.zero;
         return currentVal;
@@ -276,5 +276,11 @@ public static class Input
 #if UNITY_STANDALONE_OSX
         return (CGEventSourceFlagsState(1) & 0x00010000) != 0;
 #endif
+    }
+
+    public static void DisplayMouse(bool boolState)
+    {
+        inputSystem = inputSystem ?? UniversalInputSystem.Instance;
+        inputSystem.displayMouse = boolState;
     }
 }

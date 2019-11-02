@@ -33,6 +33,7 @@ public class UniversalInputSystem : MonoBehaviour
 
     //editor related code
     [HideInInspector] public DefinedInputBindings currentBinding = null;
+    [HideInInspector] public bool displayMouse = false;
 
     public enum ControllerType
     {
@@ -357,21 +358,7 @@ public class UniversalInputSystem : MonoBehaviour
             if (Gamepad.current.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
                 controllerType = ControllerType.Controller;
 
-        switch (controllerType)
-        {
-            case ControllerType.KeyboardMouse:
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                break;
-            case ControllerType.Controller:
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                break;
-            default:
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                break;
-        }
+        Cursor.lockState = (CursorLockMode)((Convert.ToInt32(Cursor.visible = displayMouse) == 1) ? 0 : 1);
     }
 
     private void EventInit(InputAction inputAction, bool hasCancel)

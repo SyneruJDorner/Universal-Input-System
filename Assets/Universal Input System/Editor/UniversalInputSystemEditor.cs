@@ -280,6 +280,7 @@ public class UniversalInputSystemEditor : Editor
     {
         EditorGUILayout.LabelField("General:", EditorStyles.boldLabel);
         EditorGUILayout.LabelField("Active Device: " + inputSystem.controllerType.ToString());
+        inputSystem.displayMouse = EditorGUILayout.Toggle("Display mouse: ", inputSystem.displayMouse);
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Binding Setup:", EditorStyles.boldLabel);
