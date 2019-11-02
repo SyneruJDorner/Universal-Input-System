@@ -53,6 +53,36 @@ public class UniversalInputSystem : MonoBehaviour
         InitGamepad();
     }
 
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus == false)
+        {
+            for (int i = 0; i < definedBindings.Count; i++)
+            {
+                definedBindings[i].fVal = 0;
+                definedBindings[i].vVal = Vector2.zero;
+
+                var keyboardBindingInfo = definedBindings[i].bindingInfo.keyboardBindingInfo;
+                keyboardBindingInfo.vVal = Vector2.zero;
+
+                for (int j = 0; j < keyboardBindingInfo.fVal.Count; j++)
+                    keyboardBindingInfo.fVal[j] = 0;
+
+                var mouseBindingInfo = definedBindings[i].bindingInfo.mouseBindingInfo;
+                mouseBindingInfo.vVal = Vector2.zero;
+
+                for (int j = 0; j < mouseBindingInfo.fVal.Count; j++)
+                    mouseBindingInfo.fVal[j] = 0;
+
+                var gamepadBindingInfo = definedBindings[i].bindingInfo.gamepadBindingInfo;
+                gamepadBindingInfo.vVal = Vector2.zero;
+
+                for (int j = 0; j < gamepadBindingInfo.fVal.Count; j++)
+                    gamepadBindingInfo.fVal[j] = 0;
+            }
+        }
+    }
+
     private void InitInputActionLists()
     {
         for (int i = 0; i < definedBindings.Count; i++)
@@ -233,7 +263,6 @@ public class UniversalInputSystem : MonoBehaviour
         InitBinding(gamepad_Controller.Select);
         InitBinding(gamepad_Controller.Start);
     }
-
 
     private void InitBinding(InputAction inputAction, bool hasCancel = true)
     {
