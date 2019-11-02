@@ -28,6 +28,14 @@ public class TestInput : MonoBehaviour
 
     public void Update()
     {
+        DetermineLockableButtonState();
+        Movement();
+        Looking();
+        GetKeyStates();
+    }
+
+    void DetermineLockableButtonState()
+    {
         if (Input.IsCapsLockOn() == true)
             Debug.Log("Caps Lock is on!");
 
@@ -36,10 +44,10 @@ public class TestInput : MonoBehaviour
 
         if (Input.IsScrollLockOn() == true)
             Debug.Log("Scroll Lock is on!");
+    }
 
-        Movement();
-        Looking();
-
+    void GetKeyStates()
+    {
         if (Input.GetFloat("Jump") == 1)
             Debug.Log("We are trying to jump!");
 
@@ -58,7 +66,7 @@ public class TestInput : MonoBehaviour
 
     void Looking()
     {
-        Vector2 looking = Input.GetVector2("Looking");//Input.GetVector2("Looking");
+        Vector2 looking = Input.GetVector2("Looking");
         rotationX -= looking.y * (PlayerDefinedSensitivity * 0.016f);
         rotationY += looking.x * (PlayerDefinedSensitivity * 0.016f);
         rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
@@ -69,7 +77,7 @@ public class TestInput : MonoBehaviour
 
     void Movement()
     {
-        Vector2 movement = Input.GetVector2("Movement");//Input.GetVector2("Movement");
+        Vector2 movement = Input.GetVector2("Movement");
         camTrans.position += Quaternion.Euler(0, camTrans.eulerAngles.y, 0) * new Vector3(movement.x, 0, movement.y) * (speed * Time.deltaTime);
     }
 }
