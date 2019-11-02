@@ -241,9 +241,7 @@ public static class Input
     {
         inputSystem = UniversalInputSystem.Instance;
         DefinedInputBindings bind = inputSystem.definedBindings.Find(item => item.bindingName.Contains(bindingName));
-
         Vector2 currentVal = (bind != null) ? bind.vVal : Vector2.zero;
-        //ApplyDefinedSensitivity(bind, ref currentVal);
         return currentVal;
     }
 

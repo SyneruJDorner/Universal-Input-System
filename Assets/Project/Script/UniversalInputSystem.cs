@@ -349,10 +349,13 @@ public class UniversalInputSystem : MonoBehaviour
     #region Event Handling (Update)
     public void DetermineHardwareControllers()
     {
-        if ((Keyboard.current.CheckStateIsAtDefault() == false || Mouse.current.wasUpdatedThisFrame == true) && controllerType != ControllerType.KeyboardMouse)
-            controllerType = ControllerType.KeyboardMouse;
-        else if (Gamepad.current.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
-            controllerType = ControllerType.Controller;
+        if (Keyboard.current != null && Mouse.current != null)
+            if ((Keyboard.current.CheckStateIsAtDefault() == false || Mouse.current.wasUpdatedThisFrame == true) && controllerType != ControllerType.KeyboardMouse)
+                controllerType = ControllerType.KeyboardMouse;
+
+        if (Gamepad.current != null)
+            if (Gamepad.current.CheckStateIsAtDefault() == false && controllerType != ControllerType.Controller)
+                controllerType = ControllerType.Controller;
 
         switch (controllerType)
         {
@@ -452,8 +455,31 @@ public class UniversalInputSystem : MonoBehaviour
         if (ctx.valueType.ToString() == "UnityEngine.Vector2")
         {
             Vector2 value = ctx.ReadValue<Vector2>();
+            ApplySensitivities(inputIndex, ref value, ref currentInputInfo);
             currentInputInfo.vVal = value;
             definedBindings[bindLocation].vVal = value;
+        }
+    }
+
+    private void ApplySensitivities(int inputIndex, ref Vector2 value, ref UniversalBindingInfo currentInputInfo)
+    {
+        string inputActionName = currentInputInfo.inputActions[inputIndex].name.Replace(" ", "");
+
+        if (currentInputInfo is MouseBindingInfo mouseBindingInfo)
+        {
+            Enum.TryParse(inputActionName, out MouseBindingInfo.MouseKeys mouseKey);
+
+            if (mouseKey == MouseBindingInfo.MouseKeys.Delta)
+                value *= mouseBindingInfo.mouseSensitivity;
+        }
+        else if (currentInputInfo is GamepadBindingInfo gamepadBindingInfo)
+        {
+            Enum.TryParse(inputActionName, out GamepadBindingInfo.GamepadKeys gamepadKey);
+
+            if (gamepadKey == GamepadBindingInfo.GamepadKeys.RightStick)
+                value *= gamepadBindingInfo.rightJoystickSensitivity;
+            if (gamepadKey == GamepadBindingInfo.GamepadKeys.LeftStick)
+                value *= gamepadBindingInfo.leftJoystickSensitivity;
         }
     }
     #endregion

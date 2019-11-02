@@ -222,12 +222,12 @@ public class UniversalInputSystemEditor : Editor
             mouseFlags[0] = (MouseBindingInfo.MouseKeys)EditorGUILayout.EnumPopup("Mouse Binding: ", (MouseKeys_Single)mouseFlags[0]);
 
         if (item.inputReturnType == InputType.Vector2)
-            mouseFlags[0] = (MouseBindingInfo.MouseKeys)EditorGUILayout.EnumPopup("Mouse Binding: ", (MouseKeys_Vector2)mouseFlags[0]);
+        {
+            if (mouseFlags[0] == MouseBindingInfo.MouseKeys.Delta)
+                item.bindingInfo.mouseBindingInfo.mouseSensitivity = EditorGUILayout.FloatField("Mouse Sensitivity: ", item.bindingInfo.mouseBindingInfo.mouseSensitivity);
 
-        /*
-        //inputSystem.mouseSensitivity = EditorGUILayout.FloatField("Mouse Sensitivity: ", inputSystem.mouseSensitivity);
-        //inputSystem.joystickSensitivity = EditorGUILayout.FloatField("Joystick Sensitivity: ", inputSystem.joystickSensitivity);
-        */
+            mouseFlags[0] = (MouseBindingInfo.MouseKeys)EditorGUILayout.EnumPopup("Mouse Binding: ", (MouseKeys_Vector2)mouseFlags[0]);
+        }
     }
 
     private void RenderGamepadSelection(DefinedInputBindings item)
@@ -248,7 +248,14 @@ public class UniversalInputSystemEditor : Editor
             gampadFlags[0] = (GamepadBindingInfo.GamepadKeys)EditorGUILayout.EnumPopup("Gamepad Binding: ", (GamepadKeys_Single)gampadFlags[0]);
 
         if (item.inputReturnType == InputType.Vector2)
+        {
+            if (gampadFlags[0] == GamepadBindingInfo.GamepadKeys.LeftStick)
+                item.bindingInfo.gamepadBindingInfo.leftJoystickSensitivity = EditorGUILayout.FloatField("Left Joystick Sensitivity: ", item.bindingInfo.gamepadBindingInfo.leftJoystickSensitivity);
+            if (gampadFlags[0] == GamepadBindingInfo.GamepadKeys.RightStick)
+                item.bindingInfo.gamepadBindingInfo.rightJoystickSensitivity = EditorGUILayout.FloatField("Right Joystick Sensitivity: ", item.bindingInfo.gamepadBindingInfo.rightJoystickSensitivity);
+
             gampadFlags[0] = (GamepadBindingInfo.GamepadKeys)EditorGUILayout.EnumPopup("Gamepad Binding: ", (GamepadKeys_Vector2)gampadFlags[0]);
+        }
     }
 
     private void AddItem(ReorderableList list)

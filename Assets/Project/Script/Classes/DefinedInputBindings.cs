@@ -13,8 +13,8 @@ public enum InputType
 public class DefinedInputBindings
 {
     public string bindingName;//Key
-    public InputType inputReturnType = InputType.Single;//Value return type
-    public BindingInfo bindingInfo = new BindingInfo();//Value
+    public InputType inputReturnType = InputType.Single;        //Value return type
+    public BindingInfo bindingInfo = new BindingInfo();         //Value
     public List<string> lookupBindings = new List<string>();
 
     //Children need to pass thier fVal and vVal here as a globalized vaiable that the bindings control
