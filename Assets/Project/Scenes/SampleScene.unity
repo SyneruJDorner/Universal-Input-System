@@ -726,77 +726,167 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4667923207200885355
+--- !u!1001 &7213245017661230885
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4667923205840624197, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669945, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_Name
       value: Universal Input System
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.0954895
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -4.0268707
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -40.07883
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624219, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4667923205840624196, guid: 60fb84f7178719d40925677e6e0a2f09,
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
-      propertyPath: Binding.Array.data[0].editing
+      propertyPath: currentBinding.bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.mouseBindingInfo.mouseKeys.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings.Array.data[0].editing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.inputReturnType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[0]
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[3]
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.gamepadBindingInfo.gamepadKeys.Array.data[0]
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.selectedBindingDevice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.editing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings.Array.data[1].editing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: currentBinding.bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings.Array.data[2].editing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings.Array.data[2].selectedBindingDevice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings.Array.data[1].selectedBindingDevice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings.Array.data[0].selectedBindingDevice
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fb84f7178719d40925677e6e0a2f09, type: 3}
