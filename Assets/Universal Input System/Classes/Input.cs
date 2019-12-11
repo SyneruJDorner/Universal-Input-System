@@ -24,66 +24,59 @@ public static class Input
     {
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         bool returnState = false;
-        InputAction inputAction = null;
 
-        for (int i = 0; i < inputSystem.definedBindings.Count; i++)
+        KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.keyboardBindingInfo;
+        MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.mouseBindingInfo;
+        GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.gamepadBindingInfo;
+
+        for (int j = 0; j < keyboardBindingInfo.inputActions.Count; j++)
         {
-            if (bindingName != inputSystem.definedBindings[i].bindingName)
-                continue;
+            InputAction inputAction = keyboardBindingInfo.inputActions[j];
 
-            KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[i].bindingInfo.keyboardBindingInfo;
-            MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[i].bindingInfo.mouseBindingInfo;
-            GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[i].bindingInfo.gamepadBindingInfo;
-
-            for (int j = 0; j < keyboardBindingInfo.inputActions.Count; j++)
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = keyboardBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.wasPressedThisFrame;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.wasPressedThisFrame;
                 }
+                catch (Exception) { }
             }
+        }
 
-            for (int j = 0; j < mouseBindingInfo.inputActions.Count; j++)
+        for (int j = 0; j < mouseBindingInfo.inputActions.Count; j++)
+        {
+            InputAction inputAction = mouseBindingInfo.inputActions[j];
+
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = mouseBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.wasPressedThisFrame;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.wasPressedThisFrame;
                 }
+                catch (Exception) { }
             }
+        }
 
-            for (int j = 0; j < gamepadBindingInfo.inputActions.Count; j++)
+        for (int j = 0; j < gamepadBindingInfo.inputActions.Count; j++)
+        {
+            InputAction inputAction = gamepadBindingInfo.inputActions[j];
+
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = gamepadBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.wasPressedThisFrame;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.wasPressedThisFrame;
                 }
+                catch (Exception) { }
             }
         }
 
@@ -94,66 +87,59 @@ public static class Input
     {
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         bool returnState = false;
-        InputAction inputAction = null;
 
-        for (int i = 0; i < inputSystem.definedBindings.Count; i++)
+        KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.keyboardBindingInfo;
+        MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.mouseBindingInfo;
+        GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.gamepadBindingInfo;
+
+        for (int j = 0; j < keyboardBindingInfo.inputActions.Count; j++)
         {
-            if (bindingName != inputSystem.definedBindings[i].bindingName)
-                continue;
+            InputAction inputAction = keyboardBindingInfo.inputActions[j];
 
-            KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[i].bindingInfo.keyboardBindingInfo;
-            MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[i].bindingInfo.mouseBindingInfo;
-            GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[i].bindingInfo.gamepadBindingInfo;
-
-            for (int j = 0; j < keyboardBindingInfo.inputActions.Count; j++)
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = keyboardBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.isPressed;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.isPressed;
                 }
+                catch (Exception) { }
             }
+        }
 
-            for (int j = 0; j < mouseBindingInfo.inputActions.Count; j++)
+        for (int j = 0; j < mouseBindingInfo.inputActions.Count; j++)
+        {
+            InputAction inputAction = mouseBindingInfo.inputActions[j];
+
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = mouseBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.isPressed;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.isPressed;
                 }
+                catch (Exception) { }
             }
+        }
 
-            for (int j = 0; j < gamepadBindingInfo.inputActions.Count; j++)
+        for (int j = 0; j < gamepadBindingInfo.inputActions.Count; j++)
+        {
+            InputAction inputAction = gamepadBindingInfo.inputActions[j];
+
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = gamepadBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.isPressed;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.isPressed;
                 }
+                catch (Exception) { }
             }
         }
 
@@ -164,66 +150,59 @@ public static class Input
     {
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         bool returnState = false;
-        InputAction inputAction = null;
 
-        for (int i = 0; i < inputSystem.definedBindings.Count; i++)
+        KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.keyboardBindingInfo;
+        MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.mouseBindingInfo;
+        GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.gamepadBindingInfo;
+
+        for (int j = 0; j < keyboardBindingInfo.inputActions.Count; j++)
         {
-            if (bindingName != inputSystem.definedBindings[i].bindingName)
-                continue;
+            InputAction inputAction = keyboardBindingInfo.inputActions[j];
 
-            KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[i].bindingInfo.keyboardBindingInfo;
-            MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[i].bindingInfo.mouseBindingInfo;
-            GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[i].bindingInfo.gamepadBindingInfo;
-
-            for (int j = 0; j < keyboardBindingInfo.inputActions.Count; j++)
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = keyboardBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.wasReleasedThisFrame;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.wasReleasedThisFrame;
                 }
+                catch (Exception) { }
             }
+        }
 
-            for (int j = 0; j < mouseBindingInfo.inputActions.Count; j++)
+        for (int j = 0; j < mouseBindingInfo.inputActions.Count; j++)
+        {
+            InputAction inputAction = mouseBindingInfo.inputActions[j];
+
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = mouseBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.wasReleasedThisFrame;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.wasReleasedThisFrame;
                 }
+                catch (Exception) { }
             }
+        }
 
-            for (int j = 0; j < gamepadBindingInfo.inputActions.Count; j++)
+        for (int j = 0; j < gamepadBindingInfo.inputActions.Count; j++)
+        {
+            InputAction inputAction = gamepadBindingInfo.inputActions[j];
+
+            if (inputAction != null && inputAction.controls.Count > 0)
             {
-                inputAction = gamepadBindingInfo.inputActions[j];
-
-                if (inputAction != null && inputAction.controls.Count > 0)
+                try
                 {
-                    try
-                    {
-                        ButtonControl bc = (ButtonControl)inputAction.controls[0];
+                    ButtonControl bc = (ButtonControl)inputAction.controls[0];
 
-                        if (returnState == false)
-                            returnState = bc.wasReleasedThisFrame;
-                    }
-                    catch (Exception) { }
+                    if (returnState == false)
+                        returnState = bc.wasReleasedThisFrame;
                 }
+                catch (Exception) { }
             }
         }
 
@@ -233,14 +212,14 @@ public static class Input
     public static float GetFloat(string bindingName)
     {
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
-        DefinedInputBindings bind = inputSystem.definedBindings.Find(item => item.bindingName.Contains(bindingName));
+        DefinedInputBindings bind = inputSystem.definedBindings[bindingName];
         return (bind != null) ? bind.fVal : 0;
     }
 
     public static Vector2 GetVector2(string bindingName)
     {
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
-        DefinedInputBindings bind = inputSystem.definedBindings.Find(item => item.bindingName.Contains(bindingName));
+        DefinedInputBindings bind = inputSystem.definedBindings[bindingName];
         Vector2 currentVal = (bind != null) ? bind.vVal : Vector2.zero;
         return currentVal;
     }

@@ -29,7 +29,10 @@ public class UniversalInputSystem : MonoBehaviour
     [HideInInspector] private InputControls.KeyboardActions keyboard_Controller;
     [HideInInspector] private InputControls.GamepadActions gamepad_Controller;
     [HideInInspector] private InputControls.MouseActions mouse_Controller;
-    public List<DefinedInputBindings> definedBindings = new List<DefinedInputBindings>();
+
+    [Serializable]
+    public class BindingDictionary : SerializableDictionary<string, DefinedInputBindings> { }
+    public BindingDictionary definedBindings;
 
     //editor related code
     [HideInInspector] public DefinedInputBindings currentBinding = null;
@@ -58,24 +61,26 @@ public class UniversalInputSystem : MonoBehaviour
     {
         if (hasFocus == false)
         {
-            for (int i = 0; i < definedBindings.Count; i++)
+            foreach (var element in definedBindings)
             {
-                definedBindings[i].fVal = 0;
-                definedBindings[i].vVal = Vector2.zero;
+                var definedInputBinding = element.Value;
 
-                var keyboardBindingInfo = definedBindings[i].bindingInfo.keyboardBindingInfo;
+                definedInputBinding.fVal = 0;
+                definedInputBinding.vVal = Vector2.zero;
+
+                var keyboardBindingInfo = definedInputBinding.bindingInfo.keyboardBindingInfo;
                 keyboardBindingInfo.vVal = Vector2.zero;
 
                 for (int j = 0; j < keyboardBindingInfo.fVal.Count; j++)
                     keyboardBindingInfo.fVal[j] = 0;
 
-                var mouseBindingInfo = definedBindings[i].bindingInfo.mouseBindingInfo;
+                var mouseBindingInfo = definedInputBinding.bindingInfo.mouseBindingInfo;
                 mouseBindingInfo.vVal = Vector2.zero;
 
                 for (int j = 0; j < mouseBindingInfo.fVal.Count; j++)
                     mouseBindingInfo.fVal[j] = 0;
 
-                var gamepadBindingInfo = definedBindings[i].bindingInfo.gamepadBindingInfo;
+                var gamepadBindingInfo = definedInputBinding.bindingInfo.gamepadBindingInfo;
                 gamepadBindingInfo.vVal = Vector2.zero;
 
                 for (int j = 0; j < gamepadBindingInfo.fVal.Count; j++)
@@ -86,34 +91,38 @@ public class UniversalInputSystem : MonoBehaviour
 
     private void InitInputActionLists()
     {
-        for (int i = 0; i < definedBindings.Count; i++)
+        foreach (var element in definedBindings)
         {
-            var keyboardFlags = definedBindings[i].bindingInfo.keyboardBindingInfo.keyboardFlags;
+            var definedInputBinding = element.Value;
+
+            var keyboardFlags = definedInputBinding.bindingInfo.keyboardBindingInfo.keyboardFlags;
             keyboardFlags.RemoveAll(item => item == KeyboardBindingInfo.KeyboardKeys.None);
 
-            var mouseFlags = definedBindings[i].bindingInfo.mouseBindingInfo.mouseKeys;
+            var mouseFlags = definedInputBinding.bindingInfo.mouseBindingInfo.mouseKeys;
             mouseFlags.RemoveAll(item => item == MouseBindingInfo.MouseKeys.None);
 
-            var gampadFlags = definedBindings[i].bindingInfo.gamepadBindingInfo.gamepadKeys;
+            var gampadFlags = definedInputBinding.bindingInfo.gamepadBindingInfo.gamepadKeys;
             gampadFlags.RemoveAll(item => item == GamepadBindingInfo.GamepadKeys.None);
         }
 
-        for (int i = 0; i < definedBindings.Count; i++)
+        foreach (var element in definedBindings)
         {
-            var keyboardFlags = definedBindings[i].bindingInfo.keyboardBindingInfo.keyboardFlags;
-            definedBindings[i].bindingInfo.keyboardBindingInfo.inputActions = CreateList<InputAction>(keyboardFlags.Count);
-            definedBindings[i].bindingInfo.keyboardBindingInfo.ctx = CreateList<InputAction.CallbackContext>(keyboardFlags.Count);
-            definedBindings[i].bindingInfo.keyboardBindingInfo.fVal = CreateList<float>(keyboardFlags.Count);
+            var definedInputBinding = element.Value;
 
-            var mouseFlags = definedBindings[i].bindingInfo.mouseBindingInfo.mouseKeys;
-            definedBindings[i].bindingInfo.mouseBindingInfo.inputActions = CreateList<InputAction>(mouseFlags.Count);
-            definedBindings[i].bindingInfo.mouseBindingInfo.ctx = CreateList<InputAction.CallbackContext>(mouseFlags.Count);
-            definedBindings[i].bindingInfo.mouseBindingInfo.fVal = CreateList<float>(mouseFlags.Count);
+            var keyboardFlags = definedInputBinding.bindingInfo.keyboardBindingInfo.keyboardFlags;
+            definedInputBinding.bindingInfo.keyboardBindingInfo.inputActions = CreateList<InputAction>(keyboardFlags.Count);
+            definedInputBinding.bindingInfo.keyboardBindingInfo.ctx = CreateList<InputAction.CallbackContext>(keyboardFlags.Count);
+            definedInputBinding.bindingInfo.keyboardBindingInfo.fVal = CreateList<float>(keyboardFlags.Count);
 
-            var gampadFlags = definedBindings[i].bindingInfo.gamepadBindingInfo.gamepadKeys;
-            definedBindings[i].bindingInfo.gamepadBindingInfo.inputActions = CreateList<InputAction>(gampadFlags.Count);
-            definedBindings[i].bindingInfo.gamepadBindingInfo.ctx = CreateList<InputAction.CallbackContext>(gampadFlags.Count);
-            definedBindings[i].bindingInfo.gamepadBindingInfo.fVal = CreateList<float>(gampadFlags.Count);
+            var mouseFlags = definedInputBinding.bindingInfo.mouseBindingInfo.mouseKeys;
+            definedInputBinding.bindingInfo.mouseBindingInfo.inputActions = CreateList<InputAction>(mouseFlags.Count);
+            definedInputBinding.bindingInfo.mouseBindingInfo.ctx = CreateList<InputAction.CallbackContext>(mouseFlags.Count);
+            definedInputBinding.bindingInfo.mouseBindingInfo.fVal = CreateList<float>(mouseFlags.Count);
+
+            var gampadFlags = definedInputBinding.bindingInfo.gamepadBindingInfo.gamepadKeys;
+            definedInputBinding.bindingInfo.gamepadBindingInfo.inputActions = CreateList<InputAction>(gampadFlags.Count);
+            definedInputBinding.bindingInfo.gamepadBindingInfo.ctx = CreateList<InputAction.CallbackContext>(gampadFlags.Count);
+            definedInputBinding.bindingInfo.gamepadBindingInfo.fVal = CreateList<float>(gampadFlags.Count);
         }
     }
 
@@ -276,69 +285,71 @@ public class UniversalInputSystem : MonoBehaviour
         #region Setup Input Action Lists in bindings
         string inputActionName = inputAction.name.Replace(" ", "");
 
-        for (int i = 0; i < definedBindings.Count; i++)
+        foreach (var element in definedBindings)
         {
+            var definedInputBinding = element.Value;
+
             #region init Keyboard inputs
-            var keyboardFlags = definedBindings[i].bindingInfo.keyboardBindingInfo.keyboardFlags;
+            var keyboardFlags = definedInputBinding.bindingInfo.keyboardBindingInfo.keyboardFlags;
             for (int j = 0; j < keyboardFlags.Count; j++)
             {
                 //Remove all elements that do not have eum keys set up
                 if (keyboardFlags[j] == KeyboardBindingInfo.KeyboardKeys.None)
                 {
-                    definedBindings[i].bindingInfo.keyboardBindingInfo.inputActions.RemoveAt(0);
-                    definedBindings[i].bindingInfo.keyboardBindingInfo.ctx.RemoveAt(0);
+                    definedInputBinding.bindingInfo.keyboardBindingInfo.inputActions.RemoveAt(0);
+                    definedInputBinding.bindingInfo.keyboardBindingInfo.ctx.RemoveAt(0);
                     continue;
                 }
 
                 int diff = String.Compare(inputActionName, keyboardFlags[j].ToString().Replace(" ", ""), StringComparison.OrdinalIgnoreCase);
                 if (diff == 0)
                 {
-                    definedBindings[i].bindingInfo.keyboardBindingInfo.inputActions[j] = inputAction;
-                    definedBindings[i].lookupBindings.Add(inputActionName);
+                    definedInputBinding.bindingInfo.keyboardBindingInfo.inputActions[j] = inputAction;
+                    definedInputBinding.lookupBindings.Add(inputActionName);
                 }
             }
             #endregion
 
             #region init Mouse inputs
-            var mouseFlags = definedBindings[i].bindingInfo.mouseBindingInfo.mouseKeys;
+            var mouseFlags = definedInputBinding.bindingInfo.mouseBindingInfo.mouseKeys;
             for (int j = 0; j < mouseFlags.Count; j++)
             {
                 //Remove all elements that do not have eum keys set up
                 if (mouseFlags[j] == MouseBindingInfo.MouseKeys.None &&
-                    definedBindings[i].bindingInfo.mouseBindingInfo.inputActions.Count == 0)
+                    definedInputBinding.bindingInfo.mouseBindingInfo.inputActions.Count == 0)
                 {
-                    definedBindings[i].bindingInfo.mouseBindingInfo.inputActions.RemoveAt(0);
-                    definedBindings[i].bindingInfo.mouseBindingInfo.ctx.RemoveAt(0);
+                    definedInputBinding.bindingInfo.mouseBindingInfo.inputActions.RemoveAt(0);
+                    definedInputBinding.bindingInfo.mouseBindingInfo.ctx.RemoveAt(0);
                     continue;
                 }
 
                 int diff = String.Compare(inputActionName, mouseFlags[j].ToString().Replace(" ", ""), StringComparison.OrdinalIgnoreCase);
                 if (diff == 0)
                 {
-                    definedBindings[i].bindingInfo.mouseBindingInfo.inputActions[j] = inputAction;
-                    definedBindings[i].lookupBindings.Add(inputActionName);
+                    definedInputBinding.bindingInfo.mouseBindingInfo.inputActions[j] = inputAction;
+                    definedInputBinding.lookupBindings.Add(inputActionName);
                 }
             }
             #endregion
 
             #region init Gamepad inputs
-            var gampadFlags = definedBindings[i].bindingInfo.gamepadBindingInfo.gamepadKeys;
+            var gampadFlags = definedInputBinding.bindingInfo.gamepadBindingInfo.gamepadKeys;
             for (int j = 0; j < gampadFlags.Count; j++)
             {
                 //Remove all elements that do not have eum keys set up
                 if (gampadFlags[j] == GamepadBindingInfo.GamepadKeys.None &&
-                    definedBindings[i].bindingInfo.gamepadBindingInfo.inputActions.Count == 0)
+                    definedInputBinding.bindingInfo.gamepadBindingInfo.inputActions.Count == 0)
                 {
-                    definedBindings[i].bindingInfo.gamepadBindingInfo.inputActions.RemoveAt(0);
-                    definedBindings[i].bindingInfo.gamepadBindingInfo.ctx.RemoveAt(0);
+                    definedInputBinding.bindingInfo.gamepadBindingInfo.inputActions.RemoveAt(0);
+                    definedInputBinding.bindingInfo.gamepadBindingInfo.ctx.RemoveAt(0);
                     continue;
                 }
 
                 int diff = String.Compare(inputActionName, gampadFlags[j].ToString().Replace(" ", ""), StringComparison.OrdinalIgnoreCase);
                 if (diff == 0)
                 {
-                    definedBindings[i].bindingInfo.gamepadBindingInfo.inputActions[j] = inputAction;
-                    definedBindings[i].lookupBindings.Add(inputActionName);
+                    definedInputBinding.bindingInfo.gamepadBindingInfo.inputActions[j] = inputAction;
+                    definedInputBinding.lookupBindings.Add(inputActionName);
                 }
             }
             #endregion
@@ -374,13 +385,16 @@ public class UniversalInputSystem : MonoBehaviour
         string inputActionName = inputAction.name.Replace(" ", "");
 
         DetermineHardwareControllers();
-        for (int i = 0; i < definedBindings.Count; i++)
-        {
-            KeyboardBindingInfo keyboardBindingInfo = definedBindings[i].bindingInfo.keyboardBindingInfo;
-            MouseBindingInfo mouseBindingInfo = definedBindings[i].bindingInfo.mouseBindingInfo;
-            GamepadBindingInfo gamepadBindingInfo = definedBindings[i].bindingInfo.gamepadBindingInfo;
 
-            if (definedBindings[i].lookupBindings.Contains(inputActionName) == true)
+        foreach (var element in definedBindings)
+        {
+            var definedInputBinding = element.Value;
+
+            KeyboardBindingInfo keyboardBindingInfo = definedInputBinding.bindingInfo.keyboardBindingInfo;
+            MouseBindingInfo mouseBindingInfo = definedInputBinding.bindingInfo.mouseBindingInfo;
+            GamepadBindingInfo gamepadBindingInfo = definedInputBinding.bindingInfo.gamepadBindingInfo;
+
+            if (definedInputBinding.lookupBindings.Contains(inputActionName) == true)
             {
                 int inputIndex = -1;
                 UniversalBindingInfo universalBindingInfo = null;
@@ -390,30 +404,30 @@ public class UniversalInputSystem : MonoBehaviour
                     inputIndex = keyboardBindingInfo.inputActions.FindIndex(item => item.name.Replace(" ", "") == inputActionName);
 
                     if (inputIndex >= 0)
-                        universalBindingInfo = definedBindings[i].bindingInfo.keyboardBindingInfo;
+                        universalBindingInfo = definedInputBinding.bindingInfo.keyboardBindingInfo;
                 }
                 else if (controllerType == ControllerType.KeyboardMouse && mouseBindingInfo.inputActions.Count > 0)
                 {
                     inputIndex = mouseBindingInfo.inputActions.FindIndex(item => item.name.Replace(" ", "") == inputActionName);
 
                     if (inputIndex >= 0)
-                        universalBindingInfo = definedBindings[i].bindingInfo.mouseBindingInfo;
+                        universalBindingInfo = definedInputBinding.bindingInfo.mouseBindingInfo;
                 }
                 else if (controllerType == ControllerType.Controller && gamepadBindingInfo.inputActions.Count > 0)
                 {
                     inputIndex = gamepadBindingInfo.inputActions.FindIndex(item => item.name.Replace(" ", "") == inputActionName);
 
                     if (inputIndex >= 0)
-                        universalBindingInfo = definedBindings[i].bindingInfo.gamepadBindingInfo;
+                        universalBindingInfo = definedInputBinding.bindingInfo.gamepadBindingInfo;
                 }
 
                 if (inputIndex >= 0 && universalBindingInfo != null)
-                    UpdateBindingValues(i, inputIndex, ref universalBindingInfo, ctx);
+                    UpdateBindingValues(element.Key, inputIndex, ref universalBindingInfo, ctx);
             }
         }
     }
 
-    public void UpdateBindingValues(int bindLocation, int inputIndex, ref UniversalBindingInfo currentInputInfo, InputAction.CallbackContext ctx)
+    public void UpdateBindingValues(string key, int inputIndex, ref UniversalBindingInfo currentInputInfo, InputAction.CallbackContext ctx)
     {
         currentInputInfo.ctx[inputIndex] = ctx;
 
@@ -421,21 +435,21 @@ public class UniversalInputSystem : MonoBehaviour
         {
             float value = ctx.ReadValue<float>();
             currentInputInfo.fVal[inputIndex] = value;
-            definedBindings[bindLocation].fVal = value;
+            definedBindings[key].fVal = value;
 
-            if (definedBindings[bindLocation].inputReturnType == InputType.Vector2 &&
+            if (definedBindings[key].inputReturnType == InputType.Vector2 &&
                 currentInputInfo.ctx.Count == 4)
             {
 
-                definedBindings[bindLocation].vVal = Vector2.zero;
+                definedBindings[key].vVal = Vector2.zero;
 
-                definedBindings[bindLocation].vVal.y += currentInputInfo.fVal[0]; //Up
-                definedBindings[bindLocation].vVal.x -= currentInputInfo.fVal[1]; //Left
-                definedBindings[bindLocation].vVal.x += currentInputInfo.fVal[2]; //Right
-                definedBindings[bindLocation].vVal.y -= currentInputInfo.fVal[3]; //Down
+                definedBindings[key].vVal.y += currentInputInfo.fVal[0]; //Up
+                definedBindings[key].vVal.x -= currentInputInfo.fVal[1]; //Left
+                definedBindings[key].vVal.x += currentInputInfo.fVal[2]; //Right
+                definedBindings[key].vVal.y -= currentInputInfo.fVal[3]; //Down
 
-                if (definedBindings[bindLocation].vVal != Vector2.zero)
-                    definedBindings[bindLocation].vVal.Normalize();
+                if (definedBindings[key].vVal != Vector2.zero)
+                    definedBindings[key].vVal.Normalize();
             }
         }
 
@@ -444,7 +458,7 @@ public class UniversalInputSystem : MonoBehaviour
             Vector2 value = ctx.ReadValue<Vector2>();
             ApplySensitivities(inputIndex, ref value, ref currentInputInfo);
             currentInputInfo.vVal = value;
-            definedBindings[bindLocation].vVal = value;
+            definedBindings[key].vVal = value;
         }
     }
 

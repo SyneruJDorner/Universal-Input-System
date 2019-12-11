@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
+using System.Linq;
 
 [CustomEditor(typeof(UniversalInputSystem))]
 public class UniversalInputSystemEditor : Editor
@@ -50,9 +51,15 @@ public class UniversalInputSystemEditor : Editor
     #endregion
 
     #region Endabled/Disabled
+    private void Reset()
+    {
+        OnDisable();
+        OnEnable();
+    }
+
     private void OnEnable()
     {
-        reorderableList = new ReorderableList(inputSystem.definedBindings, typeof(DefinedInputBindings), true, true, true, true);
+        reorderableList = new ReorderableList(inputSystem.definedBindings.Values.ToList(), typeof(DefinedInputBindings), false, true, true, true);
 
         reorderableList.drawHeaderCallback += DrawHeader;
         reorderableList.drawElementCallback += DrawElement;
@@ -77,7 +84,7 @@ public class UniversalInputSystemEditor : Editor
 
     private void DrawElement(Rect rect, int index, bool active, bool focused)
     {
-        DefinedInputBindings item = inputSystem.definedBindings[index];
+        DefinedInputBindings item = inputSystem.definedBindings.ElementAt(index).Value;
 
         EditorGUI.BeginChangeCheck();
 
@@ -105,7 +112,10 @@ public class UniversalInputSystemEditor : Editor
 
         if (item.editing == true)
         {
+            var previousKey = item.bindingName;
             item.bindingName = EditorGUILayout.TextField("Name: ", item.bindingName);
+            UpdateDictionaryKey(previousKey, item);
+
             item.inputReturnType = (InputType)EditorGUILayout.EnumPopup("Return Type: ", item.inputReturnType);
             GUILayout.Space(EditorGUIUtility.singleLineHeight);
 
@@ -262,16 +272,25 @@ public class UniversalInputSystemEditor : Editor
     {
         DefinedInputBindings definedInputBindings = new DefinedInputBindings()
         {
-            bindingName = "Unamed Binding"
+            bindingName = "Unamed_Binding_" + (inputSystem.definedBindings.Count + 1).ToString()
         };
-        inputSystem.definedBindings.Add(definedInputBindings);
+
+        inputSystem.definedBindings.Add(definedInputBindings.bindingName, definedInputBindings);
+        Reset();
         EditorUtility.SetDirty(target);
     }
 
     private void RemoveItem(ReorderableList list)
     {
-        inputSystem.definedBindings.RemoveAt(list.index);
+        inputSystem.definedBindings.Remove(inputSystem.definedBindings.ElementAt(list.index).Key);
+        Reset();
         EditorUtility.SetDirty(target);
+    }
+
+    private void UpdateDictionaryKey(string previousKey, DefinedInputBindings item)
+    {
+        inputSystem.definedBindings.Remove(previousKey);
+        inputSystem.definedBindings.Add(item.bindingName, item);
     }
     #endregion
 
