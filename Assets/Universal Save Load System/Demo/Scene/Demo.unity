@@ -271,6 +271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
+      propertyPath: profileOptions.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
       propertyPath: definedBindings.Array.data[0].editing
       value: 0
       objectReference: {fileID: 0}
@@ -512,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Version
-      value: 10609
+      value: 10391
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -773,6 +778,46 @@ PrefabInstance:
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: selectedProfileOption
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: lastKnownSelectedProfileOption
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: profileOptions.Array.data[0]
+      value: Default_FPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: profileOptions.Array.data[1]
+      value: Tester
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: profileOptions.Array.data[2]
+      value: Default_FPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: profileOptions.Array.data[3]
+      value: Tester
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: profileOptions.Array.data[4]
+      value: Default_FPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: profileOptions.Array.data[5]
+      value: Tester
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669945, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}

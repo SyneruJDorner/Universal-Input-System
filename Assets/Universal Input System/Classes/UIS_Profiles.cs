@@ -10,11 +10,6 @@ public class UIS_Profiles
     public List<UniversalInputSystem.BindingDictionary> jsonImportData = new List<UniversalInputSystem.BindingDictionary>();
     public int lastKnownFileSize = -1;
 
-    #region Editor Related Code
-    public int selectedOption = 0, lastKnownSelectedOption = 0;
-    public List<string> options = new List<string>();
-    #endregion
-
     public void Init()
     {
         SavePath = ExportUISProfile.SearchFile(Application.dataPath, "UniversalInputSystem.cs") + @"\Profiles";
@@ -29,7 +24,7 @@ public class UIS_Profiles
         foreach (FileInfo file in Files)
         {
             string contents = File.ReadAllText(file.FullName);
-            options.Add(file.Name.Replace(".uisp", ""));
+            UniversalInputSystem.Instance.profileOptions.Add(file.Name.Replace(".uisp", ""));
             jsonImportData.Add(JsonUtility.FromJson<UniversalInputSystem.BindingDictionary>(contents));
         }
 

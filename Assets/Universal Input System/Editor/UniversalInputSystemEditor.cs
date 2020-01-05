@@ -337,24 +337,28 @@ public class UniversalInputSystemEditor : Editor
         inputSystem.uis_Profiles.Init();
 
         //Create s list to select profiles
-        inputSystem.uis_Profiles.selectedOption = EditorGUILayout.Popup("Active Profile: ", inputSystem.uis_Profiles.selectedOption, inputSystem.uis_Profiles.options.ToArray());
+        inputSystem.selectedProfileOption = EditorGUILayout.Popup("Active Profile: ", inputSystem.selectedProfileOption, inputSystem.profileOptions.ToArray());
 
-        if (inputSystem.uis_Profiles.selectedOption != inputSystem.uis_Profiles.lastKnownSelectedOption)
+        if (inputSystem.selectedProfileOption != inputSystem.lastKnownSelectedProfileOption ||
+            inputSystem.definedBindings != inputSystem.uis_Profiles.jsonImportData[inputSystem.selectedProfileOption])
         {
-            inputSystem.uis_Profiles.lastKnownSelectedOption = inputSystem.uis_Profiles.selectedOption;
-            inputSystem.definedBindings = inputSystem.uis_Profiles.jsonImportData[inputSystem.uis_Profiles.selectedOption];
+            inputSystem.lastKnownSelectedProfileOption = inputSystem.selectedProfileOption;
+            inputSystem.definedBindings = inputSystem.uis_Profiles.jsonImportData[inputSystem.selectedProfileOption];
+
+            foreach (var item in inputSystem.definedBindings)
+            {
+                item.Value.editing = false;
+            }
+
             Reset();
         }
 
+
         if (GUILayout.Button("Export Profile"))
-        {
             inputSystem.uis_Profiles.ExportProfile();
-        }
 
         if (GUILayout.Button("Open Profiles Folder"))
-        {
             System.Diagnostics.Process.Start(UIS_Profiles.SavePath);
-        }
     }
     #endregion
 }
