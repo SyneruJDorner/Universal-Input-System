@@ -260,6 +260,6 @@ public static class Input
     public static void DisplayMouse(bool boolState)
     {
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
-        inputSystem.displayMouse = boolState;
+        UniversalInputSystem.displayMouse = boolState;
     }
 }

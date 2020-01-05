@@ -20,11 +20,12 @@ public class UIS_Profiles
             return;
 
         jsonImportData = new List<UniversalInputSystem.BindingDictionary>();
+        UniversalInputSystem.profileOptions.Clear();
 
         foreach (FileInfo file in Files)
         {
             string contents = File.ReadAllText(file.FullName);
-            UniversalInputSystem.Instance.profileOptions.Add(file.Name.Replace(".uisp", ""));
+            UniversalInputSystem.profileOptions.Add(file.Name.Replace(".uisp", ""));
             jsonImportData.Add(JsonUtility.FromJson<UniversalInputSystem.BindingDictionary>(contents));
         }
 

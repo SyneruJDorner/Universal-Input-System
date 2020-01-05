@@ -35,13 +35,14 @@ public class UniversalInputSystem : MonoBehaviour
     public BindingDictionary definedBindings;
 
     //editor related code
-    [HideInInspector] public int tab = 0;
-    [HideInInspector] public DefinedInputBindings currentBinding = null;
-    [HideInInspector] public bool displayMouse = false;
-    [HideInInspector] public UIS_Profiles uis_Profiles = new UIS_Profiles();
+    [HideInInspector] public static int tab;
+    [HideInInspector] public static DefinedInputBindings currentBinding = null;
+    [HideInInspector] public static bool displayMouse = false;
+    [HideInInspector] public static UIS_Profiles uis_Profiles = new UIS_Profiles();
 
-    [HideInInspector] public int selectedProfileOption = 0, lastKnownSelectedProfileOption = 0;
-    [HideInInspector] public List<string> profileOptions = new List<string>();
+    [HideInInspector] public static int selectedProfileOption;
+    [HideInInspector] public static int lastKnownSelectedProfileOption;
+    [HideInInspector] public static List<string> profileOptions = new List<string>();
 
     public enum ControllerType
     {

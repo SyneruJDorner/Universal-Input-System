@@ -202,7 +202,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingInfo.mouseBindingInfo.mouseKeys.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -212,37 +212,37 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingInfo.mouseBindingInfo.mouseKeys.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -502,12 +502,12 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._HashCodes.Array.data[0]
-      value: 696031055
+      value: 676768979
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Next.Array.data[0]
-      value: -1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -517,17 +517,17 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Version
-      value: 10391
+      value: 9669
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Keys.Array.data[0]
-      value: Pan
+      value: Movement
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingName
-      value: Pan
+      value: Movement
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -537,22 +537,22 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._HashCodes.Array.data[1]
-      value: -1
+      value: 1962800275
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Next.Array.data[1]
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Keys.Array.data[1]
-      value: 
+      value: Looking
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingName
-      value: 
+      value: Looking
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -562,7 +562,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Buckets.Array.data[2]
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -572,12 +572,12 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].selectedBindingDevice
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].inputReturnType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -597,7 +597,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].inputReturnType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -627,22 +627,22 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._HashCodes.Array.data[2]
-      value: -1
+      value: 842948034
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Next.Array.data[2]
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Keys.Array.data[2]
-      value: 
+      value: Jump
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingName
-      value: 
+      value: Jump
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -652,7 +652,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].selectedBindingDevice
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -677,12 +677,12 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Buckets.Array.data[5]
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Buckets.Array.data[6]
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -767,17 +767,17 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._FreeList
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: definedBindings._FreeCount
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
+      propertyPath: definedBindings._FreeCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}

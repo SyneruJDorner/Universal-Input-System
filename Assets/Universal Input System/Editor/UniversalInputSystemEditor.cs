@@ -98,10 +98,10 @@ public class UniversalInputSystemEditor : Editor
         {
             if (GUI.Button(new Rect(rect.width - 70, rect.y, 100, 18), "Edit Binging"))
             {
-                if (inputSystem.currentBinding != null)
-                    inputSystem.currentBinding.editing = false;
+                if (UniversalInputSystem.currentBinding != null)
+                    UniversalInputSystem.currentBinding.editing = false;
 
-                inputSystem.currentBinding = item;
+                UniversalInputSystem.currentBinding = item;
                 item.editing = true;
             }
         }
@@ -109,7 +109,7 @@ public class UniversalInputSystemEditor : Editor
         {
             if (GUI.Button(new Rect(rect.width - 70, rect.y, 100, 18), "Close Binging"))
             {
-                inputSystem.currentBinding = null;
+                UniversalInputSystem.currentBinding = null;
                 item.editing = false;
             }
         }
@@ -307,9 +307,9 @@ public class UniversalInputSystemEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        inputSystem.tab = GUILayout.Toolbar(inputSystem.tab, new string[] { TabHeadings.General.ToString(), TabHeadings.Profiles.ToString() });
+        UniversalInputSystem.tab = GUILayout.Toolbar(UniversalInputSystem.tab, new string[] { TabHeadings.General.ToString(), TabHeadings.Profiles.ToString() });
 
-        switch ((TabHeadings)Convert.ToInt32(inputSystem.tab))
+        switch ((TabHeadings)Convert.ToInt32(UniversalInputSystem.tab))
         {
             case TabHeadings.General:
                 RenderGeneral();
@@ -325,7 +325,7 @@ public class UniversalInputSystemEditor : Editor
     private void RenderGeneral()
     {
         EditorGUILayout.LabelField("Active Device: " + inputSystem.controllerType.ToString());
-        inputSystem.displayMouse = EditorGUILayout.Toggle("Display mouse: ", inputSystem.displayMouse);
+        UniversalInputSystem.displayMouse = EditorGUILayout.Toggle("Display mouse: ", UniversalInputSystem.displayMouse);
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Binding Setup:", EditorStyles.boldLabel);
@@ -334,31 +334,31 @@ public class UniversalInputSystemEditor : Editor
 
     private void RenderProfiles()
     {
-        inputSystem.uis_Profiles.Init();
+        UniversalInputSystem.uis_Profiles.Init();
 
         //Create s list to select profiles
-        inputSystem.selectedProfileOption = EditorGUILayout.Popup("Active Profile: ", inputSystem.selectedProfileOption, inputSystem.profileOptions.ToArray());
+        UniversalInputSystem.selectedProfileOption = EditorGUILayout.Popup("Active Profile: ", UniversalInputSystem.selectedProfileOption, UniversalInputSystem.profileOptions.ToArray());
 
-        if (inputSystem.selectedProfileOption != inputSystem.lastKnownSelectedProfileOption ||
-            inputSystem.definedBindings != inputSystem.uis_Profiles.jsonImportData[inputSystem.selectedProfileOption])
+        if (UniversalInputSystem.selectedProfileOption != UniversalInputSystem.lastKnownSelectedProfileOption ||
+            inputSystem.definedBindings != UniversalInputSystem.uis_Profiles.jsonImportData[UniversalInputSystem.selectedProfileOption])
         {
-            inputSystem.lastKnownSelectedProfileOption = inputSystem.selectedProfileOption;
-            inputSystem.definedBindings = inputSystem.uis_Profiles.jsonImportData[inputSystem.selectedProfileOption];
+            UniversalInputSystem.lastKnownSelectedProfileOption = UniversalInputSystem.selectedProfileOption;
+            inputSystem.definedBindings = UniversalInputSystem.uis_Profiles.jsonImportData[UniversalInputSystem.selectedProfileOption];
 
             foreach (var item in inputSystem.definedBindings)
             {
                 item.Value.editing = false;
             }
 
-            Reset();
         }
 
-
         if (GUILayout.Button("Export Profile"))
-            inputSystem.uis_Profiles.ExportProfile();
+            UniversalInputSystem.uis_Profiles.ExportProfile();
 
         if (GUILayout.Button("Open Profiles Folder"))
             System.Diagnostics.Process.Start(UIS_Profiles.SavePath);
+        
+        Reset();
     }
     #endregion
 }
