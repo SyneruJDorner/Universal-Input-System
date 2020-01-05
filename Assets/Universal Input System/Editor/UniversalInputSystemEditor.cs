@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
 using System.Linq;
+using System;
 
 [CustomEditor(typeof(UniversalInputSystem))]
 public class UniversalInputSystemEditor : Editor
@@ -69,6 +70,9 @@ public class UniversalInputSystemEditor : Editor
 
     private void OnDisable()
     {
+        if (reorderableList == null)
+            return;
+
         reorderableList.drawHeaderCallback -= DrawHeader;
         reorderableList.drawElementCallback -= DrawElement;
         reorderableList.onAddCallback -= AddItem;
@@ -295,15 +299,62 @@ public class UniversalInputSystemEditor : Editor
     #endregion
 
     #region Main
+    private enum TabHeadings
+    {
+        General,
+        Profiles,
+    }
+
     public override void OnInspectorGUI()
     {
-        EditorGUILayout.LabelField("General:", EditorStyles.boldLabel);
+        inputSystem.tab = GUILayout.Toolbar(inputSystem.tab, new string[] { TabHeadings.General.ToString(), TabHeadings.Profiles.ToString() });
+
+        switch ((TabHeadings)Convert.ToInt32(inputSystem.tab))
+        {
+            case TabHeadings.General:
+                RenderGeneral();
+                break;
+            case TabHeadings.Profiles:
+                RenderProfiles();
+                break;
+            default:
+                return;
+        }
+    }
+
+    private void RenderGeneral()
+    {
         EditorGUILayout.LabelField("Active Device: " + inputSystem.controllerType.ToString());
         inputSystem.displayMouse = EditorGUILayout.Toggle("Display mouse: ", inputSystem.displayMouse);
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Binding Setup:", EditorStyles.boldLabel);
         reorderableList.DoLayoutList();
+    }
+
+    private void RenderProfiles()
+    {
+        inputSystem.uis_Profiles.Init();
+
+        //Create s list to select profiles
+        inputSystem.uis_Profiles.selectedOption = EditorGUILayout.Popup("Active Profile: ", inputSystem.uis_Profiles.selectedOption, inputSystem.uis_Profiles.options.ToArray());
+
+        if (inputSystem.uis_Profiles.selectedOption != inputSystem.uis_Profiles.lastKnownSelectedOption)
+        {
+            inputSystem.uis_Profiles.lastKnownSelectedOption = inputSystem.uis_Profiles.selectedOption;
+            inputSystem.definedBindings = inputSystem.uis_Profiles.jsonImportData[inputSystem.uis_Profiles.selectedOption];
+            Reset();
+        }
+
+        if (GUILayout.Button("Export Profile"))
+        {
+            inputSystem.uis_Profiles.ExportProfile();
+        }
+
+        if (GUILayout.Button("Open Profiles Folder"))
+        {
+            System.Diagnostics.Process.Start(UIS_Profiles.SavePath);
+        }
     }
     #endregion
 }

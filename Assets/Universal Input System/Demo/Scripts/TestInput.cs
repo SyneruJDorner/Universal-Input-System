@@ -24,6 +24,8 @@ public class TestInput : MonoBehaviour
         camTrans = Camera.main.transform;
         camObj = camTrans.gameObject;
         cam = camTrans.GetComponent<Camera>();
+
+        //UniversalInputSystem.Instance.hardwareInfo.LoadAllUSBControllers();
     }
 
     public void Update()

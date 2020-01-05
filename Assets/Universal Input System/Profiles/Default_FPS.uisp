@@ -1,0 +1,383 @@
+{
+    "_Buckets": [
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        2,
+        -1
+    ],
+    "_HashCodes": [
+        676768979,
+        1962800275,
+        842948034,
+        -1,
+        0,
+        0,
+        0
+    ],
+    "_Next": [
+        -1,
+        -1,
+        0,
+        -1,
+        0,
+        0,
+        0
+    ],
+    "_Count": 4,
+    "_Version": 9627,
+    "_FreeList": 3,
+    "_FreeCount": 1,
+    "_Keys": [
+        "Movement",
+        "Looking",
+        "Jump",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "_Values": [
+        {
+            "bindingName": "Movement",
+            "inputReturnType": 1,
+            "bindingInfo": {
+                "keyboardBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "keyboardFlags": [
+                        23,
+                        1,
+                        4,
+                        19
+                    ]
+                },
+                "mouseBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "mouseKeys": [
+                        0
+                    ],
+                    "mouseSensitivity": 1.0
+                },
+                "gamepadBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "gamepadKeys": [
+                        101
+                    ],
+                    "leftJoystickSensitivity": 1.0,
+                    "rightJoystickSensitivity": 1.0
+                }
+            },
+            "lookupBindings": [],
+            "fVal": 0.0,
+            "vVal": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "duration": 0.0,
+            "selectedBindingDevice": 0,
+            "editing": false
+        },
+        {
+            "bindingName": "Looking",
+            "inputReturnType": 1,
+            "bindingInfo": {
+                "keyboardBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "keyboardFlags": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "mouseBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "mouseKeys": [
+                        100
+                    ],
+                    "mouseSensitivity": 1.0
+                },
+                "gamepadBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "gamepadKeys": [
+                        102
+                    ],
+                    "leftJoystickSensitivity": 1.0,
+                    "rightJoystickSensitivity": 1.0
+                }
+            },
+            "lookupBindings": [],
+            "fVal": 0.0,
+            "vVal": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "duration": 0.0,
+            "selectedBindingDevice": 2,
+            "editing": false
+        },
+        {
+            "bindingName": "Jump",
+            "inputReturnType": 0,
+            "bindingInfo": {
+                "keyboardBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "keyboardFlags": [
+                        92
+                    ]
+                },
+                "mouseBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "mouseKeys": [
+                        0
+                    ],
+                    "mouseSensitivity": 1.0
+                },
+                "gamepadBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "gamepadKeys": [
+                        3
+                    ],
+                    "leftJoystickSensitivity": 1.0,
+                    "rightJoystickSensitivity": 1.0
+                }
+            },
+            "lookupBindings": [],
+            "fVal": 0.0,
+            "vVal": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "duration": 0.0,
+            "selectedBindingDevice": 2,
+            "editing": false
+        },
+        {
+            "bindingName": "",
+            "inputReturnType": 0,
+            "bindingInfo": {
+                "keyboardBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "keyboardFlags": []
+                },
+                "mouseBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "mouseKeys": [],
+                    "mouseSensitivity": 1.0
+                },
+                "gamepadBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "gamepadKeys": [],
+                    "leftJoystickSensitivity": 1.0,
+                    "rightJoystickSensitivity": 1.0
+                }
+            },
+            "lookupBindings": [],
+            "fVal": 0.0,
+            "vVal": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "duration": 0.0,
+            "selectedBindingDevice": 0,
+            "editing": false
+        },
+        {
+            "bindingName": "",
+            "inputReturnType": 0,
+            "bindingInfo": {
+                "keyboardBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "keyboardFlags": []
+                },
+                "mouseBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "mouseKeys": [],
+                    "mouseSensitivity": 1.0
+                },
+                "gamepadBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "gamepadKeys": [],
+                    "leftJoystickSensitivity": 1.0,
+                    "rightJoystickSensitivity": 1.0
+                }
+            },
+            "lookupBindings": [],
+            "fVal": 0.0,
+            "vVal": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "duration": 0.0,
+            "selectedBindingDevice": 0,
+            "editing": false
+        },
+        {
+            "bindingName": "",
+            "inputReturnType": 0,
+            "bindingInfo": {
+                "keyboardBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "keyboardFlags": []
+                },
+                "mouseBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "mouseKeys": [],
+                    "mouseSensitivity": 1.0
+                },
+                "gamepadBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "gamepadKeys": [],
+                    "leftJoystickSensitivity": 1.0,
+                    "rightJoystickSensitivity": 1.0
+                }
+            },
+            "lookupBindings": [],
+            "fVal": 0.0,
+            "vVal": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "duration": 0.0,
+            "selectedBindingDevice": 0,
+            "editing": false
+        },
+        {
+            "bindingName": "",
+            "inputReturnType": 0,
+            "bindingInfo": {
+                "keyboardBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "keyboardFlags": []
+                },
+                "mouseBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "mouseKeys": [],
+                    "mouseSensitivity": 1.0
+                },
+                "gamepadBindingInfo": {
+                    "inputActions": [],
+                    "fVal": [],
+                    "vVal": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "gamepadKeys": [],
+                    "leftJoystickSensitivity": 1.0,
+                    "rightJoystickSensitivity": 1.0
+                }
+            },
+            "lookupBindings": [],
+            "fVal": 0.0,
+            "vVal": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "duration": 0.0,
+            "selectedBindingDevice": 0,
+            "editing": false
+        }
+    ]
+}

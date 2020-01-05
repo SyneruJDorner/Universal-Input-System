@@ -35,8 +35,10 @@ public class UniversalInputSystem : MonoBehaviour
     public BindingDictionary definedBindings;
 
     //editor related code
+    [HideInInspector] public int tab = 0;
     [HideInInspector] public DefinedInputBindings currentBinding = null;
     [HideInInspector] public bool displayMouse = false;
+    [HideInInspector] public UIS_Profiles uis_Profiles = new UIS_Profiles();
 
     public enum ControllerType
     {
@@ -45,6 +47,8 @@ public class UniversalInputSystem : MonoBehaviour
         Controller
     }
     public ControllerType controllerType = ControllerType.None;
+
+    //public HardwareInfo hardwareInfo = new HardwareInfo();
     #endregion
 
     #region Init Universal Input System

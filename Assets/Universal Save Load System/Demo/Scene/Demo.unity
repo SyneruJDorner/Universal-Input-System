@@ -129,66 +129,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7213245016751669945, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_Name
-      value: Universal Input System
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.0954895
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.0268707
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -40.07883
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: currentBinding.bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
@@ -262,7 +202,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingInfo.mouseBindingInfo.mouseKeys.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -272,37 +212,37 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingInfo.mouseBindingInfo.mouseKeys.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -387,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: currentBinding.bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -557,7 +497,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._HashCodes.Array.data[0]
-      value: 676768979
+      value: 696031055
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -572,17 +512,17 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Version
-      value: 9627
+      value: 10609
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Keys.Array.data[0]
-      value: Movement
+      value: Pan
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].bindingName
-      value: Movement
+      value: Pan
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -592,22 +532,22 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._HashCodes.Array.data[1]
-      value: 1962800275
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: definedBindings._Next.Array.data[1]
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
+      propertyPath: definedBindings._Next.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
       propertyPath: definedBindings._Keys.Array.data[1]
-      value: Looking
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].bindingName
-      value: Looking
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -617,7 +557,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Buckets.Array.data[2]
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -627,12 +567,12 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].selectedBindingDevice
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[1].inputReturnType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -652,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[0].inputReturnType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -682,22 +622,22 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._HashCodes.Array.data[2]
-      value: 842948034
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Next.Array.data[2]
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Keys.Array.data[2]
-      value: Jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].bindingName
-      value: Jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -707,7 +647,7 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Values.Array.data[2].selectedBindingDevice
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -732,12 +672,12 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Buckets.Array.data[5]
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._Buckets.Array.data[6]
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
@@ -822,12 +762,77 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._FreeList
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: definedBindings._FreeCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669945, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_Name
+      value: Universal Input System
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fb84f7178719d40925677e6e0a2f09, type: 3}
