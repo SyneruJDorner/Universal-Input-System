@@ -39,9 +39,6 @@ public class UniversalInputSystem : MonoBehaviour
     [HideInInspector] public static DefinedInputBindings currentBinding = null;
     [HideInInspector] public static bool displayMouse = false;
     [HideInInspector] public static UIS_Profiles uis_Profiles = new UIS_Profiles();
-
-    [HideInInspector] public static int selectedProfileOption;
-    [HideInInspector] public static int lastKnownSelectedProfileOption;
     [HideInInspector] public static List<string> profileOptions = new List<string>();
 
     public enum ControllerType

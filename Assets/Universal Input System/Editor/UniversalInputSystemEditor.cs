@@ -66,6 +66,23 @@ public class UniversalInputSystemEditor : Editor
         reorderableList.drawElementCallback += DrawElement;
         reorderableList.onAddCallback += AddItem;
         reorderableList.onRemoveCallback += RemoveItem;
+
+
+
+
+        /*
+        //ENable profiles
+        UniversalInputSystem.uis_Profiles.Init();
+
+        if (UniversalInputSystem.selectedProfileOption < 0)
+        {
+            if (UniversalInputSystem.profileOptions.Count > 0)
+            {
+                //UniversalInputSystem.selectedProfileOption = UniversalInputSystem.profileOptions.Count);
+                //UniversalInputSystem.uis_Profiles.SetProfile(inputSystem, UniversalInputSystem.uis_Profiles.jsonImportData[UniversalInputSystem.selectedProfileOption]);
+            }
+        }
+        */
     }
 
     private void OnDisable()
@@ -308,6 +325,7 @@ public class UniversalInputSystemEditor : Editor
     public override void OnInspectorGUI()
     {
         UniversalInputSystem.tab = GUILayout.Toolbar(UniversalInputSystem.tab, new string[] { TabHeadings.General.ToString(), TabHeadings.Profiles.ToString() });
+        UpdateProfileToDefinedInputs();
 
         switch ((TabHeadings)Convert.ToInt32(UniversalInputSystem.tab))
         {
@@ -320,6 +338,8 @@ public class UniversalInputSystemEditor : Editor
             default:
                 return;
         }
+
+        
     }
 
     private void RenderGeneral()
@@ -332,33 +352,26 @@ public class UniversalInputSystemEditor : Editor
         reorderableList.DoLayoutList();
     }
 
-    private void RenderProfiles()
+    private void UpdateProfileToDefinedInputs()
     {
         UniversalInputSystem.uis_Profiles.Init();
+        UniversalInputSystem.uis_Profiles.SetProfile(inputSystem, UniversalInputSystem.uis_Profiles.jsonImportData[UIS_Settings.Instance.selectedProfileOption]);
+        Reset();
+    }
+
+    private void RenderProfiles()
+    {
+        //UniversalInputSystem.uis_Profiles.Init();
 
         //Create s list to select profiles
-        UniversalInputSystem.selectedProfileOption = EditorGUILayout.Popup("Active Profile: ", UniversalInputSystem.selectedProfileOption, UniversalInputSystem.profileOptions.ToArray());
-
-        if (UniversalInputSystem.selectedProfileOption != UniversalInputSystem.lastKnownSelectedProfileOption ||
-            inputSystem.definedBindings != UniversalInputSystem.uis_Profiles.jsonImportData[UniversalInputSystem.selectedProfileOption])
-        {
-            UniversalInputSystem.lastKnownSelectedProfileOption = UniversalInputSystem.selectedProfileOption;
-            inputSystem.definedBindings = UniversalInputSystem.uis_Profiles.jsonImportData[UniversalInputSystem.selectedProfileOption];
-
-            foreach (var item in inputSystem.definedBindings)
-            {
-                item.Value.editing = false;
-            }
-
-        }
+        UIS_Settings.Instance.selectedProfileOption = EditorGUILayout.Popup("Active Profile: ", UIS_Settings.Instance.selectedProfileOption, UniversalInputSystem.profileOptions.ToArray());
+        //UniversalInputSystem.uis_Profiles.SetProfile(inputSystem, UniversalInputSystem.uis_Profiles.jsonImportData[UIS_Settings.Instance.selectedProfileOption]);
 
         if (GUILayout.Button("Export Profile"))
             UniversalInputSystem.uis_Profiles.ExportProfile();
 
         if (GUILayout.Button("Open Profiles Folder"))
             System.Diagnostics.Process.Start(UIS_Profiles.SavePath);
-        
-        Reset();
     }
     #endregion
 }

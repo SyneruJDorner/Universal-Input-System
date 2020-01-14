@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 4dbdfdf20912e3e4bbec9f478f34e939,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -206,6 +207,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &152251133
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -498,6 +500,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1391994333
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -591,6 +594,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1398740647
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -684,6 +688,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1681286496
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -733,66 +738,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7213245016751669945, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_Name
-      value: Universal Input System
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.0954895
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.0268707
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -40.07883
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: currentBinding.bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
@@ -806,6 +751,76 @@ PrefabInstance:
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
         type: 3}
       propertyPath: currentBinding.bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Buckets.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._HashCodes.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Next.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Keys.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.mouseBindingInfo.mouseKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].bindingInfo.mouseBindingInfo.mouseKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].bindingInfo.mouseBindingInfo.mouseKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
@@ -892,6 +907,331 @@ PrefabInstance:
         type: 3}
       propertyPath: definedBindings.Array.data[1].bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Buckets.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Buckets.Array.data[3]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Buckets.Array.data[4]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Buckets.Array.data[6]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._HashCodes.Array.data[0]
+      value: 676768979
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._HashCodes.Array.data[1]
+      value: 1962800275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._HashCodes.Array.data[2]
+      value: 842948034
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._HashCodes.Array.data[3]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Next.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Next.Array.data[1]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Next.Array.data[2]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Next.Array.data[3]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Version
+      value: 10177
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._FreeList
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._FreeCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Keys.Array.data[0]
+      value: Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Keys.Array.data[1]
+      value: Looking
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Keys.Array.data[2]
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingName
+      value: Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].inputReturnType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[0]
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[3]
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.data[0]
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].editing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].bindingName
+      value: Looking
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].inputReturnType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.data[0]
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].selectedBindingDevice
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].bindingName
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].bindingInfo.keyboardBindingInfo.keyboardFlags.Array.data[0]
+      value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].bindingInfo.gamepadBindingInfo.gamepadKeys.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].selectedBindingDevice
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[3].bindingInfo.mouseBindingInfo.mouseSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[3].bindingInfo.gamepadBindingInfo.leftJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[3].bindingInfo.gamepadBindingInfo.rightJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[4].bindingInfo.mouseBindingInfo.mouseSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[4].bindingInfo.gamepadBindingInfo.leftJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[4].bindingInfo.gamepadBindingInfo.rightJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[5].bindingInfo.mouseBindingInfo.mouseSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[5].bindingInfo.gamepadBindingInfo.leftJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[5].bindingInfo.gamepadBindingInfo.rightJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[6].bindingInfo.mouseBindingInfo.mouseSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[6].bindingInfo.gamepadBindingInfo.leftJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[6].bindingInfo.gamepadBindingInfo.rightJoystickSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].selectedBindingDevice
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[1].editing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Buckets.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[2].editing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669944, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: definedBindings._Values.Array.data[0].bindingInfo.mouseBindingInfo.mouseKeys.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669945, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_Name
+      value: Universal Input System
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.0954895
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.0268707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -40.07883
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213245016751669947, guid: 60fb84f7178719d40925677e6e0a2f09,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fb84f7178719d40925677e6e0a2f09, type: 3}

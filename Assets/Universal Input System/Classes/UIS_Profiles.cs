@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,9 +10,14 @@ public class UIS_Profiles
     public static string SavePath;
     public List<UniversalInputSystem.BindingDictionary> jsonImportData = new List<UniversalInputSystem.BindingDictionary>();
     public int lastKnownFileSize = -1;
+    private bool Initialized = false;
+    [HideInInspector] public int lastKnownSelectedProfileOption;
 
     public void Init()
     {
+        if (Initialized == true)
+            return;
+
         SavePath = ExportUISProfile.SearchFile(Application.dataPath, "UniversalInputSystem.cs") + @"\Profiles";
         DirectoryInfo d = new DirectoryInfo(SavePath);
         FileInfo[] Files = d.GetFiles("*.uisp");
@@ -30,6 +36,7 @@ public class UIS_Profiles
         }
 
         lastKnownFileSize = Files.Length;
+        Initialized = true;
     }
 
     public void ExportProfile()
@@ -40,6 +47,22 @@ public class UIS_Profiles
     public void ImportProfile()
     {
 
+    }
+
+    public void SetProfile(UniversalInputSystem inputSystem, UniversalInputSystem.BindingDictionary profile)
+    {
+        if (UIS_Settings.Instance.selectedProfileOption != lastKnownSelectedProfileOption)
+        {
+            lastKnownSelectedProfileOption = UIS_Settings.Instance.selectedProfileOption;
+            inputSystem.definedBindings = profile;
+
+            foreach (var item in inputSystem.definedBindings)
+            {
+                item.Value.editing = false;
+            }
+
+            UIS_Settings.Instance.SaveData();
+        }
     }
 }
 
@@ -72,7 +95,7 @@ public class ExportUISProfile : EditorWindow
         window.ShowPopup();
     }
 
-    void OnGUI()
+    public void OnGUI()
     {
         EditorGUILayout.LabelField("Enter a name for your profile:", EditorStyles.wordWrappedLabel);
         profileName = EditorGUILayout.TextField("Profile Name:", profileName);
