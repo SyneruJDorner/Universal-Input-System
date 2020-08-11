@@ -14,7 +14,7 @@ Drag the prefab into the scene:<br/>
 Set up your bindings:<br/>
 ![Binding_Setup](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_1.png)<br/>
 <br/>
-Assign keys from different constollers and input devices to your binding:<br/>
+Assign keys from different constollers and input devices to your binding (Mouse, Keyboard & Gamepad):<br/>
 ![Binding_Setup1](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_2.png)<br/>
 ![Binding_Setup2](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_3.png)<br/>
 <br/>
