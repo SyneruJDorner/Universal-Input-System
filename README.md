@@ -17,6 +17,7 @@ Set up your bindings:<br/>
 Assign keys from different constollers and input devices to your binding (Mouse, Keyboard & Gamepad):<br/>
 ![Binding_Setup1](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_2.png)<br/>
 ![Binding_Setup2](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_3.png)<br/>
+![Binding_Setup3](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_4.png)<br/>
 <br/>
 You can then grab your info from the Input Script<br/>
-![Binding_Setup3](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_4.png)<br/>
+![Binding_Setup4](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_5.png)<br/>
