@@ -55,7 +55,14 @@ public class UniversalInputSystem : MonoBehaviour
     #region Init Universal Input System
     public void Awake()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         inputControls = new InputControls();
+        UIS_Settings.Instance.Init();
+
         InitInputActionLists();
         InitKeyboard();
         InitMouse();

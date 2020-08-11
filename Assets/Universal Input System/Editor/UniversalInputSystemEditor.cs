@@ -338,8 +338,6 @@ public class UniversalInputSystemEditor : Editor
             default:
                 return;
         }
-
-        
     }
 
     private void RenderGeneral()
@@ -354,8 +352,7 @@ public class UniversalInputSystemEditor : Editor
 
     private void UpdateProfileToDefinedInputs()
     {
-        UniversalInputSystem.uis_Profiles.Init();
-        UniversalInputSystem.uis_Profiles.SetProfile(inputSystem, UniversalInputSystem.uis_Profiles.jsonImportData[UIS_Settings.Instance.selectedProfileOption]);
+        UIS_Settings.Instance.Init();
         Reset();
     }
 
@@ -365,6 +362,7 @@ public class UniversalInputSystemEditor : Editor
 
         //Create s list to select profiles
         UIS_Settings.Instance.selectedProfileOption = EditorGUILayout.Popup("Active Profile: ", UIS_Settings.Instance.selectedProfileOption, UniversalInputSystem.profileOptions.ToArray());
+
         //UniversalInputSystem.uis_Profiles.SetProfile(inputSystem, UniversalInputSystem.uis_Profiles.jsonImportData[UIS_Settings.Instance.selectedProfileOption]);
 
         if (GUILayout.Button("Export Profile"))

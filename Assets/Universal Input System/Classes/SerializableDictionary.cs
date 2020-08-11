@@ -17,6 +17,7 @@ public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     [SerializeField, HideInInspector] int _FreeCount;
     [SerializeField, HideInInspector] TKey[] _Keys;
     [SerializeField, HideInInspector] TValue[] _Values;
+    private readonly TValue _Blank;
 
     readonly IEqualityComparer<TKey> _Comparer;
 
@@ -49,7 +50,8 @@ public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>
             int index = FindIndex(key);
             if (index >= 0)
                 return _Values[index];
-            throw new KeyNotFoundException(key.ToString());
+
+            return _Blank;
         }
 
         set { Insert(key, value, false); }

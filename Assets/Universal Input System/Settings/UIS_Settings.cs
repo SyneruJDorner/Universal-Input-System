@@ -10,8 +10,22 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpawnManagerScriptableObject", order = 1)]
 public class UIS_Settings : ScriptableObject
 {
-    [SerializeField] public int selectedProfileOption;
-    //[HideInInspector] public int lastKnownSelectedProfileOption = -2;
+    [SerializeField]
+    private int _selectedProfileOption;
+    public int selectedProfileOption
+    {
+        get { return _selectedProfileOption; }
+        set
+        {
+            if (_selectedProfileOption != value)
+            {
+                _selectedProfileOption = value;
+                Init();
+                ReInitInputSystem();
+            }
+        }
+    }
+
     [HideInInspector] private static UIS_Settings m_Instance;
     [HideInInspector] public static UIS_Settings Instance
     {
@@ -27,6 +41,13 @@ public class UIS_Settings : ScriptableObject
             m_Instance = value;
         }
     }
+
+    public void Init()
+    {
+        UniversalInputSystem.uis_Profiles.Init();
+        UniversalInputSystem.uis_Profiles.SetProfile(UniversalInputSystem.Instance, UniversalInputSystem.uis_Profiles.jsonImportData[selectedProfileOption]);
+    }
+
 #if UNITY_EDITOR
     public void SaveData()
     {
@@ -35,4 +56,10 @@ public class UIS_Settings : ScriptableObject
         AssetDatabase.Refresh();
     }
 #endif
+
+    private void ReInitInputSystem()
+    {
+        UniversalInputSystem.Instance.Init();
+        //Debug.Log("Hello World!");
+    }
 }

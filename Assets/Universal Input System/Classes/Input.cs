@@ -25,6 +25,12 @@ public static class Input
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         bool returnState = false;
 
+        if (inputSystem.definedBindings[bindingName] == null)
+        {
+            Debug.Log("No such bindingName, did you enter the correct string and/or is the correct profile active?");
+            return returnState;
+        }
+
         KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.keyboardBindingInfo;
         MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.mouseBindingInfo;
         GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.gamepadBindingInfo;
@@ -88,6 +94,12 @@ public static class Input
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         bool returnState = false;
 
+        if (inputSystem.definedBindings[bindingName] == null)
+        {
+            Debug.Log("No such bindingName, did you enter the correct string and/or is the correct profile active?");
+            return returnState;
+        }
+
         KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.keyboardBindingInfo;
         MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.mouseBindingInfo;
         GamepadBindingInfo gamepadBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.gamepadBindingInfo;
@@ -150,6 +162,12 @@ public static class Input
     {
         inputSystem = inputSystem ?? UniversalInputSystem.Instance;
         bool returnState = false;
+
+        if (inputSystem.definedBindings[bindingName] == null)
+        {
+            Debug.Log("No such bindingName, did you enter the correct string and/or is the correct profile active?");
+            return returnState;
+        }
 
         KeyboardBindingInfo keyboardBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.keyboardBindingInfo;
         MouseBindingInfo mouseBindingInfo = inputSystem.definedBindings[bindingName].bindingInfo.mouseBindingInfo;

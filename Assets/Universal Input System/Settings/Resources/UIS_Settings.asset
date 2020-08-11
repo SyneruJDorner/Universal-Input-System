@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422d329a60e70f24594448e7ebe6affd, type: 3}
   m_Name: UIS_Settings
   m_EditorClassIdentifier: 
-  selectedProfileOption: 0
+  _selectedProfileOption: 0
