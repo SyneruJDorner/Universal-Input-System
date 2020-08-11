@@ -21,3 +21,6 @@ Assign keys from different constollers and input devices to your binding (Mouse,
 <br/>
 You can then grab your info from the Input Script<br/>
 ![Binding_Setup4](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_5.png)<br/>
+<br/>
+Create profiles which you can easily switch between.<br/>
+![Binding_Setup4](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_6.png)<br/>
