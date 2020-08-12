@@ -2,7 +2,7 @@
 **What is it:**<br/>
 A research project that uses the new unity Input System where the aim is to make a system that can use as many inputs as possible as seamless as possible by pre-determining inputs and then creating string binds for them.<br/>
 <br/>
-**Reuires:**<br/>
+**Requires:**<br/>
 -Unity 2019.3.0b8 (Haven't tested it on lower versions).<br/>
 -Unity's 'New Input System' to be installed and enabled.<br/>
 -API Compatibility level: .Net 4.x<br/>
