@@ -2,7 +2,7 @@
 **What is it:**<br/>
 A research project that uses the new unity Input System where the aim is to make a system that can use as many inputs as possible as seamless as possible by pre-determining inputs and then creating string binds for them.<br/>
 <br/>
-**Reuires:**<br/>
+**Requires:**<br/>
 -Unity 2019.3.0b8 (Haven't tested it on lower versions).<br/>
 -Unity's 'New Input System' to be installed and enabled.<br/>
 -API Compatibility level: .Net 4.x<br/>
@@ -21,3 +21,6 @@ Assign keys from different constollers and input devices to your binding (Mouse,
 <br/>
 You can then grab your info from the Input Script<br/>
 ![Binding_Setup4](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_5.png)<br/>
+<br/>
+Create profiles which you can easily switch between.<br/>
+![Binding_Setup4](https://raw.githubusercontent.com/justindd1994/Universal-Input-System/master/Assets/Images/Snip_6.png)<br/>
