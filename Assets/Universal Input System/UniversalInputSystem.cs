@@ -29,7 +29,7 @@ public class UniversalInputSystem : MonoBehaviour
     [HideInInspector] private InputControls.KeyboardActions keyboard_Controller;
     [HideInInspector] private InputControls.GamepadActions gamepad_Controller;
     [HideInInspector] private InputControls.MouseActions mouse_Controller;
-
+    
     [Serializable]
     public class BindingDictionary : SerializableDictionary<string, DefinedInputBindings> { }
     public BindingDictionary definedBindings;

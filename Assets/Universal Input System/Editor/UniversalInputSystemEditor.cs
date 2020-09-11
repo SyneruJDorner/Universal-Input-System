@@ -8,7 +8,7 @@ using System;
 
 [CustomEditor(typeof(UniversalInputSystem))]
 public class UniversalInputSystemEditor : Editor
-{
+{    
     #region Variables
     private ReorderableList reorderableList;
 
