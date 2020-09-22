@@ -44,113 +44,209 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   definedBindings:
-  - bindingName: Movement
-    inputReturnType: 1
-    bindingInfo:
-      keyboardBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        keyboardFlags: 17000000010000000400000013000000
-      mouseBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        mouseKeys: 00000000
-        mouseSensitivity: 1
-      gamepadBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        gamepadKeys: 65000000
-        leftJoystickSensitivity: 1
-        rightJoystickSensitivity: 1
-    lookupBindings: []
-    fVal: 0
-    vVal: {x: 0, y: 0}
-    duration: 0
-    selectedBindingDevice: 2
-    editing: 0
-  - bindingName: Looking
-    inputReturnType: 1
-    bindingInfo:
-      keyboardBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        keyboardFlags: 00000000000000000000000000000000
-      mouseBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        mouseKeys: 64000000
-        mouseSensitivity: 1
-      gamepadBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        gamepadKeys: 66000000
-        leftJoystickSensitivity: 1
-        rightJoystickSensitivity: 1
-    lookupBindings: []
-    fVal: 0
-    vVal: {x: 0, y: 0}
-    duration: 0
-    selectedBindingDevice: 0
-    editing: 0
-  - bindingName: Jump
-    inputReturnType: 0
-    bindingInfo:
-      keyboardBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        keyboardFlags: 5c000000
-      mouseBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        mouseKeys: 00000000
-        mouseSensitivity: 1
-      gamepadBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        gamepadKeys: 03000000
-        leftJoystickSensitivity: 1
-        rightJoystickSensitivity: 1
-    lookupBindings: []
-    fVal: 0
-    vVal: {x: 0, y: 0}
-    duration: 0
-    selectedBindingDevice: 0
-    editing: 0
-  currentBinding:
-    bindingName: 
-    inputReturnType: 0
-    bindingInfo:
-      keyboardBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        keyboardFlags: 
-      mouseBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        mouseKeys: 
-        mouseSensitivity: 1
-      gamepadBindingInfo:
-        inputActions: []
-        fVal: []
-        vVal: {x: 0, y: 0}
-        gamepadKeys: 
-        leftJoystickSensitivity: 1
-        rightJoystickSensitivity: 1
-    lookupBindings: []
-    fVal: 0
-    vVal: {x: 0, y: 0}
-    duration: 0
-    selectedBindingDevice: 0
-    editing: 0
+    _Buckets: ffffffffffffffff01000000ffffffffffffffff00000000ffffffff
+    _HashCodes: d3ac562893f4fd74c25d3e32ffffffff000000000000000000000000
+    _Next: 02000000ffffffffffffffffffffffff000000000000000000000000
+    _Count: 4
+    _Version: 12149
+    _FreeList: 3
+    _FreeCount: 1
+    _Keys:
+    - Movement
+    - Looking
+    - Jump
+    - 
+    - 
+    - 
+    - 
+    _Values:
+    - bindingName: Movement
+      inputReturnType: 1
+      bindingInfo:
+        keyboardBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          keyboardFlags: 17000000010000000400000013000000
+        mouseBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          mouseKeys: 00000000
+          mouseSensitivity: 1
+        gamepadBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          gamepadKeys: 65000000
+          leftJoystickSensitivity: 1
+          rightJoystickSensitivity: 1
+      lookupBindings: []
+      fVal: 0
+      vVal: {x: 0, y: 0}
+      duration: 0
+      selectedBindingDevice: 0
+      editing: 0
+    - bindingName: Looking
+      inputReturnType: 1
+      bindingInfo:
+        keyboardBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          keyboardFlags: 00000000000000000000000000000000
+        mouseBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          mouseKeys: 64000000
+          mouseSensitivity: 1
+        gamepadBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          gamepadKeys: 66000000
+          leftJoystickSensitivity: 1
+          rightJoystickSensitivity: 1
+      lookupBindings: []
+      fVal: 0
+      vVal: {x: 0, y: 0}
+      duration: 0
+      selectedBindingDevice: 0
+      editing: 1
+    - bindingName: Jump
+      inputReturnType: 0
+      bindingInfo:
+        keyboardBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          keyboardFlags: 5c000000
+        mouseBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          mouseKeys: 00000000
+          mouseSensitivity: 1
+        gamepadBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          gamepadKeys: 03000000
+          leftJoystickSensitivity: 1
+          rightJoystickSensitivity: 1
+      lookupBindings: []
+      fVal: 0
+      vVal: {x: 0, y: 0}
+      duration: 0
+      selectedBindingDevice: 2
+      editing: 0
+    - bindingName: 
+      inputReturnType: 0
+      bindingInfo:
+        keyboardBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          keyboardFlags: 
+        mouseBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          mouseKeys: 
+          mouseSensitivity: 1
+        gamepadBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          gamepadKeys: 
+          leftJoystickSensitivity: 1
+          rightJoystickSensitivity: 1
+      lookupBindings: []
+      fVal: 0
+      vVal: {x: 0, y: 0}
+      duration: 0
+      selectedBindingDevice: 0
+      editing: 0
+    - bindingName: 
+      inputReturnType: 0
+      bindingInfo:
+        keyboardBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          keyboardFlags: 
+        mouseBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          mouseKeys: 
+          mouseSensitivity: 1
+        gamepadBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          gamepadKeys: 
+          leftJoystickSensitivity: 1
+          rightJoystickSensitivity: 1
+      lookupBindings: []
+      fVal: 0
+      vVal: {x: 0, y: 0}
+      duration: 0
+      selectedBindingDevice: 0
+      editing: 0
+    - bindingName: 
+      inputReturnType: 0
+      bindingInfo:
+        keyboardBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          keyboardFlags: 
+        mouseBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          mouseKeys: 
+          mouseSensitivity: 1
+        gamepadBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          gamepadKeys: 
+          leftJoystickSensitivity: 1
+          rightJoystickSensitivity: 1
+      lookupBindings: []
+      fVal: 0
+      vVal: {x: 0, y: 0}
+      duration: 0
+      selectedBindingDevice: 0
+      editing: 0
+    - bindingName: 
+      inputReturnType: 0
+      bindingInfo:
+        keyboardBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          keyboardFlags: 
+        mouseBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          mouseKeys: 
+          mouseSensitivity: 1
+        gamepadBindingInfo:
+          inputActions: []
+          fVal: []
+          vVal: {x: 0, y: 0}
+          gamepadKeys: 
+          leftJoystickSensitivity: 1
+          rightJoystickSensitivity: 1
+      lookupBindings: []
+      fVal: 0
+      vVal: {x: 0, y: 0}
+      duration: 0
+      selectedBindingDevice: 0
+      editing: 0
   controllerType: 0
